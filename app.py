@@ -10,6 +10,8 @@ rpr = Reaper()
 
 @app.route("/")
 def index():
+    gauge = 150
+    gauge = min(gauge, 100)
     return render_template('home.html', gauge=rpr.gauge)
 
 

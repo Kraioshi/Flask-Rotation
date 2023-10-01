@@ -6,19 +6,28 @@ class Reaper:
 
     def slice(self):
         self.stage = 1
-        self.gauge += 10
+        if self.gauge <= 90:
+            self.gauge += 10
+        elif self.gauge > 90:
+            self.gauge = 100
 
     def waxing_slice(self):
         if self.stage == 1:
             self.stage = 2
-            self.gauge += 10
+            if self.gauge <= 90:
+                self.gauge += 10
+            elif self.gauge > 90:
+                self.gauge = 100
         else:
             self.stage = 0
 
     def infernal_slice(self):
         if self.stage == 2:
             self.stage = 0
-            self.gauge += 10
+            if self.gauge <= 90:
+                self.gauge += 10
+            elif self.gauge > 90:
+                self.gauge = 100
         else:
             self.stage = 0
 
