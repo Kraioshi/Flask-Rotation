@@ -6,22 +6,22 @@
 <div class="container">
 <form action="{{url_for('reaper_slice')}}" method="POST">
     <button id="slice_button">
-        <img src="static/images/slice.png">
+        <img src="{{ url_for('static', filename='images/reaper/slice.png') }}">
     </button>
 </form>
 <form action="{{url_for('reaper_waxing') }}" method="POST">
         <button type="submit">
-            <img src="{{url_for('static', filename='images/waxing.png') }}">
+            <img src="{{url_for('static', filename='images/reaper/waxing.png') }}">
         </button>
 </form>
 <form action="{{url_for('reaper_infernal') }}" method="POST">
     <button type="submit">
-        <img src="{{url_for('static', filename='images/infernal.png') }}">
+        <img src="{{url_for('static', filename='images/reaper/infernal.png') }}">
     </button>
 </form>
 <form action="{{url_for('reaper_gallows') }}" method="POST">
     <button type="submit">
-        <img src="{{url_for('static', filename='images/gallows.png') }}">
+        <img src="{{url_for('static', filename='images/reaper/gallows.png') }}">
     </button>
 </form>
 </div>
@@ -37,7 +37,7 @@
 <div>
     <form action="{{url_for('reaper_design') }}" method="POST">
         <button type="submit">
-            <img src="{{url_for('static', filename='images/design.png') }}">
+            <img src="{{url_for('static', filename='images/reaper/design.png') }}">
         </button>
     </form>
 </div>

@@ -60,7 +60,7 @@ def reaper_design():
     return redirect(url_for('reaper'))
 
 
-@app.route('/reset', methods=["POST"])
+@app.route('/reaper_reset', methods=["POST"])
 def reaper_reset():
     global rpr
     rpr = Reaper()
@@ -104,6 +104,12 @@ def warrior_fell_cleave():
     war.fell_cleave()
     return redirect(url_for('warrior'))
 
+
+@app.route('/warrior_reset', methods=["POST"])
+def warrior_reset():
+    global war
+    war = Warrior()
+    return redirect(url_for('warrior'))
 
 
 if __name__ == '__main__':

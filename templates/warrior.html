@@ -34,5 +34,13 @@ Warrior
 </div>
 <br>
 </progress>
+
+<div>
+    <form action="{{url_for('warrior_reset') }}" method="POST">
+        <button type='submit'>
+            RESET
+        </button>
+    </form>
+</div>
 {% endblock %}
 
