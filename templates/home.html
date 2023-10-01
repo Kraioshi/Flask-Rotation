@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %} Reaper {% endblock %}
+
+{% block content %}
+<div class="container">
 <form action="{{url_for('reaper_slice')}}" method="POST">
     <button id="slice_button">
         <img src="static/images/slice.png">
@@ -25,6 +24,7 @@
         <img src="{{url_for('static', filename='images/gallows.png') }}">
     </button>
 </form>
+</div>
 
 
 <label for="gauge">Gauge {{gauge}}</label>
@@ -39,5 +39,4 @@
             }
         });
 </script>
-</body>
-</html>
+{% endblock %}
