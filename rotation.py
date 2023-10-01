@@ -1,4 +1,4 @@
-class Ability:
+class Reaper:
 
     def __init__(self):
         self.stage = 0
