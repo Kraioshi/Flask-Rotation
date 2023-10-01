@@ -5,6 +5,34 @@ Warrior
 {% endblock %}
 
 {% block content %}
-<p>hi</p>
+
+<div class="container">
+    <form action="{{url_for('warrior_heavy_swing') }}" method="POST">
+        <button type="submit">HEAVY SWING</button>
+    </form>
+
+    <form action="{{url_for('warrior_maim') }}" method="POST">
+        <button type="submit">MAIM</button>
+    </form>
+
+    <form action="{{ url_for('warrior_storms_eye') }}" method="POST">
+        <button type="submit">STORM'S EYE</button>
+    </form>
+
+    <form action="{{ url_for('warrior_storms_path') }}" method="POST">
+        <button type="submit">STORM'S PATH</button>
+    </form>
+
+    <form action="{{ url_for('warrior_fell_cleave') }}" method="POST">
+        <button type="submit">FELL CLEAVE</button>
+    </form>
+</div>
+
+<div class="gauges">
+<progress class="progress" id="gauge" value="{{ gauge }}" max="100"></progress>
+<label class="progress-text" for="gauge">Beast {{gauge}}</label>
+</div>
+<br>
+</progress>
 {% endblock %}
 

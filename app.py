@@ -69,7 +69,9 @@ def reaper_reset():
 
 @app.route('/warrior')
 def warrior():
-    return render_template('warrior.html')
+    gauge = 100
+    gauge = min(gauge, 100)
+    return render_template('warrior.html', gauge=war.beast_gauge)
 
 
 @app.route('/warrior_heavy_swing', methods=["POST"])
@@ -78,29 +80,30 @@ def warrior_heavy_swing():
     return redirect(url_for('warrior'))
 
 
-@app.route('warrior_maim', mathods=["POST"])
+@app.route('/warrior_maim', methods=["POST"])
 def warrior_maim():
     war.maim()
     print(war.beast_gauge)
     return redirect(url_for('warrior'))
 
 
-@app.route('/warrior_storms_eye')
+@app.route('/warrior_storms_eye', methods=["POST"])
 def warrior_storms_eye():
     war.storms_eye()
     return redirect(url_for('warrior'))
 
 
-@app.route('/warrior_storms_path')
+@app.route('/warrior_storms_path', methods=["POST"])
 def warrior_storms_path():
     war.storms_path()
     return redirect(url_for('warrior'))
 
 
 @app.route('/warrior_fell_cleave', methods=["POST"])
-def warrior_fell_clave():
+def warrior_fell_cleave():
     war.fell_cleave()
     return redirect(url_for('warrior'))
+
 
 
 if __name__ == '__main__':
