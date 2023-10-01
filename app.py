@@ -10,7 +10,7 @@ rpr = Reaper()
 
 @app.route("/")
 def index():
-    return render_template('home.html')
+    return render_template('home.html', gauge=rpr.gauge)
 
 
 @app.route('/slice', methods=["POST"])
