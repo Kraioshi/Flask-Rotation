@@ -27,8 +27,9 @@
 </div>
 
 
-<label for="gauge">Gauge {{gauge}}</label>
-<progress id="gauge" value="{{ gauge }}" max="100"></progress>
+<progress class="progress" id="gauge" value="{{ gauge }}" max="100"></progress>
+<label class="progress-text" for="gauge">Soul {{gauge}}</label>
+
 
 <script>
     document.addEventListener('keydown', function(event) {
