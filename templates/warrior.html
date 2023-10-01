@@ -19,19 +19,17 @@ Warrior
         </button>
     </form>
 
-    <form class="storms_path" action="{{ url_for('warrior_storms_path') }}" method="POST">
-        <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/storms_path.png') }}" width="50px">
-        </button>
-    </form>
-
     <form class="storms_eye" action="{{ url_for('warrior_storms_eye') }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="50px">
         </button>
     </form>
 
-
+    <form class="storms_path" action="{{ url_for('warrior_storms_path') }}" method="POST">
+        <button type="submit">
+            <img src="{{ url_for('static', filename='images/warrior/storms_path.png') }}" width="50px">
+        </button>
+    </form>
 
     <form class="fell_cleave" action="{{ url_for('warrior_fell_cleave') }}" method="POST">
         <button type="submit">
@@ -41,16 +39,43 @@ Warrior
 </div>
 
 <br>
-<br>
-<br>
+<hr class="container" style="display: flex; width: 270px;">
 
-<div class="gauges">
-<progress class="progress" id="gauge" value="{{ gauge }}" max="100"></progress>
-<label class="progress-text" for="gauge">Beast {{gauge}}</label>
+<div class="arrows" style="width: 18%; margin: auto;">
+<div class="container" style="display: flex; justify-content: space-between;">
+
+    <span class="first" style="position: relative; left: 6.5%">
+        <i class="fa fa-arrow-up"></i>
+    </span>
+
+    <span class="second" style="position: relative; left: 5%">
+        <i class="fa fa-arrow-up"></i>
+    </span>
+
+    <span class="third">
+        <i class="fa fa-arrow-up"></i>
+    </span>
+
+    <span class="fourth" style="position: relative; right: 3%">
+        <i class="fa fa-arrow-up"></i>
+    </span>
+
+    <span class="fifth" style="position: relative; right: 6.5%">
+        <i class="fa fa-arrow-up"></i>
+    </span>
+</div>
+</div>
+
+<div class="container">
+    <div class="gauges">
+    <progress class="progress-warrior" id="gauge" value="{{ gauge }}" max="100"></progress>
+    <br>
+    <label class="progress-warrior-text" for="gauge">Beast {{gauge}}</label>
+    </div>
 </div>
 <br>
 </progress>
-
+<div class="container">
 <div>
     <form action="{{url_for('warrior_reset') }}" method="POST">
         <button type='submit'>
@@ -58,5 +83,8 @@ Warrior
         </button>
     </form>
 </div>
+</div>
+
+
 {% endblock %}
 

@@ -54,9 +54,6 @@
 
 /* STORM'S PATH */
 .storms_path {
-    position: relative;
-    bottom: 29px;
-    left: 5px;
 }
 
 .storms_path button {
@@ -72,9 +69,6 @@
 
 /* STORM'S EYE */
 .storms_eye {
-    position: relative;
-    top: 29px;
-    right: 50px;
 }
 
 .storms_eye button {
@@ -89,9 +83,6 @@
 }
 /* FELL CLEAVE */
 .fell_cleave {
-    position: relative;
-    right: 45px;
-    margin-right: 5px;
 
 }
 
@@ -104,4 +95,16 @@
     display: block;
     width: 50px;
     height: 50px;
+}
+
+
+.progress-warrior {
+    height: 16px;
+    width: 270px;
+    color: blue;
+    border: 1px solid black;
+}
+
+.progress-warrior-text{
+    text-align: right;
 }

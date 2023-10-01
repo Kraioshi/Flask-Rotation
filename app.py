@@ -66,12 +66,14 @@ def reaper_reset():
     rpr = Reaper()
     return redirect(url_for('reaper'))
 
+# Warrior
+
 
 @app.route('/warrior')
 def warrior():
     gauge = 100
     gauge = min(gauge, 100)
-    return render_template('warrior.html', gauge=war.beast_gauge)
+    return render_template('warrior.html', gauge=war.beast_gauge, combo=war.combo_status)
 
 
 @app.route('/warrior_heavy_swing', methods=["POST"])
@@ -90,6 +92,7 @@ def warrior_maim():
 @app.route('/warrior_storms_eye', methods=["POST"])
 def warrior_storms_eye():
     war.storms_eye()
+    print(war.surging_tempest)
     return redirect(url_for('warrior'))
 
 
