@@ -6,37 +6,43 @@ Warrior
 
 {% block content %}
 
-<div class="container">
-    <form action="{{url_for('warrior_heavy_swing') }}" method="POST">
+<div class="container-warrior">
+    <form class="heavy_swing" action="{{url_for('warrior_heavy_swing') }}" method="POST">
         <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/heavy_swing.png') }}">
+            <img src="{{ url_for('static', filename='images/warrior/heavy_swing.png') }}" width="50px">
         </button>
     </form>
 
-    <form action="{{url_for('warrior_maim') }}" method="POST">
+    <form class="maim" action="{{url_for('warrior_maim') }}" method="POST">
         <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/maim.png') }}">
+            <img src="{{ url_for('static', filename='images/warrior/maim.png') }}" width="50px">
         </button>
     </form>
 
-    <form action="{{ url_for('warrior_storms_eye') }}" method="POST">
+    <form class="storms_path" action="{{ url_for('warrior_storms_path') }}" method="POST">
         <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}">
+            <img src="{{ url_for('static', filename='images/warrior/storms_path.png') }}" width="50px">
         </button>
     </form>
 
-    <form action="{{ url_for('warrior_storms_path') }}" method="POST">
+    <form class="storms_eye" action="{{ url_for('warrior_storms_eye') }}" method="POST">
         <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/storms_path.png') }}">
+            <img src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="50px">
         </button>
     </form>
 
-    <form action="{{ url_for('warrior_fell_cleave') }}" method="POST">
+
+
+    <form class="fell_cleave" action="{{ url_for('warrior_fell_cleave') }}" method="POST">
         <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}">
+            <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px">
         </button>
     </form>
 </div>
+
+<br>
+<br>
+<br>
 
 <div class="gauges">
 <progress class="progress" id="gauge" value="{{ gauge }}" max="100"></progress>

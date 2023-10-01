@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    justify-content: center;
 }
 
 
@@ -12,4 +13,95 @@
 .progress-text{
     position: relative;
     top: 3px;
+}
+
+
+.container-warrior {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 25px;
+    }
+
+
+.heavy_swing {
+    margin-right: 5px;
+}
+
+.heavy_swing button{
+    padding: 0;
+    margin: 0;
+}
+
+.heavy_swing button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.maim button {
+    padding: 0;
+    margin: 0;
+
+}
+
+.maim button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+
+}
+
+/* STORM'S PATH */
+.storms_path {
+    position: relative;
+    bottom: 29px;
+    left: 5px;
+}
+
+.storms_path button {
+    padding: 0;
+    margin: 0;
+}
+
+.storms_path button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+/* STORM'S EYE */
+.storms_eye {
+    position: relative;
+    top: 29px;
+    right: 50px;
+}
+
+.storms_eye button {
+    padding: 0px;
+    margin: 0px;
+}
+
+.storms_eye button img  {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+/* FELL CLEAVE */
+.fell_cleave {
+    position: relative;
+    right: 45px;
+    margin-right: 5px;
+
+}
+
+.fell_cleave button {
+    padding: 0;
+    margin: 0;
+}
+
+.fell_cleave button img {
+    display: block;
+    width: 50px;
+    height: 50px;
 }
