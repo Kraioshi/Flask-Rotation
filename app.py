@@ -51,5 +51,12 @@ def reaper_design():
     return redirect(url_for('index'))
 
 
+@app.route('/reset', methods=["POST"])
+def reset():
+    global rpr
+    rpr = Reaper()
+    return redirect(url_for('index'))
+
+
 if __name__ == '__main__':
     app.run(debug=True)
