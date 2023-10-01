@@ -1,66 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %} Reaper {% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block content %}
-<div class="container">
-<form action="{{url_for('reaper_slice')}}" method="POST">
-    <button id="slice_button">
-        <img src="static/images/slice.png">
-    </button>
-</form>
-<form action="{{url_for('reaper_waxing') }}" method="POST">
-        <button type="submit">
-            <img src="{{url_for('static', filename='images/waxing.png') }}">
-        </button>
-</form>
-<form action="{{url_for('reaper_infernal') }}" method="POST">
-    <button type="submit">
-        <img src="{{url_for('static', filename='images/infernal.png') }}">
-    </button>
-</form>
-<form action="{{url_for('reaper_gallows') }}" method="POST">
-    <button type="submit">
-        <img src="{{url_for('static', filename='images/gallows.png') }}">
-    </button>
-</form>
-</div>
-
-
-
-<div class="gauges">
-<progress class="progress" id="gauge" value="{{ gauge }}" max="100"></progress>
-<label class="progress-text" for="gauge">Soul {{gauge}}</label>
-</div>
-
-<br>
-<div>
-    <form action="{{url_for('reaper_design') }}" method="POST">
-        <button type="submit">
-            <img src="{{url_for('static', filename='images/design.png') }}">
-        </button>
-    </form>
-</div>
-<br>
-<!-- RESET -->
-<!-- RESET -->
-<!-- RESET -->
-
-<div>
-    <form action="{{url_for('reset') }}" method="POST">
-        <button type='submit'>
-            RESET
-        </button>
-    </form>
-</div>
-
-<script>
-    document.addEventListener('keydown', function(event) {
-        switch (event.key) {
-            case "1":
-                document.getElementById("slice_button").click();
-                break
-            }
-        });
-</script>
+<a href="{{url_for('reaper') }}">Reaper</a>
+<a href="{{url_for('warrior') }}">Warrior</a>
 {% endblock %}

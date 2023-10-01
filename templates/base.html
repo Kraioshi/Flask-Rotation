@@ -11,6 +11,10 @@
     {% endblock %}
 </head>
 <body>
+{% block navigation %}
+<a href="{{url_for('index') }}">Home</a>
+<hr>
+{% endblock %}
 {% block content %}
 
 {% endblock %}
