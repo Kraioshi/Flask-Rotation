@@ -5,8 +5,8 @@
 
 .progress {
     height: 12px;
-    color: blue;
-    border: 1px solid black;
+    color: red;
+    border: 1px solid yellow;
 }
 
 .progress-text{

@@ -44,5 +44,12 @@ def reaper_gallows():
     return redirect(url_for('index'))
 
 
+@app.route('/design', methods=['POST'])
+def reaper_design():
+    rpr.deaths_design()
+    print(rpr.design, "seconds")
+    return redirect(url_for('index'))
+
+
 if __name__ == '__main__':
     app.run(debug=True)

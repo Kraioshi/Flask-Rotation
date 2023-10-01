@@ -2,6 +2,7 @@ class Reaper:
 
     def __init__(self):
         self.stage = 0
+        self.design = 0
         self.soul_gauge = 0
 
     def slice(self):
@@ -36,3 +37,9 @@ class Reaper:
             self.soul_gauge -= 50
         else:
             print("Not enough Soul gauge to use Gallows")
+
+    def deaths_design(self):
+        if self.design < 30:
+            self.design += 30
+        else:
+            self.design = 60
