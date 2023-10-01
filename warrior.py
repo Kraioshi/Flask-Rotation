@@ -44,6 +44,12 @@ class Warrior:
         else:
             self.combo_status = 0
 
+    def fell_cleave(self):
+        if self.beast_gauge >= 50:
+            self.beast_gauge -= 50
+        else:
+            print("Not enough Beast Gauge")
+
 
 if __name__ == '__main__':
     w = Warrior()

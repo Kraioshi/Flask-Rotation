@@ -72,6 +72,35 @@ def warrior():
     return render_template('warrior.html')
 
 
+@app.route('/warrior_heavy_swing', methods=["POST"])
+def warrior_heavy_swing():
+    war.heavy_swing()
+    return redirect(url_for('warrior'))
+
+
+@app.route('warrior_maim', mathods=["POST"])
+def warrior_maim():
+    war.maim()
+    print(war.beast_gauge)
+    return redirect(url_for('warrior'))
+
+
+@app.route('/warrior_storms_eye')
+def warrior_storms_eye():
+    war.storms_eye()
+    return redirect(url_for('warrior'))
+
+
+@app.route('/warrior_storms_path')
+def warrior_storms_path():
+    war.storms_path()
+    return redirect(url_for('warrior'))
+
+
+@app.route('/warrior_fell_cleave', methods=["POST"])
+def warrior_fell_clave():
+    war.fell_cleave()
+    return redirect(url_for('warrior'))
 
 
 if __name__ == '__main__':
