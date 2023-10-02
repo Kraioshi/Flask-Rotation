@@ -6,10 +6,10 @@ class Warrior:
         self.combo_status = 0
         self.gcd = 2.5
         self.nascent_chaos_ready = False
-        self.infuriate_cooldown = 60
-        self.inner_release_cooldown = 60
-        self.upheaval_cooldown = 30
-        self.onslaught_cooldown = 30
+        self.infuriate_cooldown = 0
+        self.inner_release_cooldown = 0
+        self.upheaval_cooldown = 0
+        self.onslaught_cooldown = 0
 
     def use_gcd(self):
         if self.surging_tempest > 2.5:
@@ -76,10 +76,20 @@ class Warrior:
 
     def infuriate(self):
         self.nascent_chaos_ready = True
+        self.infuriate_cooldown = 60
         if self.beast_gauge < 50:
             self.beast_gauge += 50
         else:
             self.beast_gauge = 100
+
+    def upheaval(self):
+        self.upheaval_cooldown = 30
+
+    def inner_release(self):
+        self.inner_release_cooldown = 60
+
+    def onslaught(self):
+        self.onslaught_cooldown = 60
 
 
 

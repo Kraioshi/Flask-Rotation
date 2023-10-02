@@ -75,7 +75,11 @@ def warrior():
     gauge = 100
     gauge = min(gauge, 100)
     return render_template('warrior.html', gauge=war.beast_gauge, combo=war.combo_status,
-                           tempest=war.surging_tempest, chaos_ready=war.nascent_chaos_ready)
+                           tempest=war.surging_tempest, chaos_ready=war.nascent_chaos_ready,
+                           inner_release_cd=war.inner_release_cooldown,
+                           infuriate_cd=war.infuriate_cooldown,
+                           upheaval_cd=war.upheaval_cooldown,
+                           onslaught_cd=war.onslaught_cooldown)
 
 
 @app.route('/warrior_heavy_swing', methods=["POST"])
@@ -110,15 +114,33 @@ def warrior_fell_cleave():
     return redirect(url_for('warrior'))
 
 
+@app.route('/warrior_inner_chaos', methods=["POST"])
+def warrior_inner_chaos():
+    war.inner_chaos()
+    return redirect(url_for('warrior'))
+
+
 @app.route('/warrior_infuriate', methods=["POST"])
 def warrior_infuriate():
     war.infuriate()
     return redirect(url_for('warrior'))
 
 
-@app.route('/warrior_inner_chaos', methods=["POST"])
-def warrior_inner_chaos():
-    war.inner_chaos()
+@app.route('/warrior_inner_release', methods=["POST"])
+def warrior_inner_release():
+    war.inner_release()
+    return redirect(url_for('warrior'))
+
+
+@app.route("/warrior_upheaval", methods=["POST"])
+def warrior_upheaval():
+    war.upheaval()
+    return redirect(url_for('warrior'))
+
+
+@app.route("/warrior_onslaught", methods=["POST"])
+def warrior_onslaught():
+    war.onslaught()
     return redirect(url_for('warrior'))
 
 
