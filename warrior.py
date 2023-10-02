@@ -5,6 +5,7 @@ class Warrior:
         self.surging_tempest = 0
         self.combo_status = 0
         self.gcd = 2.5
+        self.nascent_chaos_ready = False
 
     def use_gcd(self):
         if self.surging_tempest > 2.5:
@@ -63,6 +64,13 @@ class Warrior:
             self.beast_gauge -= 50
         else:
             print("Not enough Beast Gauge")
+
+    def infuriate(self):
+        self.nascent_chaos_ready = True
+        if self.beast_gauge < 50:
+            self.beast_gauge += 50
+        else:
+            self.beast_gauge = 100
 
 
 if __name__ == '__main__':

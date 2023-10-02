@@ -92,11 +92,19 @@ Warrior
         </button>
     </form>
 
+    {% if not chaos_ready %}
     <form class="fell_cleave" action="{{ url_for('warrior_fell_cleave') }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px">
         </button>
     </form>
+    {% else %}
+    <form class="fell_cleave" action="#" method="POST">
+        <button type="submit">
+            <img src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}" width="50px">
+        </button>
+    </form>
+    {% endif %}
 </div>
 <hr class="container" style="display: flex; width: 270px;">
 
