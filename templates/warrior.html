@@ -119,7 +119,7 @@ Warrior
         </button>
     </form>
     <h5 style="text-align: center;">
-        CD
+        {{ inner_release_cd }}
     </h5>
     </div>
 
@@ -131,19 +131,25 @@ Warrior
         </button>
     </form>
     <h5 style="text-align: center;">
-        CD
+        {{ infuriate_cd }}
     </h5>
 
     </div>
 
     <div>
     <form class="upheaval" action="{{ url_for('warrior_upheaval') }}" method="POST">
+        {% if upheaval_cd == 0 %}
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px">
         </button>
+        {% else %}
+        <button type="submit" disabled>
+            <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px">
+        </button>
+        {% endif %}
     </form>
     <h5 style="text-align: center;">
-        CD
+        {{ upheaval_cd }}
     </h5>
     </div>
 
@@ -161,9 +167,9 @@ Warrior
             <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px">
         </button>
     </form>
-    <h5 style="text-align: center;">
-        CD
-    </h5>
+    <p style="text-align: center; text-size: 20px; font-weight: bold;">
+        {{ onslaught_cd }}
+    </p>
     </div>
 
 </div>

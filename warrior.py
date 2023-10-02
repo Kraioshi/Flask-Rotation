@@ -6,6 +6,7 @@ class Warrior:
         self.combo_status = 0
         self.gcd = 2.5
         self.nascent_chaos_ready = False
+
         self.infuriate_cooldown = 0
         self.inner_release_cooldown = 0
         self.upheaval_cooldown = 0
@@ -14,11 +15,33 @@ class Warrior:
     def use_gcd(self):
         if self.surging_tempest > 2.5:
             self.surging_tempest -= 2.5
-        else:
+        elif self.surging_tempest < 2.5:
             self.surging_tempest = 0
+
+    def ogcd_reduction(self):
+        if self.inner_release_cooldown > 2.5:
+            self.inner_release_cooldown -= 2.5
+        else:
+            self.inner_release_cooldown = 0
+
+        if self.infuriate_cooldown > 2.5:
+            self.infuriate_cooldown -= 2.5
+        else:
+            self.infuriate_cooldown = 0
+
+        if self.upheaval_cooldown > 2.5:
+            self.upheaval_cooldown -= 2.5
+        else:
+            self.upheaval_cooldown = 0
+
+        if self.onslaught_cooldown > 2.5:
+            self.onslaught_cooldown -= 2.5
+        else:
+            self.onslaught_cooldown = 0
 
     def heavy_swing(self):
         self.use_gcd()
+        self.ogcd_reduction()
         self.combo_status = 1
 
     def maim(self):
@@ -89,7 +112,7 @@ class Warrior:
         self.inner_release_cooldown = 60
 
     def onslaught(self):
-        self.onslaught_cooldown = 60
+        self.onslaught_cooldown = 30
 
     def primal_rend(self):
         pass
@@ -97,14 +120,8 @@ class Warrior:
 
 if __name__ == '__main__':
     w = Warrior()
-    w.heavy_swing()
-    w.maim()
-    w.storms_eye()
-    w.storms_eye()
-    w.storms_eye()
-    w.storms_path()
-    w.storms_path()
+    w.infuriate()
+    print(w.infuriate_cooldown)
+    w.ogcd_reduction()
+    print(w.infuriate_cooldown)
 
-    print('combo status', w.combo_status)
-    print('gauge', w.beast_gauge)
-    print('buff', w.surging_tempest, 's')
