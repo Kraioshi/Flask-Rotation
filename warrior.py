@@ -6,6 +6,10 @@ class Warrior:
         self.combo_status = 0
         self.gcd = 2.5
         self.nascent_chaos_ready = False
+        self.infuriate_cooldown = 60
+        self.inner_release_cooldown = 60
+        self.upheaval_cooldown = 30
+        self.onslaught_cooldown = 30
 
     def use_gcd(self):
         if self.surging_tempest > 2.5:
@@ -76,6 +80,8 @@ class Warrior:
             self.beast_gauge += 50
         else:
             self.beast_gauge = 100
+
+
 
 
 if __name__ == '__main__':
