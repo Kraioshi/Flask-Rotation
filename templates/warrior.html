@@ -94,9 +94,15 @@ Warrior
 
     {% if not chaos_ready %}
     <form class="fell_cleave" action="{{ url_for('warrior_fell_cleave') }}" method="POST">
+    {% if gauge >= 50 %}
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px">
         </button>
+    {% else %}
+        <button type="submit" disabled>
+            <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px">
+        </button>
+    {% endif %}
     </form>
     {% else %}
     <form class="fell_cleave" action="{{ url_for('warrior_inner_chaos') }}" method="POST">
@@ -155,9 +161,15 @@ Warrior
 
     <div>
      <form class="primal_rend" action="{{ url_for('warrior_primal_rend') }}" method="POST">
+     {% if primal_rend_status %}
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px">
         </button>
+     {% else %}
+         <button type="submit" disabled>
+            <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px">
+        </button>
+     {% endif %}
     </form>
     </div>
 

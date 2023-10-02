@@ -6,6 +6,7 @@ class Warrior:
         self.combo_status = 0
         self.gcd = 2.5
         self.nascent_chaos_ready = False
+        self.primal_rend_ready = False
 
         self.infuriate_cooldown = 0
         self.inner_release_cooldown = 0
@@ -109,13 +110,14 @@ class Warrior:
         self.upheaval_cooldown = 30
 
     def inner_release(self):
+        self.primal_rend_ready = True
         self.inner_release_cooldown = 60
 
     def onslaught(self):
         self.onslaught_cooldown = 30
 
     def primal_rend(self):
-        pass
+        self.primal_rend_ready = False
 
 
 if __name__ == '__main__':

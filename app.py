@@ -79,7 +79,8 @@ def warrior():
                            inner_release_cd=war.inner_release_cooldown,
                            infuriate_cd=war.infuriate_cooldown,
                            upheaval_cd=war.upheaval_cooldown,
-                           onslaught_cd=war.onslaught_cooldown)
+                           onslaught_cd=war.onslaught_cooldown,
+                           primal_rend_status=war.primal_rend_ready)
 
 
 @app.route('/warrior_heavy_swing', methods=["POST"])
