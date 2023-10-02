@@ -144,6 +144,12 @@ def warrior_onslaught():
     return redirect(url_for('warrior'))
 
 
+@app.route('/warrior_primal_rend', methods=["POST"])
+def warrior_primal_rend():
+    war.primal_rend()
+    return redirect(url_for('warrior'))
+
+
 @app.route('/warrior_reset', methods=["POST"])
 def warrior_reset():
     global war

@@ -113,7 +113,7 @@ Warrior
 <!-- SECOND ROW GCD/O-GCD -->
 <div class="container-warrior">
     <div>
-     <form class="inner_release" action="#" method="POST">
+     <form class="inner_release" action="{{ url_for('warrior_inner_release') }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px">
         </button>
@@ -137,7 +137,7 @@ Warrior
     </div>
 
     <div>
-    <form class="upheaval" action="#" method="POST">
+    <form class="upheaval" action="{{ url_for('warrior_upheaval') }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px">
         </button>
@@ -148,7 +148,7 @@ Warrior
     </div>
 
     <div>
-     <form class="primal_rend" action="#" method="POST">
+     <form class="primal_rend" action="{{ url_for('warrior_primal_rend') }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px">
         </button>
@@ -156,7 +156,7 @@ Warrior
     </div>
 
     <div>
-     <form class="onslaught" action="#" method="POST">
+     <form class="onslaught" action="{{ url_for('warrior_onslaught' ) }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px">
         </button>

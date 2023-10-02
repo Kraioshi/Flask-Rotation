@@ -91,7 +91,8 @@ class Warrior:
     def onslaught(self):
         self.onslaught_cooldown = 60
 
-
+    def primal_rend(self):
+        pass
 
 
 if __name__ == '__main__':
