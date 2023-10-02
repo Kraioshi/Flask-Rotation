@@ -66,6 +66,7 @@ def reaper_reset():
     rpr = Reaper()
     return redirect(url_for('reaper'))
 
+
 # Warrior
 
 
@@ -106,6 +107,18 @@ def warrior_storms_path():
 @app.route('/warrior_fell_cleave', methods=["POST"])
 def warrior_fell_cleave():
     war.fell_cleave()
+    return redirect(url_for('warrior'))
+
+
+@app.route('/warrior_infuriate', methods=["POST"])
+def warrior_infuriate():
+    war.infuriate()
+    return redirect(url_for('warrior'))
+
+
+@app.route('/warrior_inner_chaos', methods=["POST"])
+def warrior_inner_chaos():
+    war.inner_chaos()
     return redirect(url_for('warrior'))
 
 

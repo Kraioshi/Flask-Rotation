@@ -99,7 +99,7 @@ Warrior
         </button>
     </form>
     {% else %}
-    <form class="fell_cleave" action="#" method="POST">
+    <form class="fell_cleave" action="{{ url_for('warrior_inner_chaos') }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}" width="50px">
         </button>
@@ -112,41 +112,60 @@ Warrior
 <!-- SECOND ROW GCD/O-GCD -->
 <!-- SECOND ROW GCD/O-GCD -->
 <div class="container-warrior">
+    <div>
      <form class="inner_release" action="#" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px">
         </button>
     </form>
+    <h5 style="text-align: center;">
+        CD
+    </h5>
+    </div>
 
-     <form class="infuriate" action="#" method="POST">
+
+    <div>
+     <form class="infuriate" action="{{ url_for('warrior_infuriate') }}" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/infuriate.png') }}" width="50px">
         </button>
     </form>
+    <h5 style="text-align: center;">
+        CD
+    </h5>
 
-     <form class="upheaval" action="#" method="POST">
+    </div>
+
+    <div>
+    <form class="upheaval" action="#" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px">
         </button>
     </form>
+    <h5 style="text-align: center;">
+        CD
+    </h5>
+    </div>
 
+    <div>
      <form class="primal_rend" action="#" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px">
         </button>
     </form>
+    </div>
 
+    <div>
      <form class="onslaught" action="#" method="POST">
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px">
         </button>
     </form>
+    <h5 style="text-align: center;">
+        CD
+    </h5>
+    </div>
 
-     <form class="inner_chaos" action="#" method="POST">
-        <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}" width="50px">
-        </button>
-    </form>
 </div>
 
 

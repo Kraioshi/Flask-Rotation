@@ -65,6 +65,11 @@ class Warrior:
         else:
             print("Not enough Beast Gauge")
 
+    def inner_chaos(self):
+        self.use_gcd()
+        self.beast_gauge -= 50
+        self.nascent_chaos_ready = False
+
     def infuriate(self):
         self.nascent_chaos_ready = True
         if self.beast_gauge < 50:
