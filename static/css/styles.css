@@ -96,6 +96,7 @@
     height: 50px;
 }
 
+/* BEAST GAUGE*/
 
 .progress-warrior {
     height: 16px;
@@ -106,4 +107,23 @@
 
 .progress-warrior-text{
     text-align: right;
+    font-weight: bold;
+}
+
+/* SURGING TEMPEST */
+
+.surging-warrior {
+    width: 215px;
+    margin-left: 5px;
+    border: 1px solid black;
+    background-color: blue;
+    margin-top: 15px;
+}
+
+
+.surging-warrior-text {
+    font-weight: 600;
+    margin-left: 5px;
+    position: relative;
+    top: 8px;
 }

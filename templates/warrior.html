@@ -109,9 +109,23 @@ Warrior
 <br>
 </progress>
 
+<!-- SURGING TEMPEST -->
+<!-- SURGING TEMPEST -->
+<!-- SURGING TEMPEST -->
+
 <div class="container">
-    <h5>Surging tempest {{tempest}}s</h5>
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="50px" height="50px">
+    </div>
+    <div class="right">
+        <label class="surging-warrior-text" for="tempest"> Surging Tempest: {{tempest }} seconds</label>
+        <br/>
+        <progress class="surging-warrior" id="tempest" value="{{ tempest }}" max="60"></progress>
+    </div>
+
 </div>
+<hr class="container" style="display: flex; width: 270px;">
+
 
 <!-- RESET -->
 <div class="container">
