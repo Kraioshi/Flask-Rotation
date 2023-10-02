@@ -73,7 +73,7 @@ def reaper_reset():
 def warrior():
     gauge = 100
     gauge = min(gauge, 100)
-    return render_template('warrior.html', gauge=war.beast_gauge, combo=war.combo_status)
+    return render_template('warrior.html', gauge=war.beast_gauge, combo=war.combo_status, tempest=war.surging_tempest)
 
 
 @app.route('/warrior_heavy_swing', methods=["POST"])
