@@ -112,8 +112,8 @@
 
 /* SURGING TEMPEST */
 
-.surging-warrior {
-    width: 215px;
+.surging-warrior-progress {
+    width: 225px;
     margin-left: 5px;
     border: 1px solid black;
     background-color: blue;
@@ -126,4 +126,9 @@
     margin-left: 5px;
     position: relative;
     top: 8px;
+}
+
+.surging-icon {
+    position: relative;
+    top: 10px;
 }

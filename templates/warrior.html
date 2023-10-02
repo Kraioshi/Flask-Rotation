@@ -115,12 +115,16 @@ Warrior
 
 <div class="container">
     <div class="left">
-        <img src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="50px" height="50px">
+        <img class="surging-icon" src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="40px" height="40px">
     </div>
     <div class="right">
+        {% if tempest != 0 %}
         <label class="surging-warrior-text" for="tempest"> Surging Tempest: {{tempest }} seconds</label>
+        {% else %}
+        <label class="surging-warrior-text" for="tempest"> Surging Tempest buff duration</label>
+        {% endif %}
         <br/>
-        <progress class="surging-warrior" id="tempest" value="{{ tempest }}" max="60"></progress>
+        <progress class="surging-warrior-progress" id="tempest" value="{{ tempest }}" max="60"></progress>
     </div>
 
 </div>
