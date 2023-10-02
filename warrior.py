@@ -4,11 +4,20 @@ class Warrior:
         self.beast_gauge = 0
         self.surging_tempest = 0
         self.combo_status = 0
+        self.gcd = 2.5
+
+    def use_gcd(self):
+        if self.surging_tempest > 2.5:
+            self.surging_tempest -= 2.5
+        else:
+            self.surging_tempest = 0
 
     def heavy_swing(self):
+        self.use_gcd()
         self.combo_status = 1
 
     def maim(self):
+        self.use_gcd()
         if self.combo_status == 1:
             self.combo_status = 2
             if self.beast_gauge < 90:
@@ -19,6 +28,8 @@ class Warrior:
             self.combo_status = 0
 
     def storms_path(self):
+        self.use_gcd()
+
         if self.combo_status == 2:
             self.combo_status = 0
             if self.beast_gauge < 80:
@@ -30,6 +41,8 @@ class Warrior:
             self.combo_status = 0
 
     def storms_eye(self):
+        self.use_gcd()
+
         if self.combo_status == 2:
             self.combo_status = 0
             if self.beast_gauge < 90:
@@ -45,6 +58,7 @@ class Warrior:
             self.combo_status = 0
 
     def fell_cleave(self):
+        self.use_gcd()
         if self.beast_gauge >= 50:
             self.beast_gauge -= 50
         else:
