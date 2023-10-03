@@ -47,6 +47,7 @@ class Warrior:
 
     def maim(self):
         self.use_gcd()
+        self.ogcd_reduction()
         if self.combo_status == 1:
             self.combo_status = 2
             if self.beast_gauge < 90:
@@ -58,6 +59,7 @@ class Warrior:
 
     def storms_path(self):
         self.use_gcd()
+        self.ogcd_reduction()
 
         if self.combo_status == 2:
             self.combo_status = 0
@@ -71,6 +73,7 @@ class Warrior:
 
     def storms_eye(self):
         self.use_gcd()
+        self.ogcd_reduction()
 
         if self.combo_status == 2:
             self.combo_status = 0
@@ -88,6 +91,7 @@ class Warrior:
 
     def fell_cleave(self):
         self.use_gcd()
+        self.ogcd_reduction()
         if self.beast_gauge >= 50:
             self.beast_gauge -= 50
         else:
@@ -95,6 +99,8 @@ class Warrior:
 
     def inner_chaos(self):
         self.use_gcd()
+        self.ogcd_reduction()
+
         self.beast_gauge -= 50
         self.nascent_chaos_ready = False
 
@@ -117,6 +123,8 @@ class Warrior:
         self.onslaught_cooldown = 30
 
     def primal_rend(self):
+        self.use_gcd()
+        self.ogcd_reduction()
         self.primal_rend_ready = False
 
 
