@@ -100,14 +100,16 @@ Warrior
         </button>
     {% else %}
         <button type="submit" disabled>
-            <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px">
+            <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px"
+            style="filter: grayscale(100%); opacity: 75%">
         </button>
     {% endif %}
     </form>
     {% else %}
     <form class="fell_cleave" action="{{ url_for('warrior_inner_chaos') }}" method="POST">
         <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}" width="50px">
+            <img src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}" width="50px"
+            style="">
         </button>
     </form>
     {% endif %}
@@ -126,7 +128,8 @@ Warrior
             </button>
         {% else %}
             <button type="submit" disabled>
-                <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px">
+                <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px"
+                style="filter: grayscale(100%); opacity: 75%">
             </button>
         {% endif %}
     </form>
@@ -156,7 +159,8 @@ Warrior
         </button>
         {% else %}
         <button type="submit" disabled>
-            <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px">
+            <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px"
+            style="filter: grayscale(100%); opacity: 75%">
         </button>
         {% endif %}
     </form>
@@ -173,7 +177,8 @@ Warrior
         </button>
      {% else %}
          <button type="submit" disabled>
-            <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px">
+            <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px"
+            style="filter: grayscale(100%); opacity: 75%">
         </button>
      {% endif %}
     </form>
