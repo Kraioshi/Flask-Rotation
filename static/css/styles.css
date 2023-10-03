@@ -129,3 +129,64 @@
     position: relative;
     top: 10px;
 }
+
+
+/* SECOND ROW */
+/* INNER RELEASE */
+.inner_release button {
+    padding: 0;
+    margin: 0;
+}
+
+.inner_release button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.inner_release_cooldown {
+
+}
+.infuriate button {
+    padding: 0;
+    margin: 0;
+}
+
+.infuriate button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.upheaval button {
+    padding: 0;
+    margin: 0;
+}
+
+.upheaval button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.primal_rend button {
+    padding: 0;
+    margin: 0;
+}
+
+.primal_rend button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.onslaught button {
+    padding: 0;
+    margin: 0;
+}
+
+.onslaught button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
