@@ -133,7 +133,7 @@ Warrior
             </button>
         {% endif %}
     </form>
-    <h5 class="inner_release_cooldown" style="">
+    <h5 class="inner_release_cooldown">
         {{ inner_release_cd }}
     </h5>
     </div>
@@ -145,7 +145,7 @@ Warrior
             <img src="{{ url_for('static', filename='images/warrior/infuriate.png') }}" width="50px">
         </button>
     </form>
-    <h5 style="text-align: center;">
+    <h5 class="infuriate_cooldown">
         {{ infuriate_cd }}
     </h5>
 
@@ -164,7 +164,7 @@ Warrior
         </button>
         {% endif %}
     </form>
-    <h5 style="text-align: center;">
+    <h5 class="upheaval_cooldown">
         {{ upheaval_cd }}
     </h5>
     </div>
@@ -182,6 +182,13 @@ Warrior
         </button>
      {% endif %}
     </form>
+    <h5 class="primal_rend_status">
+        {% if primal_rend_status %}
+            <i class="fa-solid fa-check"></i>
+        {% else %}
+            <i class="fa-solid fa-xmark"></i>
+        {% endif %}
+    </h5>
     </div>
 
     <div>
@@ -190,9 +197,9 @@ Warrior
             <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px">
         </button>
     </form>
-    <p style="text-align: center; text-size: 20px; font-weight: bold;">
+    <h5 class="onslaught_cooldown">
         {{ onslaught_cd }}
-    </p>
+    </h5>
     </div>
 
 </div>
