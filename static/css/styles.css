@@ -22,14 +22,17 @@
     position: relative;
     }
 
+/* HEAVY SWING */
 
 .heavy_swing {
-    margin-right: 5px;
+    margin-right: 1px;
 }
 
 .heavy_swing button{
     padding: 0;
     margin: 0;
+    border: 2px solid black;
+
 }
 
 .heavy_swing button img {
@@ -38,9 +41,16 @@
     height: 50px;
 }
 
+/* MAIM */
+.maim {
+    margin-right: 1px;
+}
+
 .maim button {
     padding: 0;
     margin: 0;
+    border: 2px solid black;
+
 
 }
 
@@ -52,12 +62,15 @@
 }
 
 /* STORM'S PATH */
+
 .storms_path {
+    margin-left: 1px;
 }
 
 .storms_path button {
     padding: 0;
     margin: 0;
+    border: 2px solid black;
 }
 
 .storms_path button img {
@@ -67,9 +80,12 @@
 }
 
 /* STORM'S EYE */
+
+
 .storms_eye button {
     padding: 0px;
     margin: 0px;
+    border: 2px solid black;
 }
 
 .storms_eye button img  {
@@ -79,12 +95,13 @@
 }
 /* FELL CLEAVE */
 .fell_cleave {
-
+    margin-left: 1px;
 }
 
 .fell_cleave button {
     padding: 0;
     margin: 0;
+    border: 2px solid black;
 }
 
 .fell_cleave button img {
@@ -138,6 +155,7 @@
     padding: 0;
     margin: 0;
     border: 2px solid black;
+    margin-right: 1px;
 }
 
 .inner_release button img {
@@ -160,6 +178,7 @@
     padding: 0;
     margin: 0;
     border: 2px solid black;
+    margin-right: 1px;
 }
 
 .infuriate button img {
@@ -206,6 +225,7 @@
     padding: 0;
     margin: 0;
     border: 2px solid black;
+    margin-left: 1px;
 
 }
 
@@ -229,6 +249,7 @@
     padding: 0;
     margin: 0;
     border: 2px solid black;
+    margin-left: 1px;
 
 }
 
