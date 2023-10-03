@@ -120,9 +120,15 @@ Warrior
 <div class="container-warrior">
     <div>
      <form class="inner_release" action="{{ url_for('warrior_inner_release') }}" method="POST">
-        <button type="submit">
-            <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px">
-        </button>
+         {% if inner_release_cd == 0 %}
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px">
+            </button>
+        {% else %}
+            <button type="submit" disabled>
+                <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px">
+            </button>
+        {% endif %}
     </form>
     <h5 style="text-align: center;">
         {{ inner_release_cd }}
