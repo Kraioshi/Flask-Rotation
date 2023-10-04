@@ -150,8 +150,11 @@ class Warrior:
 
     def infuriate(self):
         self.nascent_chaos_ready = True
-        self.infuriate_cooldown = 60
-        self.infuriate_stacks -= 1
+        if self.infuriate_stacks == 2:
+            self.infuriate_cooldown = 60
+            self.infuriate_stacks -= 1
+        elif self.infuriate_stacks == 1:
+            self.infuriate_stacks -= 1
         if self.beast_gauge < 50:
             self.beast_gauge += 50
         else:
