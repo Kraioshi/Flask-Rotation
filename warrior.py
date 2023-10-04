@@ -62,6 +62,10 @@ class Warrior:
         else:
             self.add_stack_onslaught()
 
+    def enhanced_infuriate_passive(self):
+        if self.infuriate_stacks < 2:
+            self.infuriate_cooldown -= 5.0
+
     def add_stack_infuriate(self):
         if self.infuriate_stacks == 1:
             self.infuriate_stacks += 1
@@ -130,6 +134,7 @@ class Warrior:
     def fell_cleave(self):
         self.use_gcd()
         self.ogcd_reduction()
+        self.enhanced_infuriate_passive()
         if self.beast_gauge >= 50:
             self.beast_gauge -= 50
         else:
@@ -138,6 +143,7 @@ class Warrior:
     def inner_chaos(self):
         self.use_gcd()
         self.ogcd_reduction()
+        self.enhanced_infuriate_passive()
 
         self.beast_gauge -= 50
         self.nascent_chaos_ready = False
@@ -159,6 +165,12 @@ class Warrior:
         self.inner_release_cooldown = 60
         self.primal_rend_duration = 30
 
+        if self.surging_tempest:
+            if self.surging_tempest < 50:
+                self.surging_tempest += 10
+            else:
+                self.surging_tempest = 60
+
         self.inner_release_stacks = 3
         self.inner_release_buff = 15
 
@@ -167,6 +179,7 @@ class Warrior:
             self.inner_release_stacks -= 1
             self.use_gcd()
             self.ogcd_reduction()
+            self.enhanced_infuriate_passive()
 
     def onslaught(self):
         if self.onslaught_stacks == 3:
