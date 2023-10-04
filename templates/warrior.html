@@ -151,10 +151,17 @@ Warrior
 
 
     <div>
-     <form class="infuriate" action="{{ url_for('warrior_infuriate') }}" method="POST">
+    <form class="infuriate" action="{{ url_for('warrior_infuriate') }}" method="POST">
+        {% if infuriate_stacks > 0 %}
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/infuriate.png') }}" width="50px">
         </button>
+        {% else %}
+        <button type="submit" disabled>
+            <img src="{{ url_for('static', filename='images/warrior/infuriate.png') }}" width="50px"
+            style="filter: grayscale(100%); opacity: 75%">
+        </button>
+        {% endif %}
     </form>
     <h5 class="infuriate_cooldown">
         {{ infuriate_cd }}
