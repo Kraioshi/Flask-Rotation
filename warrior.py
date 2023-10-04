@@ -28,6 +28,13 @@ class Warrior:
             self.inner_release_buff -= 2.5
         else:
             self.inner_release_buff = 0
+            self.inner_release_stacks = 0
+
+        if self.primal_rend_duration > 2.5:
+            self.primal_rend_duration -= 2.5
+        else:
+            self.primal_rend_duration = 0
+            self.primal_rend_ready = False
 
     def ogcd_reduction(self):
         if self.inner_release_cooldown > 2.5:
@@ -49,9 +56,6 @@ class Warrior:
             self.onslaught_cooldown -= 2.5
         else:
             self.onslaught_cooldown = 0
-
-        if self.primal_rend_duration > 2.5:
-            self.primal_rend_duration -= 2.5
 
     def heavy_swing(self):
         self.use_gcd()
@@ -141,8 +145,6 @@ class Warrior:
             self.inner_release_stacks -= 1
             self.use_gcd()
             self.ogcd_reduction()
-        else:
-            print("NOPE")
 
     def onslaught(self):
         self.onslaught_cooldown = 30
