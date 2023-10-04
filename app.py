@@ -135,6 +135,12 @@ def warrior_inner_release():
     return redirect(url_for('warrior'))
 
 
+@app.route('/warrior_inner_release_fell_cleave', methods=["POST"])
+def warrior_inner_release_fell_cleave():
+    war.inner_release_fell_cleave()
+    return redirect(url_for('warrior'))
+
+
 @app.route("/warrior_upheaval", methods=["POST"])
 def warrior_upheaval():
     war.upheaval()

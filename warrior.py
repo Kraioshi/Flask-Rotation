@@ -105,6 +105,13 @@ class Warrior:
         else:
             print("Not enough Beast Gauge")
 
+    def inner_release_fell_cleave(self):
+        self.use_gcd()
+        self.ogcd_reduction()
+        if self.inner_release_buff > 0 and self.inner_release_stacks > 0:
+            self.inner_release_stacks -= 1
+
+
     def inner_chaos(self):
         self.use_gcd()
         self.ogcd_reduction()
