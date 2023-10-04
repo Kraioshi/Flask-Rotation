@@ -8,6 +8,9 @@ class Warrior:
         self.nascent_chaos_ready = False
         self.primal_rend_ready = False
 
+        self.inner_release_stacks = 0
+        self.inner_release_buff = 0
+
         self.infuriate_cooldown = 0
         self.inner_release_cooldown = 0
         self.upheaval_cooldown = 0
@@ -118,6 +121,9 @@ class Warrior:
     def inner_release(self):
         self.primal_rend_ready = True
         self.inner_release_cooldown = 60
+
+        self.inner_release_stacks = 3
+        self.inner_release_buff = 15
 
     def onslaught(self):
         self.onslaught_cooldown = 30
