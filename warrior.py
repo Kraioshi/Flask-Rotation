@@ -41,33 +41,34 @@ class Warrior:
             self.primal_rend_duration = 0
             self.primal_rend_ready = False
 
-        self.add_stack()
-
     def ogcd_reduction(self):
         if self.inner_release_cooldown > 2.5:
             self.inner_release_cooldown -= 2.5
         else:
             self.inner_release_cooldown = 0
 
-        if self.infuriate_cooldown > 2.5:
-            self.infuriate_cooldown -= 2.5
-        else:
-            self.infuriate_cooldown = 0
-
         if self.upheaval_cooldown > 2.5:
             self.upheaval_cooldown -= 2.5
         else:
             self.upheaval_cooldown = 0
+
+        if self.infuriate_cooldown > 2.5:
+            self.infuriate_cooldown -= 2.5
+        else:
+            self.add_stack_infuriate()
 
         if self.onslaught_cooldown > 2.5:
             self.onslaught_cooldown -= 2.5
         else:
             self.add_stack_onslaught()
 
-    def add_stack(self):
-        if self.infuriate_stacks < 2:
-            if self.infuriate_cooldown <= 2.5:
-                self.infuriate_stacks += 1
+    def add_stack_infuriate(self):
+        if self.infuriate_stacks == 1:
+            self.infuriate_stacks += 1
+            self.infuriate_cooldown = 0
+        elif self.infuriate_stacks == 0:
+            self.infuriate_stacks += 1
+            self.infuriate_cooldown = 60
 
     def add_stack_onslaught(self):
         if self.onslaught_stacks == 2:
