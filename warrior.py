@@ -22,6 +22,11 @@ class Warrior:
         elif self.surging_tempest < 2.5:
             self.surging_tempest = 0
 
+        if self.inner_release_buff > 2.5:
+            self.inner_release_buff -= 2.5
+        else:
+            self.inner_release_buff = 0
+
     def ogcd_reduction(self):
         if self.inner_release_cooldown > 2.5:
             self.inner_release_cooldown -= 2.5
