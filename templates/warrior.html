@@ -215,12 +215,11 @@ Warrior
 
 </div>
 
-<hr class="container" style="display: flex; width: 270px;">
 
 <!-- stacks -->
 <!-- stacks -->
-<div class="stacks">
-    <div class="container" style="display: flex;">
+<div class="stacks" style="display: flex; justify-content: center;">
+    <div class="container" style="display: flex; position: relative; right: 31px;">
         {% if infuriate_stacks == 2 %}
             <i class="fa-regular fa-circle-check"></i>
             <i class="fa-regular fa-circle-check"></i>
@@ -232,7 +231,7 @@ Warrior
             <i class="fa-regular fa-circle"></i>
         {% endif %}
     </div>
-    <div class="container" style="display: flex;">
+    <div class="container" style="display: flex; position: relative; left: 94px;">
         {% if onslaught_stacks == 3 %}
             <i class="fa-regular fa-circle-check"></i>
             <i class="fa-regular fa-circle-check"></i>
@@ -251,8 +250,10 @@ Warrior
             <i class="fa-regular fa-circle"></i>
         {% endif %}
     </div>
-
 </div>
+
+<hr class="container" style="display: flex; width: 270px;">
+
 <!-- GAUGE -->
 <!-- GAUGE -->
 <div class="container">
