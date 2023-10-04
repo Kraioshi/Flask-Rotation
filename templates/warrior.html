@@ -217,8 +217,44 @@ Warrior
 
 <hr class="container" style="display: flex; width: 270px;">
 
+<!-- stacks -->
+<!-- stacks -->
+<div class="stacks">
+    <div class="container" style="display: flex;">
+        {% if infuriate_stacks == 2 %}
+            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle-check"></i>
+        {% elif infuriate_stacks == 1 %}
+            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle"></i>
+        {% else %}
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+        {% endif %}
+    </div>
+    <div class="container" style="display: flex;">
+        {% if onslaught_stacks == 3 %}
+            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle-check"></i>
+        {% elif onslaught_stacks == 2 %}
+            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle"></i>
+        {% elif onslaught_stacks == 1 %}
+            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+        {% else %}
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+        {% endif %}
+    </div>
 
-
+</div>
+<!-- GAUGE -->
+<!-- GAUGE -->
 <div class="container">
     <div class="gauges">
     <progress class="progress-warrior" id="gauge" value="{{ gauge }}" max="100"></progress>
