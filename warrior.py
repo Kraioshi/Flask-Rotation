@@ -105,7 +105,6 @@ class Warrior:
         else:
             print("Not enough Beast Gauge")
 
-
     def inner_chaos(self):
         self.use_gcd()
         self.ogcd_reduction()
