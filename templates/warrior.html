@@ -204,9 +204,16 @@ Warrior
 
     <div>
      <form class="onslaught" action="{{ url_for('warrior_onslaught' ) }}" method="POST">
+        {% if onslaught_stacks > 0 %}
         <button type="submit">
             <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px">
         </button>
+        {% else %}
+        <button type="submit" disabled>
+            <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px"
+            style="filter: grayscale(100%); opacity: 75%">
+        </button>
+        {% endif %}
     </form>
     <h5 class="onslaught_cooldown">
         {{ onslaught_cd }}

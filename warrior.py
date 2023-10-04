@@ -12,15 +12,16 @@ class Warrior:
         self.primal_rend_duration = 0
 
         self.inner_release_stacks = 0
+        self.inner_release_cooldown = 0
         self.inner_release_buff = 0
 
-        self.infuriate_cooldown = 0
-        self.inner_release_cooldown = 0
-        self.upheaval_cooldown = 0
-        self.onslaught_cooldown = 0
-
-        self.onslaught_stacks = 3
         self.infuriate_stacks = 2
+        self.infuriate_cooldown = 0
+
+        self.upheaval_cooldown = 0
+
+        self.onslaught_cooldown = 0
+        self.onslaught_stacks = 3
 
     def use_gcd(self):
         if self.surging_tempest > 2.5:
@@ -61,16 +62,20 @@ class Warrior:
         if self.onslaught_cooldown > 2.5:
             self.onslaught_cooldown -= 2.5
         else:
-            self.onslaught_cooldown = 0
+            self.add_stack_onslaught()
 
     def add_stack(self):
         if self.infuriate_stacks < 2:
             if self.infuriate_cooldown <= 2.5:
                 self.infuriate_stacks += 1
 
-        if self.onslaught_stacks < 3:
-            if self.onslaught_cooldown <= 2.5:
-                self.onslaught_stacks += 1
+    def add_stack_onslaught(self):
+        if self.onslaught_stacks == 2:
+            self.onslaught_stacks += 1
+            self.onslaught_cooldown = 0
+        elif self.onslaught_stacks < 2:
+            self.onslaught_stacks += 1
+            self.onslaught_cooldown = 30
 
     def heavy_swing(self):
         self.use_gcd()
@@ -163,8 +168,11 @@ class Warrior:
             self.ogcd_reduction()
 
     def onslaught(self):
-        self.onslaught_cooldown = 30
-        self.onslaught_stacks -= 1
+        if self.onslaught_stacks == 3:
+            self.onslaught_stacks -= 1
+            self.onslaught_cooldown = 30
+        elif 1 <= self.onslaught_stacks <= 2:
+            self.onslaught_stacks -= 1
 
     def primal_rend(self):
         self.use_gcd()
