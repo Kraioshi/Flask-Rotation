@@ -1,3 +1,6 @@
+from decimal import Decimal
+
+
 class Warrior:
 
     def __init__(self):
@@ -24,47 +27,49 @@ class Warrior:
         self.onslaught_stacks = 3
 
     def use_gcd(self):
-        if self.surging_tempest > 2.5:
-            self.surging_tempest -= 2.5
-        elif self.surging_tempest <= 2.5:
+        if self.surging_tempest > Decimal(2.5):
+            self.surging_tempest -= Decimal(2.5)
+        elif self.surging_tempest <= Decimal(2.5):
             self.surging_tempest = 0
 
-        if self.inner_release_buff > 2.5:
-            self.inner_release_buff -= 2.5
+        if self.inner_release_buff > Decimal(2.5):
+            self.inner_release_buff -= Decimal(2.5)
         else:
             self.inner_release_buff = 0
             self.inner_release_stacks = 0
 
-        if self.primal_rend_duration > 2.5:
-            self.primal_rend_duration -= 2.5
+        if self.primal_rend_duration > Decimal(2.5):
+            self.primal_rend_duration -= Decimal(2.5)
         else:
             self.primal_rend_duration = 0
             self.primal_rend_ready = False
 
     def ogcd_reduction(self):
-        if self.inner_release_cooldown > 2.5:
-            self.inner_release_cooldown -= 2.5
+        if self.inner_release_cooldown > Decimal(2.5):
+            self.inner_release_cooldown -= Decimal(2.5)
         else:
             self.inner_release_cooldown = 0
 
-        if self.upheaval_cooldown > 2.5:
-            self.upheaval_cooldown -= 2.5
+        if self.upheaval_cooldown > Decimal(2.5):
+            self.upheaval_cooldown -= Decimal(2.5)
         else:
             self.upheaval_cooldown = 0
 
-        if self.infuriate_cooldown > 2.5:
-            self.infuriate_cooldown -= 2.5
+        if self.infuriate_cooldown > Decimal(2.5):
+            self.infuriate_cooldown -= Decimal(2.5)
         else:
             self.add_stack_infuriate()
 
-        if self.onslaught_cooldown > 2.5:
-            self.onslaught_cooldown -= 2.5
+        if self.onslaught_cooldown > Decimal(2.5):
+            self.onslaught_cooldown -= Decimal(2.5)
         else:
             self.add_stack_onslaught()
 
     def enhanced_infuriate_passive(self):
         if self.infuriate_stacks < 2:
-            self.infuriate_cooldown -= 5.0
+            self.infuriate_cooldown -= Decimal(5)
+            if self.infuriate_cooldown <= 2.5:
+                self.add_stack_infuriate()
 
     def add_stack_infuriate(self):
         if self.infuriate_stacks == 1:
@@ -72,7 +77,7 @@ class Warrior:
             self.infuriate_cooldown = 0
         elif self.infuriate_stacks == 0:
             self.infuriate_stacks += 1
-            self.infuriate_cooldown = 60
+            self.infuriate_cooldown = Decimal(60)
 
     def add_stack_onslaught(self):
         if self.onslaught_stacks == 2:
@@ -80,7 +85,7 @@ class Warrior:
             self.onslaught_cooldown = 0
         elif self.onslaught_stacks < 2:
             self.onslaught_stacks += 1
-            self.onslaught_cooldown = 30
+            self.onslaught_cooldown = Decimal(30)
 
     def heavy_swing(self):
         self.use_gcd()
@@ -187,7 +192,7 @@ class Warrior:
     def onslaught(self):
         if self.onslaught_stacks == 3:
             self.onslaught_stacks -= 1
-            self.onslaught_cooldown = 30
+            self.onslaught_cooldown = Decimal(30)
         elif 1 <= self.onslaught_stacks <= 2:
             self.onslaught_stacks -= 1
 
@@ -200,7 +205,23 @@ class Warrior:
 
 if __name__ == '__main__':
     w = Warrior()
+    w.heavy_swing()
     w.infuriate()
-    print(w.infuriate_cooldown)
-    w.ogcd_reduction()
+    w.maim()
+    w.storms_eye()
+
+    w.inner_release()
+    w.inner_chaos()
+    w.primal_rend()
+    w.infuriate()
+    w.inner_chaos()
+    w.inner_release_fell_cleave()
+    w.inner_release_fell_cleave()
+    w.inner_release_fell_cleave()
+
+    w.heavy_swing()
+    w.maim()
+    w.storms_path()
+    w.fell_cleave()
+
     print(w.infuriate_cooldown)
