@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, flash
+from flask_bootstrap import Bootstrap5
 from reaper import Reaper
 from warrior import Warrior
 from gnb import Gunbreaker
@@ -6,6 +7,7 @@ from gnb import Gunbreaker
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = 'secret'
+Bootstrap5(app)
 
 rpr = Reaper()
 war = Warrior()

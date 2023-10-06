@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %} Gunbreaker {% endblock %}
+
+{% block content %}
+<div class="flex-container" style="display: flex; justify-content: space-around;">
+    <div class="player">
+        <p>Player</p>
+        <hr style="width: 250px;">
+    </div>
+
+    <div class="main" style="text-align: center;">
+        <div class="gnb-main">
+            <p>no mercy</p>
+            <p>bow shock</p>
+            <p>blasting zone</p>
+            <p>bloodfest</p>
+            <p>sonic break</p>
+            <p>rough divide</p>
+
+        </div>
+
+        <div class="gnb-secondary">
+            <p>keen edge</p>
+            <p>brutal shell</p>
+            <p>solid barrel</p>
+            <p>gnashing fang - savage claw - wicked talon</p>
+            <p>burst strike</p>
+            <p>double down</p>
+        </div>
+
+        <div class="gnb-continuation">
+            <p>hypervelocity</p>
+            <p>continuation</p>
+            <p>juguular</p>
+            <p>abdomen</p>
+            <p>eye gouge</p>
+        </div>
+    </div>
+
+    <div class="target">
+        <p>Target</p>
+        <hr style="width: 250px;">
+    </div>
+</div>
+
+
+
+
+{% endblock %}

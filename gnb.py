@@ -48,3 +48,5 @@ class Gunbreaker:
     def hypervelocity(self):
         pass
 
+    def rough_divide(self):
+        pass
