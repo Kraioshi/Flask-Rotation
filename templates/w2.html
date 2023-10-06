@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block title %} TESTING {% endblock %}
+
+
+{% block content %}
+<div class="flex-container" style="display: flex; justify-content: space-around;">
+    <div class="player">
+        <p>Player</p>
+        <div class="progress" style="height: 14px; width: 350px;">
+            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+
+    <div class="main" style="text-align: center; justify-content: center;">
+        <p> GAMING </p>
+        <!-- GAUGE -->
+        <div class="progress" style="height: 14px; width: 295px;">
+            <div class="progress-bar" role="progressbar" style="width: 100%"
+                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                {{ warrior.beast_gauge }}
+            </div>
+        </div>
+
+        <div class="war-primary" style="display: flex;">
+            <!-- INNER RELEASE -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/inner_release.png') }}">
+                </button>
+            </form>
+
+            <!-- INFURIATE -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/infuriate.png') }}">
+                </button>
+            </form>
+
+            <!-- UPHEAVAL -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/upheaval.png') }}">
+                </button>
+            </form>
+
+            <!-- PRIMAL REND -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}">
+                </button>
+            </form>
+
+            <!-- ONSLAUGHT -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/onslaught.png') }}">
+                </button>
+            </form>
+
+
+        </div>
+
+        <div class="war-secondary" style="display: flex;">
+            <!-- HEAVY SWING -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/heavy_swing.png') }}">
+                </button>
+            </form>
+
+            <!-- MAIM -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/maim.png') }}">
+                </button>
+            </form>
+
+            <!-- STORMS EYE -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}">
+                </button>
+            </form>
+
+            <!-- STORMS PATH -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/storms_path.png') }}">
+                </button>
+            </form>
+
+
+            <!-- FELL CLEAVE -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}">
+                </button>
+            </form>
+
+            {% if warrior.beast_gauge > 120 %}
+            <!-- INNER CHAOS -->
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-outline-warning">
+                    <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}">
+                </button>
+            </form>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+
+    <div class="target">
+        <p>Target</p>
+        <div class="progress" style="height: 14px; width: 350px;">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

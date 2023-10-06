@@ -8,10 +8,19 @@
 <div class="flex-container" style="display: flex; justify-content: space-around;">
     <div class="player">
         <p>Player</p>
-        <hr style="width: 250px;">
+        <div class="progress" style="height: 14px; width: 350px;">
+            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
     </div>
 
     <div class="main" style="text-align: center;">
+
+        <!-- GAUGE -->
+        <div class="gauge">
+            <p></p>
+            <p></p>
+        </div>
+
         <div class="gnb-secondary" style="display: flex;">
             <!-- NO MERCY -->
             <form action="" method="POST">
@@ -121,7 +130,9 @@
 
     <div class="target">
         <p>Target</p>
-        <hr style="width: 250px;">
+        <div class="progress" style="height: 14px; width: 350px;">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
     </div>
 </div>
 

@@ -180,5 +180,10 @@ def gunbreaker():
     return render_template('gunbreaker.html')
 
 
+@app.route('/test')
+def test():
+    return render_template('w2.html', warrior=war)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
