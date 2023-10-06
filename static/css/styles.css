@@ -277,3 +277,16 @@
 .fa-circle {
     font-size: 15px;
 }
+
+
+/* GNB GNB GNB */
+
+.btn-outline-warning {
+    padding: 1.25px;
+    margin: 1.5px;
+    border: 2px solid black;
+}
+
+.gnb-action{
+    width: 50px;
+}
