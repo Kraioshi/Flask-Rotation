@@ -182,6 +182,7 @@ def gunbreaker():
 
 @app.route('/test')
 def test():
+
     return render_template('w2.html', warrior=war)
 
 
