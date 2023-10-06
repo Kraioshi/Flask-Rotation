@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash
 from reaper import Reaper
 from warrior import Warrior
+from gnb import Gunbreaker
 
 app = Flask(__name__)
 
@@ -8,6 +9,7 @@ app.config["SECRET_KEY"] = 'secret'
 
 rpr = Reaper()
 war = Warrior()
+gnb = Gunbreaker()
 
 
 @app.route("/")
@@ -167,6 +169,13 @@ def warrior_reset():
     global war
     war = Warrior()
     return redirect(url_for('warrior'))
+
+
+# GUNBREAKER
+
+@app.route('/gunbreaker')
+def gunbreaker():
+    return render_template('gunbreaker.html')
 
 
 if __name__ == '__main__':
