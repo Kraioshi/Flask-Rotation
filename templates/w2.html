@@ -39,8 +39,10 @@
                     <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/inner_release.png') }}">
                 </button>
                 {% else %}
-                <button type="submit" class="btn btn-outline-dark" disabled>
+                <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                    <span class="cooldown-text"> {{ warrior.inner_release_cooldown }}</span>
                     <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/inner_release.png') }}">
+
                 </button>
                 {% endif %}
             </form>
@@ -53,7 +55,7 @@
                     <img class="war-action" src="{{ url_for('static', filename='images/warrior/infuriate.png') }}">
                 </button>
                 {% else %}
-                <button type="submit" class="btn btn-outline-dark" disabled>
+                <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
                     <img class="war-action" src="{{ url_for('static', filename='images/warrior/infuriate.png') }}">
                 </button>
                 {% endif %}
@@ -66,7 +68,10 @@
                     <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/upheaval.png') }}">
                 </button>
                 {% else %}
-                <button type="submit" class="btn btn-outline-dark" disabled>
+                <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                    <span class="cooldown-text">
+                        {{ warrior.upheaval_cooldown }}
+                    </span>
                     <img class="war-action" src="{{ url_for('static', filename='images/warrior/upheaval.png') }}">
                 </button>
                 {% endif %}
@@ -179,6 +184,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 
