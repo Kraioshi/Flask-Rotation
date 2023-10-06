@@ -13,10 +13,6 @@
     </div>
 
     <div class="main" style="text-align: center; justify-content: center;">
-        <div>
-
-        </div>
-
 
         <!-- GAUGE -->
         <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
@@ -187,6 +183,70 @@
 
         </div>
 
+        <div class="combo-points" style="display: flex;">
+
+        </div>
+
+        <div class="gauge-icons" style="display: flex; justify-content: space-between;">
+            <div class="combo-zero" style="position: relative; left: 6.5%">
+                {% if warrior.combo_status == 0 %}
+                    <i class="fa-solid fa-circle"></i>
+                {% else %}
+                    <i class="fa-regular fa-circle"></i>
+                {% endif %}
+            </div>
+
+            <div class="combo-one" style="position: relative; left: 5%">
+                {% if warrior.combo_status == 1 %}
+                    <i class="fa-solid fa-circle"></i>
+                {% else %}
+                    <i class="fa-regular fa-circle"></i>
+                {% endif %}
+            </div>
+
+            <div class="combo-two">
+                {% if warrior.combo_status == 2 %}
+                    <i class="fa-solid fa-circle"></i>
+                {% else %}
+                    <i class="fa-regular fa-circle"></i>
+                {% endif %}
+            </div>
+
+            <div class="combo-two">
+                {% if warrior.combo_status == 2 %}
+                    <i class="fa-solid fa-circle"></i>
+                {% else %}
+                    <i class="fa-regular fa-circle"></i>
+                {% endif %}
+            </div>
+
+            <div class="combo-fell-cleave-ready">
+                {% if warrior.inner_release_stacks == 3 %}
+                    <div class="free-cleaves">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <i class="fa-regular fa-circle-dot"></i>
+                    </div>
+                {% elif warrior.inner_release_stacks == 2 %}
+                    <div class="free-cleaves">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <i class="fa-regular fa-circle"></i>
+                    </div>
+                {% elif warrior.inner_release_stacks == 1 %}
+                    <div class="free-cleaves">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-regular fa-circle"></i>
+                    </div>
+                {% else %}
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                {% endif %}
+            </div>
+
+        </div>
 
 
         <!-- RESET -->
@@ -195,6 +255,8 @@
         </form>
     </div>
 
+
+
     <div class="target">
         <p>Target</p>
         <div class="progress" style="height: 14px; width: 350px;">
@@ -202,7 +264,6 @@
         </div>
     </div>
 </div>
-
 
 
 

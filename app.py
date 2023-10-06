@@ -76,20 +76,8 @@ def reaper_reset():
 
 @app.route('/warrior')
 def warrior():
-    gauge = 100
-    gauge = min(gauge, 100)
-    return render_template('warrior.html', gauge=war.beast_gauge, combo=war.combo_status,
-                           tempest=war.surging_tempest, chaos_ready=war.nascent_chaos_ready,
-                           inner_release_cd=war.inner_release_cooldown,
-                           infuriate_cd=war.infuriate_cooldown,
-                           upheaval_cd=war.upheaval_cooldown,
-                           onslaught_cd=war.onslaught_cooldown,
-                           primal_rend_status=war.primal_rend_ready,
-                           inner_release_stacks=war.inner_release_stacks,
-                           inner_release_buff=war.inner_release_buff,
-                           primal_rend_duration=war.primal_rend_duration,
-                           infuriate_stacks=war.infuriate_stacks,
-                           onslaught_stacks=war.onslaught_stacks)
+
+    return render_template('warrior.html', warrior=war)
 
 
 @app.route('/warrior_heavy_swing', methods=["POST"])
