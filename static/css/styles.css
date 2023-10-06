@@ -3,18 +3,13 @@
     justify-content: center;
 }
 
+/* PROGRESS BAR */
 
-.progress {
-    height: 12px;
-    color: red;
-    border: 1px solid yellow;
+.progress-value {
+    position: absolute;
+    left: 0;
+    right:0;
 }
-
-.progress-text{
-    position: relative;
-    top: 3px;
-}
-
 
 .container-warrior {
     display: flex;
@@ -282,6 +277,18 @@
 /* GNB GNB GNB */
 
 .btn-outline-warning {
+    padding: 1.25px;
+    margin: 1.5px;
+    border: 2px solid black;
+}
+
+.btn-outline-dark {
+    padding: 1.25px;
+    margin: 1.5px;
+    border: 2px solid black;
+}
+
+.btn {
     padding: 1.25px;
     margin: 1.5px;
     border: 2px solid black;
