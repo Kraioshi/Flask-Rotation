@@ -13,7 +13,9 @@
     </div>
 
     <div class="main" style="text-align: center; justify-content: center;">
-        <p> GAMING </p>
+        <div>
+
+        </div>
 
 
         <!-- GAUGE -->
@@ -162,20 +164,11 @@
 
         </div>
 
-        <!-- SURGING TEMPEST -->
-        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
-                <div class="progress-bar bg-info" role="progressbar" style="width: {{ warrior.beast_gauge }}%"
-                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="60">
-                    <div class="progress-value">
-                        {{ warrior.surging_tempest }}
-                    </div>
-                </div>
 
-        </div>
 
         <!-- RESET -->
         <form action="{{ url_for('warrior_reset') }}" method="POST">
-            <button type="submit" class="btn btn-outline-primary">Primary</button>
+            <button type="submit" class="btn btn-outline-dark">Reset!</button>
         </form>
     </div>
 

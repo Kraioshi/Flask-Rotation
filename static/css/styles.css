@@ -10,9 +10,14 @@
     border: 2px solid rgba(0, 0, 0, .5);
 }
 .progress-value {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
     position: absolute;
     left: 0;
     right:0;
+    -webkit-text-stroke-width: 0.6px;
+    -webkit-text-stroke-color: black;
 }
 
 .container-warrior {
