@@ -17,7 +17,7 @@
 
 
         <!-- GAUGE -->
-        <div class="progress" style="height: 14px; width: 295px; background-color:#767676;">
+        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
                 <div class="progress-bar bg-dark" role="progressbar" style="width: {{ warrior.beast_gauge }}%"
                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-value">
@@ -163,11 +163,14 @@
         </div>
 
         <!-- SURGING TEMPEST -->
-        <div class="progress" style="height: 14px; width: 295px;">
-            <div class="progress-bar" role="progressbar" style="width: 100%"
-                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                {{ warrior.surging_tempest }}
-            </div>
+        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: {{ warrior.beast_gauge }}%"
+                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="60">
+                    <div class="progress-value">
+                        {{ warrior.surging_tempest }}
+                    </div>
+                </div>
+
         </div>
 
         <!-- RESET -->
