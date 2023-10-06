@@ -23,7 +23,6 @@
 /* COOLDOWN TEXT*/
 
 .cooldown-text {
-
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -31,6 +30,9 @@
     top: 50%; left: 50%; transform: translate(-50%, -50%);
     text-shadow: -2px 0 black, 0 2px black, 3px 0 black, 0 -1px black;
 
+}
+
+.stack_text {
 }
 
 

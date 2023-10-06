@@ -51,11 +51,15 @@
             <!-- INFURIATE -->
             <form action="{{ url_for('warrior_infuriate') }}" method="POST">
                 {% if warrior.infuriate_stacks > 0 %}
-                <button type="submit" class="btn btn-outline-dark">
+                <button type="submit" class="btn btn-outline-dark" style="position: relative;">
+
                     <img class="war-action" src="{{ url_for('static', filename='images/warrior/infuriate.png') }}">
                 </button>
                 {% else %}
                 <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                    <span class="cooldown-text">
+                        {{ warrior.infuriate_cooldown }}
+                    </span>
                     <img class="war-action" src="{{ url_for('static', filename='images/warrior/infuriate.png') }}">
                 </button>
                 {% endif %}
@@ -97,7 +101,10 @@
                     <img class="war-action" src="{{ url_for('static', filename='images/warrior/onslaught.png') }}">
                 </button>
                 {% else %}
-                    <button type="submit" class="btn btn-outline-dark" disabled>
+                    <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                    <span class="cooldown-text">
+                        {{ warrior.infuriate_cooldown }}
+                    </span>
                         <img class="war-action" src="{{ url_for('static', filename='images/warrior/onslaught.png') }}">
                     </button>
                 {% endif %}
