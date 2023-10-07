@@ -149,8 +149,6 @@ class Warrior:
         self.enhanced_infuriate_passive()
         if self.beast_gauge >= 50:
             self.beast_gauge -= 50
-        else:
-            print("Not enough Beast Gauge")
 
     def inner_chaos(self):
         self.use_gcd()

@@ -76,7 +76,8 @@ def reaper_reset():
 
 @app.route('/warrior')
 def warrior():
-    return render_template('warrior/warrior.html', warrior=war)
+    warrior_data = {"inner_release_stacks": war.inner_release_stacks}
+    return render_template('warrior/warrior.html', warrior=war, warrior_data=warrior_data)
 
 
 @app.route('/warrior_heavy_swing', methods=["POST"])

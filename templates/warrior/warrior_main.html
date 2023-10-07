@@ -149,10 +149,10 @@
             </button>
         </form>
 
+        <div id="innerReleaseStacks" data-inner-release-stacks="{{ warrior_data.inner_release_stacks }}"></div>
 
         <!-- FELL CLEAVE -->
         <!-- INNER CHAOS -->
-
         {% if warrior.nascent_chaos_ready %}
         <form action="{{url_for('warrior_inner_chaos') }}" method="POST">
             <button id="inner_chaos" type="submit" class="btn btn-outline-dark">
@@ -162,7 +162,7 @@
         {% else %}
             {% if warrior.inner_release_stacks > 0 and warrior.inner_release_buff > 0 %}
                 <form action="{{url_for('warrior_inner_release_fell_cleave') }}" method="POST">
-                    <button id="fell_clave" type="submit" class="btn btn-outline-dark">
+                    <button id="inner_release_fell_cleave" type="submit" class="btn btn-outline-dark">
                         <img class="war-action" src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}">
                     </button>
                 </form>
@@ -257,6 +257,22 @@
 </div>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var innerReleaseStacks = parseInt(document.getElementById('innerReleaseStacks').getAttribute('data-inner-release-stacks'));
+        console.log('innerReleaseStacks:', innerReleaseStacks);
+
+        document.addEventListener('keydown', function(event) {
+            if (innerReleaseStacks > 0) {
+                switch (event.key) {
+                    case "5":
+                        document.getElementById("inner_release_fell_cleave").click();
+                        break;
+                }
+            }
+        });
+    });
+
+
     document.addEventListener('keydown', function(event) {
         switch (event.key) {
             case "1":
@@ -289,6 +305,7 @@
             }
         });
 
+
     document.addEventListener('keydown', function(event) {
         switch (event.key) {
             case "5":
@@ -297,6 +314,7 @@
             }
         });
 
+
     document.addEventListener('keydown', function(event) {
         switch (event.key) {
             case "5":
@@ -304,6 +322,7 @@
                 break
             }
         });
+
 
     document.addEventListener('keydown', function(event) {
         if (event.altKey && event.key === "1") {
