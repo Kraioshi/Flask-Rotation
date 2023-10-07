@@ -3,20 +3,29 @@
 {% block title %} Warrior {% endblock %}
 
 {% block content %}
-<div class="flex-container" style="display: flex; justify-content: space-around;">
-</div>
-<div class="flex-container" style="display: flex; justify-content: space-around;">
 
+<div class="flex-container" style="display: flex; justify-content: space-around;">
     <!-- Player -->
     {% include 'warrior/warrior_player.html' %}
 
+    <div class="contentToUpdate">
+
     <!-- Main -->
     {% include 'warrior/warrior_main.html' %}
-
+    </div>
     <!-- Target -->
     {% include 'warrior/warrior_target.html' %}
+
 </div>
 
+{% endblock %}
 
+{% block scripts %}
+
+<script src="/static/js/warrior_routing.js"></script>
 
 {% endblock %}
+
+
+
+
