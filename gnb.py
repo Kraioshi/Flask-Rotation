@@ -4,6 +4,18 @@ class Gunbreaker:
         self.combo = 0
         self.cartridge = 0
 
+        self.gnashing_fang_cooldown = 0
+
+        self.ready_to_blast = False
+
+        self.ready_to_rip = False
+        self.ready_to_tear = False
+        self.ready_to_gouge = False
+
+        self.jugular_rip_ready = False
+        self.abdomen_tear_ready = False
+        self.eye_gouge_ready = False
+
     def keen_edge(self):
         self.combo = 1
 
@@ -25,15 +37,22 @@ class Gunbreaker:
     def burst_strike(self):
         if self.cartridge:
             self.cartridge -= 1
+            self.ready_to_blast = True
 
     def gnashing_fang(self):
-        pass
+        if self.cartridge:
+            self.cartridge -= 1
+            self.gnashing_fang_cooldown = 30
+            self.ready_to_rip = True
+            self.jugular_rip_ready = True
 
     def savage_claw(self):
-        pass
+        self.ready_to_tear = True
+        self.abdomen_tear_ready = True
 
     def wicked_talon(self):
-        pass
+        self.ready_to_gouge = True
+        self.eye_gouge_ready = True
 
     def sonic_break(self):
         pass

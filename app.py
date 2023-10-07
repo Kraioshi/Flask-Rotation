@@ -192,5 +192,17 @@ def burst_strike():
     return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
 
 
+@app.route('/gnashing_fang', methods=['POST'])
+def gnashing_fang():
+    gnb.gnashing_fang()
+    return jsonify({
+        "combo": gnb.combo,
+        "cartridge": gnb.cartridge,
+        "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+        "ready_to_rip": gnb.ready_to_rip,
+        "jugular_rip_ready": gnb.jugular_rip_ready
+    })
+
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -10,6 +10,7 @@
 
 <p id="combo">Combo: {{ gnb.combo }}</p>
 <p id="cartridge">Cartridge: {{ gnb.cartridge }}</p>
+<p id="gnashing_fang_cooldown">Gnashing Fang</p>
 
 
 <button class="btn btn-outline-dark" id="keen-edge">
@@ -26,6 +27,10 @@
 
 <button class="btn btn-outline-dark" id="burst-strike">
     <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
+</button>
+
+<button class="bgn btn-outline-dark" id="gnashing-fang">
+    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
 </button>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -84,6 +89,19 @@
                 }
             });
         });
+
+        $("#gnashing-fang").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/gnashing_fang",
+                success: function (response) {
+                    updateComboDisplay(response.combo);
+                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                }
+            });
+        });
+
+
 
     });
 </script>
