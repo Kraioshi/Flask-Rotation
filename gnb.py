@@ -15,15 +15,21 @@ class Gunbreaker:
         self.ready_to_gouge = False
 
     def keen_edge(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         self.combo = 1
 
     def brutal_shell(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         if self.combo == 1:
             self.combo = 2
         else:
             self.combo = 0
 
     def solid_barrel(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         if self.combo == 2:
             if self.cartridge < 3:
                 self.cartridge += 1
@@ -33,6 +39,8 @@ class Gunbreaker:
                 self.combo = 0
 
     def burst_strike(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         if self.cartridge > 0:
             self.cartridge -= 1
             self.ready_to_blast = True
@@ -79,6 +87,15 @@ class Gunbreaker:
 
     def rough_divide(self):
         pass
+
+    def reduce_gcd(self):
+        pass
+
+    def reduce_ogcd(self):
+        if self.gnashing_fang_cooldown > 2.5:
+            self.gnashing_fang_cooldown -= 2.5
+        else:
+            self.gnashing_fang_cooldown = 0
 
 
 if __name__ == "__main__":

@@ -30,7 +30,6 @@
         <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
     </button>
 
-    </button>
     <button class="btn btn-outline-dark" id="gnashing-fang">
         <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
     </button>
@@ -42,6 +41,13 @@
     </button>
 </div>
 
+<div>
+    <form action="{{url_for('gunbreaker_reset') }}" method="POST">
+        <button class="btn btn-outline-dark">
+            Reset!
+        </button>
+    </form>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -60,9 +66,7 @@
 
         updateBurstStrikeButtonState({{ gnb.cartridge }});
 
-        function updateBurstStrikeButtonState(cartridgeValue, gnashingFangCooldownValue) {
-        console.log("Cartridge Value: " + cartridgeValue);
-        console.log("Gnashing Fang Cooldown Value: " + gnashingFangCooldownValue);
+        function updateBurstStrikeButtonState(cartridgeValue) {
 
         if (cartridgeValue === 0) {
             $("#disabled-burst-strike").prop("disabled", true);
@@ -73,6 +77,8 @@
             $("#burst-strike").prop("disabled", false);
 
         }
+
+
     }
 
 
@@ -82,6 +88,7 @@
                 url: "/keen_edge",
                 success: function (response) {
                     updateComboDisplay(response.combo);
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -95,6 +102,7 @@
                 url: "/brutal_shell",
                 success: function (response) {
                     updateComboDisplay(response.combo);
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -106,6 +114,7 @@
                 url: "/solid_barrel",
                 success: function (response) {
                     updateComboDisplay(response.combo);
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     updateBurstStrikeButtonState(response.cartridge);
                 }
@@ -119,6 +128,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateBurstStrikeButtonState(response.cartridge);
                 }
             });
@@ -131,8 +141,8 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateCartridgeDisplay(response.cartridge);
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown)
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
-                    $("p#gnashing_fang_cooldown").text("Gnashing Fang: " + response.gnashing_fang_cooldown);
                     $("p#ready_to_rip").text("Ready To Rip? " + response.ready_to_rip);
                     updateBurstStrikeButtonState(response.cartridge);
                 }

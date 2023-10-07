@@ -171,25 +171,29 @@ def gunbreaker():
 @app.route('/keen_edge', methods=['POST'])
 def keen_edge():
     gnb.keen_edge()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown})
 
 
 @app.route('/brutal_shell', methods=['POST'])
 def brutal_shell():
     gnb.brutal_shell()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown})
 
 
 @app.route('/solid_barrel', methods=['POST'])
 def solid_barrel():
     gnb.solid_barrel()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown})
 
 
 @app.route("/burst_strike", methods=['POST'])
 def burst_strike():
     gnb.burst_strike()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                   "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown})
 
 
 @app.route('/gnashing_fang', methods=['POST'])
@@ -206,6 +210,14 @@ def gnashing_fang():
 @app.route('/jugular_rip', methods=["POST"])
 def jugular_rip():
     gnb.jugular_rip()
+
+
+@app.route('/gunbreaker_reset', methods=["POST"])
+def gunbreaker_reset():
+    global gnb
+    gnb = Gunbreaker()
+    return redirect(url_for('gunbreaker'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
