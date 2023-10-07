@@ -15,8 +15,54 @@
         <div class="progress" style="height: 14px; width: 290px;">
             <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+
+        <div class="buffs" style="display: flex; direction: rtl; gap: 4px; margin-top: 3px;">
+                <div class="warrior-buff-tempest">
+                    {% if warrior.surging_tempest %}
+                        <img src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="27.5px" height="26px"
+                        style="border: 2px solid black; border-radius: 5px;">
+                        <p style="font-weight: bold; font-size: 14px; position: relative; bottom: 3px; text-align: center;">
+                            {{ warrior.surging_tempest }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <div class="warrior-buff-inner_release">
+                    {% if warrior.inner_release_buff > 0 %}
+                        <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="27.5px" height="26px"
+                        style="border: 1px solid black; border-radius: 5px;">
+                        <p style="font-weight: bold; font-size: 14px; text-align: center; position: relative; bottom: 3px;">
+                            {{ warrior.inner_release_buff }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <div class="warrior-buff-inner_release">
+                    {% if warrior.inner_release_stacks > 0 %}
+                        <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="27.5px" height="26px"
+                        style="border: 1px solid black; border-radius: 5px;">
+                        <p style="color: red; font-weight: bold; font-size: 14px; text-align: center; position: relative; bottom: 3px;">
+                            {{ warrior.inner_release_stacks }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <div class="warrior-buff-inner_release">
+                    {% if warrior.primal_rend_ready %}
+                        <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="27.5px" height="26px"
+                        style="border: 1px solid black; border-radius: 5px;">
+                        <p style="font-weight: bold; font-size: 14px; text-align: center; position: relative; bottom: 3px;">
+                            {{ warrior.primal_rend_duration }}
+                        </p>
+                    {% endif %}
+                </div>
+
+            </div>
     </div>
 
+    <!-- CENTER -->
+    <!-- CENTER -->
+    <!-- CENTER -->
     <div class="main" style="text-align: center; justify-content: center; margin-top: 30px">
 
         <!-- GAUGE -->
@@ -287,6 +333,14 @@
             <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
     </div>
+</div>
+
+<hr>
+<div class="flex-container">
+    <div class="opener">
+        opener
+    </div>
+
 </div>
 
 
