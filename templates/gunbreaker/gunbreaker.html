@@ -7,7 +7,7 @@
 {% block content %}
 
 <h1>Gunbreaker</h1>
-<div class="container" style="display: flex; gap: 50px;">
+<div class="container" style="display: flex; gap: 100px;">
     <div class="left">
         <p id="combo">Combo: {{ gnb.combo }}</p>
         <p id="cartridge">Cartridge: {{ gnb.cartridge }}</p>
@@ -17,7 +17,7 @@
         <p id="ready_to_gouge">Ready To Gouge? </p>
     </div>
     <div class="right">
-        <p id="double_down_cooldown">Bloodfest</p>
+        <p id="double_down_cooldown">Double Down</p>
         <p id="bloodfest_cooldown">Bloodfest</p>
         <p id="blasting_zone_cooldown">Blasting Zone</p>
         <p id="bow_shock_cooldown">Bow Shock</p>
@@ -50,7 +50,7 @@
         <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
     </button>
 
-    <button class="btn btn-outline-dark" id="double_down">
+    <button class="btn btn-outline-dark" id="double-down">
         <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
     </button>
 </div>
@@ -113,7 +113,9 @@
             $("#gnashing_fang_cooldown").text("Gnashing Fang CD: " + gnashingFangCooldownValue);
         }
 
-
+        function updateDoubleDownCooldownDisplay(doubleDownCooldownValue) {
+            $("#double_down_cooldown").text("Double Down CD: " + doubleDownCooldownValue)
+        }
 
         updateBurstStrikeButtonState({{ gnb.cartridge }});
 
@@ -140,6 +142,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -154,6 +157,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -167,6 +171,7 @@
                     updateComboDisplay(response.combo);
                     updateCartridgeDisplay(response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     updateBurstStrikeButtonState(response.cartridge);
                 }
@@ -181,6 +186,7 @@
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateBurstStrikeButtonState(response.cartridge);
                 }
             });
@@ -194,12 +200,32 @@
                     updateComboDisplay(response.combo);
                     updateCartridgeDisplay(response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown)
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     $("p#ready_to_rip").text("Ready To Rip? " + response.ready_to_rip);
                     updateBurstStrikeButtonState(response.cartridge);
                 }
             });
         });
+
+        $("#double-down").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/double_down",
+                success: function (response) {
+                    updateCartridgeDisplay(response.cartridge);
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateBurstStrikeButtonState(response.cartridge);
+                },
+                error: function (error) {
+                    console.error("Error:", error);
+                }
+            });
+        });
+
+
 
     });
 </script>

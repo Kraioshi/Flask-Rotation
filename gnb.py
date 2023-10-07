@@ -102,13 +102,18 @@ class Gunbreaker:
         self.rough_divide_cooldown = 30
 
     def reduce_gcd(self):
-        pass
-
-    def reduce_ogcd(self):
         if self.gnashing_fang_cooldown > 2.5:
             self.gnashing_fang_cooldown -= 2.5
         else:
             self.gnashing_fang_cooldown = 0
+
+        if self.double_down_cooldown > 2.5:
+            self.double_down_cooldown -= 2.5
+        else:
+            self.double_down_cooldown = 0
+
+    def reduce_ogcd(self):
+        pass
 
 
 if __name__ == "__main__":
