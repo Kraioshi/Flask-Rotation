@@ -76,7 +76,6 @@ def reaper_reset():
 
 @app.route('/warrior')
 def warrior():
-
     return render_template('warrior.html', warrior=war)
 
 
@@ -166,12 +165,6 @@ def warrior_reset():
 @app.route('/gunbreaker')
 def gunbreaker():
     return render_template('gunbreaker.html')
-
-
-@app.route('/test')
-def test():
-
-    return render_template('w2.html', warrior=war)
 
 
 if __name__ == '__main__':

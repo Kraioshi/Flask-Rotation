@@ -334,10 +334,10 @@
     width: 50px;
 }
 
-/*
-.combo-border {
-    border: 2px dashed yellow;
-    padding: 20px 40px 20px 20px;
-    border-radius: 5px;
+.fa-circle {
+    font-size: 12px;
+    position: relative;
+    top: -5px;
 }
-*/
+
+

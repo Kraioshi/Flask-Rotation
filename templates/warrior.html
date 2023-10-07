@@ -25,6 +25,17 @@
 
         </div>
 
+        <!-- Surging Tempest -->
+        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: {{ ( warrior.surging_tempest / 60 ) * 100 }}%"
+                     aria-valuenow="{{ warrior.surging_tempest }}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-value">
+                        {{ warrior.surging_tempest }}
+                    </div>
+                </div>
+
+        </div>
+
         <!-- ABILITIES -->
 
         <div class="war-primary" style="display: flex;">
@@ -188,7 +199,7 @@
         </div>
 
         <div class="gauge-icons" style="display: flex; justify-content: space-between;">
-            <div class="combo-zero" style="position: relative; left: 6.5%">
+            <div class="combo-zero" style="position: relative; left: 7.5%">
                 {% if warrior.combo_status == 0 %}
                     <i class="fa-solid fa-circle"></i>
                 {% else %}
@@ -196,7 +207,7 @@
                 {% endif %}
             </div>
 
-            <div class="combo-one" style="position: relative; left: 5%">
+            <div class="combo-one" style="position: relative; left: 7%">
                 {% if warrior.combo_status == 1 %}
                     <i class="fa-solid fa-circle"></i>
                 {% else %}
@@ -204,7 +215,7 @@
                 {% endif %}
             </div>
 
-            <div class="combo-two">
+            <div class="combo-two" style="position: relative; left: 6%; ">
                 {% if warrior.combo_status == 2 %}
                     <i class="fa-solid fa-circle"></i>
                 {% else %}
@@ -212,7 +223,7 @@
                 {% endif %}
             </div>
 
-            <div class="combo-two">
+            <div class="combo-two" style="position: relative; left: 4.5%; ">
                 {% if warrior.combo_status == 2 %}
                     <i class="fa-solid fa-circle"></i>
                 {% else %}
@@ -220,7 +231,7 @@
                 {% endif %}
             </div>
 
-            <div class="combo-fell-cleave-ready">
+            <div class="combo-fell-cleave-ready" style="position: relative; right: 2%">
                 {% if warrior.inner_release_stacks == 3 %}
                     <div class="free-cleaves">
                         <i class="fa-regular fa-circle-dot"></i>
