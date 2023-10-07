@@ -15,25 +15,28 @@
     <div class="main" style="text-align: center; justify-content: center;">
 
         <!-- GAUGE -->
-        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
+        <div class="war-gauge" style="margin-bottom: 6px">
+            <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
                 <div class="progress-bar bg-dark" role="progressbar" style="width: {{ warrior.beast_gauge }}%"
                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-value">
                         {{ warrior.beast_gauge }}
                     </div>
                 </div>
-
+            </div>
         </div>
 
         <!-- Surging Tempest -->
-        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: {{ ( warrior.surging_tempest / 60 ) * 100 }}%"
+        <div class="war-surging" style="margin-bottom: 6px;">
+            <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ ( warrior.surging_tempest / 60 ) * 100 }}%"
                      aria-valuenow="{{ warrior.surging_tempest }}" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-value">
                         {{ warrior.surging_tempest }}
                     </div>
                 </div>
 
+        </div>
         </div>
 
         <!-- ABILITIES -->
@@ -201,9 +204,9 @@
         <div class="gauge-icons" style="display: flex; justify-content: space-between;">
             <div class="combo-zero" style="position: relative; left: 7.5%">
                 {% if warrior.combo_status == 0 %}
-                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-solid fa-circle" style="color: white;"></i>
                 {% else %}
-                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle" style="color: white;"></i>
                 {% endif %}
             </div>
 
@@ -211,7 +214,7 @@
                 {% if warrior.combo_status == 1 %}
                     <i class="fa-solid fa-circle"></i>
                 {% else %}
-                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle" style="color: white;"></i>
                 {% endif %}
             </div>
 
@@ -219,7 +222,7 @@
                 {% if warrior.combo_status == 2 %}
                     <i class="fa-solid fa-circle"></i>
                 {% else %}
-                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle" style="color: white;"></i>
                 {% endif %}
             </div>
 
@@ -227,21 +230,22 @@
                 {% if warrior.combo_status == 2 %}
                     <i class="fa-solid fa-circle"></i>
                 {% else %}
-                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle" style="color: white;"></i>
                 {% endif %}
             </div>
 
             <div class="combo-fell-cleave-ready" style="position: relative; right: 2%">
                 {% if warrior.inner_release_stacks == 3 %}
                     <div class="free-cleaves">
-                        <i class="fa-regular fa-circle-dot"></i>
-                        <i class="fa-regular fa-circle-dot"></i>
-                        <i class="fa-regular fa-circle-dot"></i>
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-circle"></i>
+
                     </div>
                 {% elif warrior.inner_release_stacks == 2 %}
                     <div class="free-cleaves">
-                        <i class="fa-regular fa-circle-dot"></i>
-                        <i class="fa-regular fa-circle-dot"></i>
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-circle"></i>
                         <i class="fa-regular fa-circle"></i>
                     </div>
                 {% elif warrior.inner_release_stacks == 1 %}
@@ -251,9 +255,9 @@
                         <i class="fa-regular fa-circle"></i>
                     </div>
                 {% else %}
-                    <i class="fa-regular fa-circle"></i>
-                    <i class="fa-regular fa-circle"></i>
-                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle" style="color: white"></i>
+                    <i class="fa-regular fa-circle" style="color: white"></i>
+                    <i class="fa-regular fa-circle" style="color: white"></i>
                 {% endif %}
             </div>
 
