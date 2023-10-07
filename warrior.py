@@ -12,6 +12,7 @@ class Warrior:
         self.nascent_chaos_ready = False
         self.primal_rend_ready = False
 
+        self.nascent_chaos_duration = 0
         self.primal_rend_duration = 0
 
         self.inner_release_stacks = 0
@@ -152,9 +153,11 @@ class Warrior:
 
         self.beast_gauge -= 50
         self.nascent_chaos_ready = False
+        self.nascent_chaos_duration = 0
 
     def infuriate(self):
         self.nascent_chaos_ready = True
+        self.nascent_chaos_duration = 30
         if self.infuriate_stacks == 2:
             self.infuriate_cooldown = 60
             self.infuriate_stacks -= 1
