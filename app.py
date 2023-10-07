@@ -200,9 +200,12 @@ def gnashing_fang():
         "cartridge": gnb.cartridge,
         "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
         "ready_to_rip": gnb.ready_to_rip,
-        "jugular_rip_ready": gnb.jugular_rip_ready
     })
 
+
+@app.route('/jugular_rip', methods=["POST"])
+def jugular_rip():
+    gnb.jugular_rip()
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -11,27 +11,37 @@
 <p id="combo">Combo: {{ gnb.combo }}</p>
 <p id="cartridge">Cartridge: {{ gnb.cartridge }}</p>
 <p id="gnashing_fang_cooldown">Gnashing Fang</p>
+<p id="ready_to_rip">Ready To Rip?</p>
 
+<div>
+    <button class="btn btn-outline-dark" id="keen-edge">
+        <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/keen_edge.png')}}">
+    </button>
 
-<button class="btn btn-outline-dark" id="keen-edge">
-    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/keen_edge.png')}}">
-</button>
+    <button class="btn btn-outline-dark" id="brutal-shell">
+        <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png')}}">
+    </button>
 
-<button class="btn btn-outline-dark" id="brutal-shell">
-    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png')}}">
-</button>
+    <button class="btn btn-outline-dark" id="solid-barrel">
+        <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/solid_barrel.png')}}">
+    </button>
 
-<button class="btn btn-outline-dark" id="solid-barrel">
-    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/solid_barrel.png')}}">
-</button>
+    <button class="btn btn-outline-dark" id="burst-strike">
+        <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
+    </button>
 
-<button class="btn btn-outline-dark" id="burst-strike">
-    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
-</button>
+    </button>
+    <button class="btn btn-outline-dark" id="gnashing-fang">
+        <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
+    </button>
+</div>
 
-<button class="bgn btn-outline-dark" id="gnashing-fang">
-    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
-</button>
+<div>
+    <button class="btn btn-outline-dark" id="jugular-rip">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/jugular_rip.png') }}">
+    </button>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -41,8 +51,27 @@
         }
 
         function updateCartridgeDisplay(cartridgeValue) {
-            $("#cartridge").text("Cartridge: " +cartridgeValue);
+            $("#cartridge").text("Cartridge: " + cartridgeValue);
         }
+
+        function updateGnashingFangCooldownDisplay(gnashingFangCooldownValue) {
+            $("#gnashing_fang_cooldown").text("Gnashing Fang CD: " + gnashingFangCooldownValue);
+        }
+
+        updateButtonState({{ gnb.cartridge }});
+
+        function updateButtonState(cartridgeValue) {
+            if (cartridgeValue === 0) {
+                $("#disabled-gnashing-fang").prop("disabled", true);
+                $("#gnashing-fang").prop("disabled", true);
+            } else {
+                $("#disabled-gnashing-fang").prop("disabled", false);
+                $("#gnashing-fang").prop("disabled", false);
+            }
+        }
+
+
+
 
         $("#keen-edge").click(function () {
             $.ajax({
@@ -51,6 +80,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateButtonState(response.cartridge);
                 }
             });
         });
@@ -64,6 +94,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateButtonState(response.cartridge);
                 }
             });
         });
@@ -75,6 +106,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateButtonState(response.cartridge);
                 }
             });
         });
@@ -86,6 +118,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateButtonState(response.cartridge);
                 }
             });
         });
@@ -96,7 +129,11 @@
                 url: "/gnashing_fang",
                 success: function (response) {
                     updateComboDisplay(response.combo);
+                    updateCartridgeDisplay(response.cartridge);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    $("p#gnashing_fang_cooldown").text("Gnashing Fang: " + response.gnashing_fang_cooldown);
+                    $("p#ready_to_rip").text("Ready To Rip? " + response.ready_to_rip);
+                    updateButtonState(response.cartridge);
                 }
             });
         });
