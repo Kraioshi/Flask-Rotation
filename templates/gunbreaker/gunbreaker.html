@@ -33,6 +33,10 @@
     <button class="btn btn-outline-dark" id="gnashing-fang">
         <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
     </button>
+
+    <button class="btn btn-outline-dark" id="double_down">
+        <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
+    </button>
 </div>
 
 <div>
@@ -41,6 +45,35 @@
     </button>
 </div>
 
+<div>
+    <button class="btn btn-outline-dark" id="bloodfest">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bloodfest.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="blasting-zone">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/blasting_zone.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="bow-shock">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="no-mercy">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="sonic-break">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="rough-divide">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/rough_divide.png') }}">
+    </button>
+
+</div>
+<br>
+<br>
+<br>
 <div>
     <form action="{{url_for('gunbreaker_reset') }}" method="POST">
         <button class="btn btn-outline-dark">

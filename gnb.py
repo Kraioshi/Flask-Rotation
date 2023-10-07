@@ -7,6 +7,13 @@ class Gunbreaker:
         self.cartridge = 0
 
         self.gnashing_fang_cooldown = 0
+        self.bloodfest_cooldown = 0
+        self.blasting_zone_cooldown = 0
+        self.bow_shock_cooldown = 0
+        self.no_mercy_cooldown = 0
+        self.sonic_break_cooldown = 0
+        self.rough_divide_cooldown = 0
+        self.double_down_cooldown = 0
 
         self.ready_to_blast = False
 
@@ -62,18 +69,19 @@ class Gunbreaker:
         self.ready_to_gouge = True
 
     def sonic_break(self):
-        pass
+        self.sonic_break_cooldown = 60
 
     def bow_shock(self):
-        pass
+        self.bow_shock_cooldown = 60
 
     def blasting_zone(self):
-        pass
+        self.blasting_zone_cooldown = 30
 
     def no_mercy(self):
-        pass
+        self.no_mercy_cooldown = 60
 
     def bloodfest(self):
+        self.bloodfest_cooldown = 90
         self.cartridge = 3
 
     def abdomen_tear(self):
@@ -86,7 +94,7 @@ class Gunbreaker:
         pass
 
     def rough_divide(self):
-        pass
+        self.rough_divide_cooldown = 30
 
     def reduce_gcd(self):
         pass
