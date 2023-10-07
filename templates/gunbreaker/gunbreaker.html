@@ -58,19 +58,22 @@
             $("#gnashing_fang_cooldown").text("Gnashing Fang CD: " + gnashingFangCooldownValue);
         }
 
-        updateButtonState({{ gnb.cartridge }});
+        updateBurstStrikeButtonState({{ gnb.cartridge }});
 
-        function updateButtonState(cartridgeValue) {
-            if (cartridgeValue === 0) {
-                $("#disabled-gnashing-fang").prop("disabled", true);
-                $("#gnashing-fang").prop("disabled", true);
-            } else {
-                $("#disabled-gnashing-fang").prop("disabled", false);
-                $("#gnashing-fang").prop("disabled", false);
-            }
+        function updateBurstStrikeButtonState(cartridgeValue, gnashingFangCooldownValue) {
+        console.log("Cartridge Value: " + cartridgeValue);
+        console.log("Gnashing Fang Cooldown Value: " + gnashingFangCooldownValue);
+
+        if (cartridgeValue === 0) {
+            $("#disabled-burst-strike").prop("disabled", true);
+            $("#burst-strike").prop("disabled", true);
+
+        } else {
+            $("#disabled-burst-strike").prop("disabled", false);
+            $("#burst-strike").prop("disabled", false);
+
         }
-
-
+    }
 
 
         $("#keen-edge").click(function () {
@@ -80,7 +83,6 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
-                    updateButtonState(response.cartridge);
                 }
             });
         });
@@ -94,7 +96,6 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
-                    updateButtonState(response.cartridge);
                 }
             });
         });
@@ -106,7 +107,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
-                    updateButtonState(response.cartridge);
+                    updateBurstStrikeButtonState(response.cartridge);
                 }
             });
         });
@@ -118,7 +119,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
-                    updateButtonState(response.cartridge);
+                    updateBurstStrikeButtonState(response.cartridge);
                 }
             });
         });
@@ -133,12 +134,10 @@
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     $("p#gnashing_fang_cooldown").text("Gnashing Fang: " + response.gnashing_fang_cooldown);
                     $("p#ready_to_rip").text("Ready To Rip? " + response.ready_to_rip);
-                    updateButtonState(response.cartridge);
+                    updateBurstStrikeButtonState(response.cartridge);
                 }
             });
         });
-
-
 
     });
 </script>
