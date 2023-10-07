@@ -1,0 +1,337 @@
+<div class="main" style="text-align: center; justify-content: center; margin-top: 30px">
+
+    <!-- GAUGE -->
+    <div class="war-gauge" style="margin-bottom: 6px">
+        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
+            <div class="progress-bar bg-dark" role="progressbar" style="width: {{ warrior.beast_gauge }}%"
+                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-value">
+                    {{ warrior.beast_gauge }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Surging Tempest -->
+    <div class="war-surging" style="margin-bottom: 6px;">
+        <div class="progress rounded-1" style="height: 18px; width: 290px; background-color:#767676;">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: {{ ( warrior.surging_tempest / 60 ) * 100 }}%"
+                 aria-valuenow="{{ warrior.surging_tempest }}" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-value">
+                    {{ warrior.surging_tempest }}
+                </div>
+            </div>
+
+    </div>
+    </div>
+
+    <!-- ABILITIES -->
+
+    <div class="war-primary" style="display: flex;">
+        <!-- INNER RELEASE -->
+        <form action="{{ url_for('warrior_inner_release') }}" method="POST">
+            {% if warrior.inner_release_cooldown == 0 %}
+            <button id="inner_release" type="submit" class="btn btn-outline-dark">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/inner_release.png') }}">
+            </button>
+            {% else %}
+            <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                <span class="cooldown-text"> {{ warrior.inner_release_cooldown }}</span>
+                <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/inner_release.png') }}">
+
+            </button>
+            {% endif %}
+        </form>
+
+
+        <!-- INFURIATE -->
+        <form action="{{ url_for('warrior_infuriate') }}" method="POST">
+            {% if warrior.infuriate_stacks > 0 %}
+            <button id="infuriate" type="submit" class="btn btn-outline-dark" style="position: relative;">
+                <span class="stack-text">
+                    {{warrior.infuriate_stacks }}
+                </span>
+                {% if warrior.infuriate_stacks < 2 %}
+                    <span class="cooldown-text"> {{ warrior.infuriate_cooldown }} </span>
+                {% endif %}
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/infuriate.png') }}">
+            </button>
+            {% else %}
+            <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                <span class="cooldown-text">
+                    {{ warrior.infuriate_cooldown }}
+                </span>
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/infuriate.png') }}">
+            </button>
+            {% endif %}
+        </form>
+
+        <!-- UPHEAVAL -->
+        <form action="{{ url_for('warrior_upheaval') }}" method="POST">
+            {% if warrior.upheaval_cooldown == 0 %}
+            <button id="upheaval" type="submit" class="btn btn-outline-dark">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/warrior/upheaval.png') }}">
+            </button>
+            {% else %}
+            <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                <span class="cooldown-text">
+                    {{ warrior.upheaval_cooldown }}
+                </span>
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/upheaval.png') }}">
+            </button>
+            {% endif %}
+        </form>
+
+        <!-- PRIMAL REND -->
+        <form action="{{ url_for('warrior_primal_rend') }}" method="POST">
+            {% if warrior.primal_rend_ready %}
+            <button id="primal_rend" type="submit" class="btn btn-outline-dark">
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}">
+            </button>
+            {% else %}
+            <button type="submit" class="btn btn-outline-dark" disabled>
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}">
+            </button>
+            {% endif %}
+        </form>
+
+        <!-- ONSLAUGHT -->
+        <form action="{{ url_for('warrior_onslaught') }}" method="POST">
+            {% if warrior.onslaught_stacks > 0 %}
+            <button id="onslaught" type="submit" class="btn btn-outline-dark" style="position: relative;">
+                <span class="stack-text">
+                    {{warrior.onslaught_stacks }}
+                </span>
+                {% if warrior.onslaught_stacks < 3 %}
+                    <span class="cooldown-text"> {{ warrior.onslaught_cooldown }} </span>
+                {% endif %}
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/onslaught.png') }}">
+            </button>
+            {% else %}
+                <button type="submit" class="btn btn-outline-dark" disabled style="position: relative;">
+                <span class="cooldown-text">
+                    {{ warrior.onslaught_cooldown }}
+                </span>
+                    <img class="war-action" src="{{ url_for('static', filename='images/warrior/onslaught.png') }}">
+                </button>
+            {% endif %}
+        </form>
+
+
+    </div>
+
+    <div class="war-secondary" style="display: flex;">
+        <!-- HEAVY SWING -->
+        <form action="{{url_for('warrior_heavy_swing') }}" method="POST">
+            <button id="heavy_swing" type="submit" class="btn btn-outline-dark">
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/heavy_swing.png') }}">
+            </button>
+        </form>
+
+        <!-- MAIM -->
+        <form action="{{url_for('warrior_maim') }}" method="POST">
+            <button id="maim" type="submit" class="btn btn-outline-dark" >
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/maim.png') }}">
+            </button>
+        </form>
+
+        <!-- STORMS EYE -->
+        <form action="{{ url_for('warrior_storms_eye') }}" method="POST">
+            <button id="storms_eye" type="submit" class="btn btn-outline-dark">
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}">
+            </button>
+        </form>
+
+        <!-- STORMS PATH -->
+        <form action="{{url_for('warrior_storms_path') }}" method="POST">
+            <button id="storms_path" type="submit" class="btn btn-outline-dark">
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/storms_path.png') }}">
+            </button>
+        </form>
+
+
+        <!-- FELL CLEAVE -->
+        <!-- INNER CHAOS -->
+
+        {% if warrior.nascent_chaos_ready %}
+        <form action="{{url_for('warrior_inner_chaos') }}" method="POST">
+            <button id="inner_chaos" type="submit" class="btn btn-outline-dark">
+                <img class="war-action" src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}">
+            </button>
+        </form>
+        {% else %}
+            {% if warrior.inner_release_stacks > 0 and warrior.inner_release_buff > 0 %}
+                <form action="{{url_for('warrior_inner_release_fell_cleave') }}" method="POST">
+                    <button id="fell_clave" type="submit" class="btn btn-outline-dark">
+                        <img class="war-action" src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}">
+                    </button>
+                </form>
+            {% else %}
+                <form action="{{ url_for('warrior_fell_cleave') }}" method="POST">
+                    {% if warrior.beast_gauge >= 50 %}
+                        <button id="fell_cleave" type="submit" class="btn btn-outline-dark">
+                            <img class="war-action" src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}">
+                        </button>
+                    {% else %}
+                        <button type="submit" class="btn btn-outline-dark" disabled>
+                            <img class="war-action" src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}">
+                        </button>
+                    {% endif %}
+                </form>
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+    <div class="combo-points" style="display: flex;">
+
+    </div>
+
+    <div class="gauge-icons" style="display: flex; justify-content: space-between;">
+        <div class="combo-zero" style="position: relative; left: 7.5%">
+            {% if warrior.combo_status == 0 %}
+                <i class="fa-solid fa-circle" style="color: white;"></i>
+            {% else %}
+                <i class="fa-regular fa-circle" style="color: white;"></i>
+            {% endif %}
+        </div>
+
+        <div class="combo-one" style="position: relative; left: 7%">
+            {% if warrior.combo_status == 1 %}
+                <i class="fa-solid fa-circle"></i>
+            {% else %}
+                <i class="fa-regular fa-circle" style="color: white;"></i>
+            {% endif %}
+        </div>
+
+        <div class="combo-two" style="position: relative; left: 6%; ">
+            {% if warrior.combo_status == 2 %}
+                <i class="fa-solid fa-circle"></i>
+            {% else %}
+                <i class="fa-regular fa-circle" style="color: white;"></i>
+            {% endif %}
+        </div>
+
+        <div class="combo-two" style="position: relative; left: 4.5%; ">
+            {% if warrior.combo_status == 2 %}
+                <i class="fa-solid fa-circle"></i>
+            {% else %}
+                <i class="fa-regular fa-circle" style="color: white;"></i>
+            {% endif %}
+        </div>
+
+        <div class="combo-fell-cleave-ready" style="position: relative; right: 2%">
+            {% if warrior.inner_release_stacks == 3 %}
+                <div class="free-cleaves">
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+
+                </div>
+            {% elif warrior.inner_release_stacks == 2 %}
+                <div class="free-cleaves">
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                </div>
+            {% elif warrior.inner_release_stacks == 1 %}
+                <div class="free-cleaves">
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                </div>
+            {% else %}
+                <i class="fa-regular fa-circle" style="color: white"></i>
+                <i class="fa-regular fa-circle" style="color: white"></i>
+                <i class="fa-regular fa-circle" style="color: white"></i>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+    <!-- RESET -->
+    <form action="{{ url_for('warrior_reset') }}" method="POST">
+        <button type="submit" class="btn btn-outline-dark">Reset!</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case "1":
+                document.getElementById("heavy_swing").click();
+                break
+            }
+        });
+
+    document.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case "2":
+                document.getElementById("maim").click();
+                break
+            }
+        });
+
+    document.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case "3":
+                document.getElementById("storms_eye").click();
+                break
+            }
+        });
+
+    document.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case "4":
+                document.getElementById("storms_path").click();
+                break
+            }
+        });
+
+    document.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case "5":
+                document.getElementById("fell_cleave").click();
+                break
+            }
+        });
+
+    document.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case "5":
+                document.getElementById("inner_chaos").click();
+                break
+            }
+        });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === "1") {
+            document.getElementById("inner_release").click();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === "2") {
+            document.getElementById("infuriate").click();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === "3") {
+            document.getElementById("upheaval").click();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === "4") {
+            document.getElementById("primal_rend").click();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === "5") {
+            document.getElementById("onslaught").click();
+        }
+    });
+</script>
