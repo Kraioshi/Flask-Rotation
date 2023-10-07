@@ -58,6 +58,11 @@ class Gunbreaker:
             self.gnashing_fang_cooldown = 30
             self.ready_to_rip = True
 
+    def double_down(self):
+        if self.cartridge > 1:
+            self.cartridge -= 2
+            self.double_down_cooldown = 60
+
     def jugular_rip(self):
         if self.ready_to_rip:
             self.ready_to_rip = False
