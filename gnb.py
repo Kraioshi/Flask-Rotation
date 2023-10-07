@@ -1,16 +1,30 @@
 class Gunbreaker:
 
     def __init__(self):
-        pass
+        self.combo = 0
+        self.cartridge = 0
 
     def keen_edge(self):
-        pass
+        self.combo = 1
 
     def brutal_shell(self):
-        pass
+        if self.combo == 1:
+            self.combo = 2
+        else:
+            self.combo = 0
+
+    def solid_barrel(self):
+        if self.combo == 2:
+            if self.cartridge < 3:
+                self.cartridge += 1
+                self.combo = 0
+            else:
+                self.cartridge = 3
+                self.combo = 0
 
     def burst_strike(self):
-        pass
+        if self.cartridge:
+            self.cartridge -= 1
 
     def gnashing_fang(self):
         pass
@@ -50,3 +64,13 @@ class Gunbreaker:
 
     def rough_divide(self):
         pass
+
+
+if __name__ == "__main__":
+    gnb = Gunbreaker()
+    gnb.keen_edge()
+    gnb.brutal_shell()
+    gnb.solid_barrel()
+    print(gnb.cartridge)
+    gnb.burst_strike()
+    print(gnb.cartridge)

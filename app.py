@@ -165,7 +165,31 @@ def warrior_reset():
 
 @app.route('/gunbreaker')
 def gunbreaker():
-    return render_template('gunbreaker.html')
+    return render_template('gunbreaker/gunbreaker.html', gnb=gnb)
+
+
+@app.route('/keen_edge', methods=['POST'])
+def keen_edge():
+    gnb.keen_edge()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
+
+
+@app.route('/brutal_shell', methods=['POST'])
+def brutal_shell():
+    gnb.brutal_shell()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
+
+
+@app.route('/solid_barrel', methods=['POST'])
+def solid_barrel():
+    gnb.solid_barrel()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
+
+
+@app.route("/burst_strike", methods=['POST'])
+def burst_strike():
+    gnb.burst_strike()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge})
 
 
 if __name__ == '__main__':

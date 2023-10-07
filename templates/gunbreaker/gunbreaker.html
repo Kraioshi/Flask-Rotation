@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %} Gunbreaker {% endblock %}
+
+
+
+{% block content %}
+
+<h1>Gunbreaker</h1>
+
+<p id="combo">Combo: {{ gnb.combo }}</p>
+<p id="cartridge">Cartridge: {{ gnb.cartridge }}</p>
+
+
+<button class="btn btn-outline-dark" id="keen-edge">
+    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/keen_edge.png')}}">
+</button>
+
+<button class="btn btn-outline-dark" id="brutal-shell">
+    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png')}}">
+</button>
+
+<button class="btn btn-outline-dark" id="solid-barrel">
+    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/solid_barrel.png')}}">
+</button>
+
+<button class="btn btn-outline-dark" id="burst-strike">
+    <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
+</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function updateComboDisplay(comboValue) {
+            $("#combo").text("Combo: " + comboValue);
+        }
+
+        function updateCartridgeDisplay(cartridgeValue) {
+            $("#cartridge").text("Cartridge: " +cartridgeValue);
+        }
+
+        $("#keen-edge").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/keen_edge",
+                success: function (response) {
+                    updateComboDisplay(response.combo);
+                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                }
+            });
+        });
+
+
+
+        $("#brutal-shell").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/brutal_shell",
+                success: function (response) {
+                    updateComboDisplay(response.combo);
+                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                }
+            });
+        });
+
+        $("#solid-barrel").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/solid_barrel",
+                success: function (response) {
+                    updateComboDisplay(response.combo);
+                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                }
+            });
+        });
+
+        $("#burst-strike").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/burst_strike",
+                success: function (response) {
+                    updateComboDisplay(response.combo);
+                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                }
+            });
+        });
+
+    });
+</script>
+
+
+{% endblock %}
+
