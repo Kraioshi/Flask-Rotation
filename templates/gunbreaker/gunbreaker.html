@@ -11,7 +11,9 @@
     <div class="left">
         <p id="combo">Combo: {{ gnb.combo }}</p>
         <p id="cartridge">Cartridge: {{ gnb.cartridge }}</p>
-        <p id="gnashing_fang_cooldown">Gnashing Fang: {{gnb.gnashing_fang_cooldown }} s</p>
+    </div>
+    <div class="left-mid">
+        <p id="gnashing_fang_cooldown">Gnashing Fang</p>
         <p id="ready_to_rip">Ready To Rip? </p>
         <p id="ready_to_tear">Ready To Tear? </p>
         <p id="ready_to_gouge">Ready To Gouge? </p>
@@ -62,6 +64,30 @@
 <div>
     <button class="btn btn-outline-dark" id="jugular-rip">
         <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/jugular_rip.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="savage-claw">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/savage_claw.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="abdomen-tear">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/abdomen_tear.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="wicked-talon">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/wicked_talon.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="eye-gouge">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/eye_gouge.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="hypervelocity">
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="continuation" disabled>
+        <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/continuation.png') }}">
     </button>
 </div>
 
