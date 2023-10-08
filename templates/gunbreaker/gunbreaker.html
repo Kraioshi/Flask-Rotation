@@ -181,6 +181,11 @@
             $("#ready_to_blast").text("Hypervelocity: " + readyToBlast)
         }
 
+        function updateJugularRipDisplay(readyToRip) {
+            $("#ready_to_rip").text("Jugular Rip: " + readyToRip)
+        }
+
+
 
 
         function updateBloodfestButtonState(bloodfestCooldown) {
@@ -315,9 +320,9 @@
             }
         }
 
-        updateReadyToRipButtonState();
+        updateJugularRipButtonState();
 
-        function updateReadyToRipButtonState(readyToRip) {
+        function updateJugularRipButtonState(readyToRip) {
 
             if (!readyToRip) {
                 $("#disabled-jugular-rip").prop("disabled", true);
@@ -328,12 +333,25 @@
             }
         }
 
-        updateReadyToTearButtonState();
+        updateSavageClawButtonState();
 
-        function updateReadyToTearButtonState(readyToTear) {
+        function updateSavageClawButtonState(savageClawReady) {
+
+            if (!savageClawReady) {
+                $("#disabled-savage-claw").prop("disabled", true);
+                $("#savage-claw").prop("disabled", true);
+            } else {
+                $("#disabled-savage-claw").prop("disabled", false);
+                $("#savage-claw").prop("disabled", false);
+            }
+        }
+
+        updateAbdomenTearButtonState();
+
+        function updateAbdomenTearButtonState(readyToTear) {
 
             if (!readyToTear) {
-                $("#disabled-abdomen-teat").prop("disabled", true);
+                $("#disabled-abdomen-tear").prop("disabled", true);
                 $("#abdomen-tear").prop("disabled", true);
             } else {
                 $("#disabled-abdomen-tear").prop("disabled", false);
@@ -341,11 +359,24 @@
             }
         }
 
-        updateReadyToGougeButtonState();
+        updateWickedTalonButtonState();
 
-        function updateReadyToGougeButtonState(readyToTear) {
+        function updateWickedTalonButtonState(wickedTalonReady) {
 
-            if (!readyToTear) {
+            if (!wickedTalonReady) {
+                $("#disabled-wicked-talon").prop("disabled", true);
+                $("#wicked-talon").prop("disabled", true);
+            } else {
+                $("#disabled-wicked-talon").prop("disabled", false);
+                $("#wicked-talon").prop("disabled", false);
+            }
+        }
+
+        updateEyeGougeButtonState();
+
+        function updateEyeGougeButtonState(readyToGouge) {
+
+            if (!readyToGouge) {
                 $("#disabled-eye-gouge").prop("disabled", true);
                 $("#eye-gouge").prop("disabled", true);
             } else {
@@ -550,9 +581,9 @@
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
 
+                    updateSavageClawButtonState(response.savage_claw_ready);
 
-
-                    updateReadyToRipButtonState(response.ready_to_rip);
+                    updateJugularRipButtonState(response.ready_to_rip);
 
 
                 }
@@ -730,7 +761,69 @@
                 url: "/hypervelocity",
                 success: function (response) {
                     updateHypervelocityDisplay(response.ready_to_blast);
-                    updateHypervelocityButtonState(response.ready_to_blast);                }
+                    updateHypervelocityButtonState(response.ready_to_blast);
+                }
+            });
+        });
+
+        $("#jugular-rip").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/jugular_rip",
+                success: function (response) {
+                    updateJugularRipDisplay(response.ready_to_rip);
+                    updateJugularRipButtonState(response.ready_to_rip);
+                }
+            });
+        });
+
+        $("#savage-claw").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/savage_claw",
+                success: function (response) {
+                    updateJugularRipButtonState(response.ready_to_rip);
+
+                    updateSavageClawButtonState(response.savage_claw_ready);
+                    updateAbdomenTearButtonState(response.ready_to_tear);
+
+                    updateWickedTalonButtonState(response.wicked_talon_ready);
+                }
+            });
+        });
+
+        $("#wicked-talon").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/wicked_talon",
+                success: function (response) {
+                    updateWickedTalonButtonState(response.wicked_talon_ready);
+
+                    updateAbdomenTearButtonState(response.ready_to_tear);
+
+                    updateEyeGougeButtonState(response.ready_to_gouge);
+
+                }
+            });
+        });
+
+        $("#abdomen-tear").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/abdomen_tear",
+                success: function (response) {
+                    updateAbdomenTearButtonState(response.ready_to_tear);
+                }
+            });
+        });
+
+        $("#eye-gouge").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/eye_gouge",
+                success: function (response) {
+                    updateEyeGougeButtonState(response.ready_to_gouge);
+                }
             });
         });
 

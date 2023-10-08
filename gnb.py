@@ -90,7 +90,11 @@ class Gunbreaker:
             self.ready_to_rip = False
 
     def savage_claw(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         if self.savage_claw_ready:
+            self.savage_claw_ready = False
+            self.wicked_talon_ready = True
             self.ready_to_rip = False
             self.ready_to_tear = True
 
@@ -99,7 +103,10 @@ class Gunbreaker:
             self.ready_to_tear = False
 
     def wicked_talon(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         if self.wicked_talon_ready:
+            self.wicked_talon_ready = False
             self.ready_to_tear = False
             self.ready_to_gouge = True
 
@@ -183,9 +190,9 @@ class Gunbreaker:
 
     def break_continuation(self):
         self.ready_to_blast = False
-        self.ready_to_rip = 0
-        self.ready_to_tear = 0
-        self.ready_to_gouge = 0
+        self.ready_to_rip = False
+        self.ready_to_tear = False
+        self.ready_to_gouge = False
 
     def break_gnashing_fang(self):
         self.ready_to_rip = False
@@ -196,8 +203,6 @@ class Gunbreaker:
 if __name__ == "__main__":
     gnb = Gunbreaker()
     gnb.bloodfest()
-    print(gnb.ready_to_blast)
-    gnb.burst_strike()
-    print(gnb.ready_to_blast)
-    gnb.hypervelocity()
-    print(gnb.ready_to_blast)
+    print(gnb.ready_to_rip)
+    gnb.gnashing_fang()
+    print(gnb.ready_to_rip)
