@@ -16,15 +16,18 @@
         <p id="ready_to_tear">Ready To Tear? </p>
         <p id="ready_to_gouge">Ready To Gouge? </p>
     </div>
-    <div class="right">
+    <div class="mid">
         <p id="double_down_cooldown">Double Down</p>
         <p id="bloodfest_cooldown">Bloodfest</p>
         <p id="blasting_zone_cooldown">Blasting Zone</p>
         <p id="bow_shock_cooldown">Bow Shock</p>
         <p id="no_mercy_cooldown">No Mercy</p>
-        <p id="rough_divide_cooldown">Rough Divide</p>
         <p id="sonic_break_cooldown">Sonic Break</p>
 
+    </div>
+    <div class="right">
+        <p id="rough_divide_cooldown">Rough Divide CD</p>
+        <p id="rough_divide_stacks">Rough Divide ST</p>
     </div>
 
 </div>
@@ -138,6 +141,16 @@
             $("#no_mercy_cooldown").text("No Mercy CD: " + noMercyCooldownValue)
         }
 
+        function updateRoughDivideCooldownDisplay(roughDivideCooldown) {
+            $("#rough_divide_cooldown").text("Rough Divide CD: " + roughDivideCooldown)
+        }
+
+        function updateRoughDivideStacksDisplay(roughDivideStacks) {
+            $("#rough_divide_stacks").text("Rough Divide Stacks: " + roughDivideStacks)
+        }
+
+
+
 
 
 
@@ -215,9 +228,20 @@
             $("#burst-strike").prop("disabled", false);
 
         }
-
-
     }
+
+        function updateRoughDivideButton(RoughDivideStacks) {
+
+        if (RoughDivideStacks > 0) {
+            $("#disabled-rough-divide").prop("disabled", false);
+            $("#rough-divide").prop("disabled", false);
+
+        } else {
+            $("#disabled-rough-divide").prop("disabled", true);
+            $("#rough-divide").prop("disabled", true);
+            }
+        }
+
 
         updateDoubleDownButtonState( {{gnb.double_down_cooldown}}, {{gnb.cartridge }} );
 
@@ -276,6 +300,11 @@
                     updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
                     updateNoMercyButtonState(response.no_mercy_cooldown);
 
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -307,6 +336,11 @@
 
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -343,6 +377,11 @@
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+
                 }
             });
         });
@@ -373,6 +412,11 @@
 
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
 
                 }
             });
@@ -408,6 +452,11 @@
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+
                 }
             });
         });
@@ -441,6 +490,11 @@
 
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
 
                 },
                 error: function (error) {
@@ -480,6 +534,11 @@
                     updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
                     updateSonicBreakButtonState(response.sonic_break_cooldown);
 
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+
                 }
             });
         });
@@ -490,6 +549,8 @@
                 type: "POST",
                 url: "/bloodfest",
                 success: function (response) {
+                    updateBurstStrikeButtonState(response.cartridge);
+
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
@@ -498,6 +559,8 @@
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+
 
 
                 }
@@ -543,6 +606,19 @@
             });
         });
 
+        $("#rough-divide").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/rough_divide",
+                success: function (response) {
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+
+                }
+            });
+        });
 
 
     });

@@ -179,7 +179,8 @@ def keen_edge():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -194,7 +195,8 @@ def brutal_shell():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -209,7 +211,8 @@ def solid_barrel():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -224,7 +227,8 @@ def burst_strike():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -239,7 +243,8 @@ def double_down():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -257,14 +262,25 @@ def gnashing_fang():
         "sonic_break_cooldown": gnb.sonic_break_cooldown,
         "rough_divide_cooldown": gnb.rough_divide_cooldown,
         "double_down_cooldown": gnb.double_down_cooldown,
-        "no_mercy_cooldown": gnb.no_mercy_cooldown
+        "no_mercy_cooldown": gnb.no_mercy_cooldown,
+        "rough_divide_stacks": gnb.rough_divide_stacks
     })
 
 
-# FIX
 @app.route('/rough_divide', methods=["POST"])
 def rough_divide():
-    pass
+    gnb.rough_divide()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
+                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
+                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
+                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
+                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    })
 
 
 @app.route("/bloodfest", methods=["POST"])
@@ -281,7 +297,8 @@ def bloodfest():
         "sonic_break_cooldown": gnb.sonic_break_cooldown,
         "rough_divide_cooldown": gnb.rough_divide_cooldown,
         "double_down_cooldown": gnb.double_down_cooldown,
-        "no_mercy_cooldown": gnb.no_mercy_cooldown
+        "no_mercy_cooldown": gnb.no_mercy_cooldown,
+        "rough_divide_stacks": gnb.rough_divide_stacks
     })
 
 
@@ -296,7 +313,8 @@ def blasting_zone():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -311,7 +329,8 @@ def bow_shock():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -326,7 +345,8 @@ def no_mercy():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 
@@ -341,7 +361,8 @@ def sonic_break():
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
+                    "rough_divide_stacks": gnb.rough_divide_stacks
                     })
 
 

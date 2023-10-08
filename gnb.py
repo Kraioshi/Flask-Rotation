@@ -7,6 +7,7 @@ class Gunbreaker:
         self.cartridge = 0
 
         self.rough_divide_stacks = 2
+        self.rough_divide_cooldown = 0
 
         self.gnashing_fang_cooldown = 0
         self.bloodfest_cooldown = 0
@@ -14,7 +15,6 @@ class Gunbreaker:
         self.bow_shock_cooldown = 0
         self.no_mercy_cooldown = 0
         self.sonic_break_cooldown = 0
-        self.rough_divide_cooldown = 0
         self.double_down_cooldown = 0
 
         self.ready_to_blast = False
@@ -107,7 +107,9 @@ class Gunbreaker:
         pass
 
     def rough_divide(self):
-        self.rough_divide_cooldown = 30
+        if self.rough_divide_stacks > 0:
+            self.rough_divide_stacks -= 1
+            self.rough_divide_cooldown = 30
 
     def reduce_gcd(self):
         if self.gnashing_fang_cooldown > 2.5:
@@ -144,7 +146,12 @@ class Gunbreaker:
         if self.rough_divide_cooldown > 2.5:
             self.rough_divide_cooldown -= 2.5
         else:
-            self.rough_divide_cooldown = 0
+            if self.rough_divide_stacks == 0:
+                self.rough_divide_stacks += 1
+                self.rough_divide_cooldown = 30
+            elif self.rough_divide_stacks == 1:
+                self.rough_divide_stacks += 1
+                self.rough_divide_cooldown = 0
 
         if self.no_mercy_cooldown > 2.5:
             self.no_mercy_cooldown -= 2.5
