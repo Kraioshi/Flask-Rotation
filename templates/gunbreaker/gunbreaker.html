@@ -306,7 +306,7 @@
 
         function updateHypervelocityButtonState(readyToBlast) {
 
-            if (readyToBlast != true) {
+            if (!readyToBlast) {
                 $("#disabled-hypervelocity").prop("disabled", true);
                 $("#hypervelocity").prop("disabled", true);
             } else {
@@ -319,12 +319,38 @@
 
         function updateReadyToRipButtonState(readyToRip) {
 
-            if (readyToRip != true) {
+            if (!readyToRip) {
                 $("#disabled-jugular-rip").prop("disabled", true);
                 $("#jugular-rip").prop("disabled", true);
             } else {
                 $("#disabled-jugular-rip").prop("disabled", false);
                 $("#jugular-rip").prop("disabled", false);
+            }
+        }
+
+        updateReadyToTearButtonState();
+
+        function updateReadyToTearButtonState(readyToTear) {
+
+            if (!readyToTear) {
+                $("#disabled-abdomen-teat").prop("disabled", true);
+                $("#abdomen-tear").prop("disabled", true);
+            } else {
+                $("#disabled-abdomen-tear").prop("disabled", false);
+                $("#abdomen-tear").prop("disabled", false);
+            }
+        }
+
+        updateReadyToGougeButtonState();
+
+        function updateReadyToGougeButtonState(readyToTear) {
+
+            if (!readyToTear) {
+                $("#disabled-eye-gouge").prop("disabled", true);
+                $("#eye-gouge").prop("disabled", true);
+            } else {
+                $("#disabled-eye-gouge").prop("disabled", false);
+                $("#eye-gouge").prop("disabled", false);
             }
         }
 
