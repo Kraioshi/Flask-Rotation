@@ -261,6 +261,12 @@ def gnashing_fang():
     })
 
 
+# FIX
+@app.route('/rough_divide', methods=["POST"])
+def rough_divide():
+    pass
+
+
 @app.route("/bloodfest", methods=["POST"])
 def bloodfest():
     gnb.bloodfest()
@@ -324,9 +330,29 @@ def no_mercy():
                     })
 
 
+@app.route('/sonic_break', methods=["POST"])
+def sonic_break():
+    pass
+
+
 @app.route('/jugular_rip', methods=["POST"])
 def jugular_rip():
     gnb.jugular_rip()
+
+
+@app.route('/abdomen_tear', methods=['POST'])
+def abdomen_tear():
+    pass
+
+
+@app.route('/eye_gouge', methods=["POST"])
+def eye_gouge():
+    pass
+
+
+@app.route('/hypervelocity', methods=["POST"])
+def hypervelocity():
+    pass
 
 
 @app.route('/gunbreaker_reset', methods=["POST"])

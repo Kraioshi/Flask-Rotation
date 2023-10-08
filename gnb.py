@@ -6,6 +6,8 @@ class Gunbreaker:
         self.combo = 0
         self.cartridge = 0
 
+        self.rough_divide_stacks = 2
+
         self.gnashing_fang_cooldown = 0
         self.bloodfest_cooldown = 0
         self.blasting_zone_cooldown = 0
