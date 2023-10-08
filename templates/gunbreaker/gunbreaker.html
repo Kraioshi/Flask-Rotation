@@ -69,13 +69,19 @@
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
         </button>
 
-        {% if gnb.gnashing_fang_cooldown == 0%}
         <button class="btn btn-outline-dark" id="gnashing-fang">
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
         </button>
-        {% elif gnb.savage_claw_ready %}
 
-        {% endif %}
+        <button class="btn btn-outline-dark" id="savage-claw">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/savage_claw.png') }}">
+        </button>
+
+        <button class="btn btn-outline-dark" id="wicked-talon">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/wicked_talon.png') }}">
+        </button>
+
+
 
         <button class="btn btn-outline-dark" id="double-down">
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
@@ -87,17 +93,10 @@
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/jugular_rip.png') }}">
         </button>
 
-        <button class="btn btn-outline-dark" id="savage-claw">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/savage_claw.png') }}">
-        </button>
-
         <button class="btn btn-outline-dark" id="abdomen-tear">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/abdomen_tear.png') }}">
         </button>
 
-        <button class="btn btn-outline-dark" id="wicked-talon">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/wicked_talon.png') }}">
-        </button>
 
         <button class="btn btn-outline-dark" id="eye-gouge">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/eye_gouge.png') }}">
@@ -404,6 +403,19 @@
             }
         }
 
+        updateContinuationButtonState();
+
+        function updateContinuationButtonState(readyToBlast, readyToRip, readyToTear, readyToGouge) {
+
+            if (readyToBlast || readyToRip || readyToTear || readyToGouge) {
+                $("#continuation").css("display", "none");
+            } else {
+                $("#continuation").css("display", "inline-block");
+            }
+        }
+
+
+
 
         $("#keen-edge").click(function () {
             $.ajax({
@@ -581,6 +593,9 @@
                     updateAbdomenTearButtonState(response.ready_to_rip);
                     updateEyeGougeButtonState(response.ready_to_rip);
 
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
 
                 }
             });
@@ -626,6 +641,9 @@
                     updateSavageClawButtonState(response.savage_claw_ready);
 
                     updateJugularRipButtonState(response.ready_to_rip);
+
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
 
 
                 }
@@ -804,6 +822,8 @@
                 success: function (response) {
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
                 }
             });
         });
@@ -815,6 +835,8 @@
                 success: function (response) {
                     updateJugularRipDisplay(response.ready_to_rip);
                     updateJugularRipButtonState(response.ready_to_rip);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
                 }
             });
         });
@@ -830,6 +852,8 @@
                     updateAbdomenTearButtonState(response.ready_to_tear);
 
                     updateWickedTalonButtonState(response.wicked_talon_ready);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
                 }
             });
         });
@@ -844,6 +868,8 @@
                     updateAbdomenTearButtonState(response.ready_to_tear);
 
                     updateEyeGougeButtonState(response.ready_to_gouge);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
 
                 }
             });
@@ -855,6 +881,8 @@
                 url: "/abdomen_tear",
                 success: function (response) {
                     updateAbdomenTearButtonState(response.ready_to_tear);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
                 }
             });
         });
@@ -865,6 +893,8 @@
                 url: "/eye_gouge",
                 success: function (response) {
                     updateEyeGougeButtonState(response.ready_to_gouge);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
                 }
             });
         });
