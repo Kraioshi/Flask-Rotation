@@ -121,6 +121,18 @@
             $("#bloodfest_cooldown").text("Bloodfest CD: " + bloodfestCooldownValue)
         }
 
+        function updateBlastingZoneCooldownDisplay(blastingZoneCooldownValue) {
+            $("#blasting_zone_cooldown").text("Blasting Zone CD: " + blastingZoneCooldownValue)
+        }
+
+        function updateBowShockCooldownDisplay(bowShockCooldownValue) {
+            $("#bow_shock_cooldown").text("Bow Shock CD: " + bowShockCooldownValue)
+        }
+
+        function updateNoMercyCooldownDisplay(noMercyCooldownValue) {
+            $("#no_mercy_cooldown").text("No Mercy CD: " + noMercyCooldownValue)
+        }
+
 
 
 
@@ -136,6 +148,18 @@
             }
         }
 
+
+        function updateBlastingZoneButtonState(blastingZoneCooldown) {
+
+        if (blastingZoneCooldown != 0) {
+            $("#disabled-blasting-zone").prop("disabled", true);
+            $("#blasting-zone").prop("disabled", true);
+
+        } else {
+            $("#disabled-blasting-zone").prop("disabled", false);
+            $("#blasting-zone").prop("disabled", false);
+            }
+        }
 
 
         updateBurstStrikeButtonState({{ gnb.cartridge }});
@@ -167,6 +191,10 @@
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -185,6 +213,10 @@
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -205,6 +237,10 @@
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
                 }
             });
         });
@@ -222,6 +258,10 @@
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
                 }
             });
         });
@@ -241,6 +281,10 @@
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
                 }
             });
         });
@@ -258,6 +302,10 @@
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
                 },
                 error: function (error) {
                     console.error("Error:", error);
@@ -273,11 +321,24 @@
                 success: function (response) {
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
-                },
+
+
+                }
             });
         });
 
+        $("#blasting-zone").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/blasting_zone",
+                success: function (response) {
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+
+                }
+            });
+        });
 
 
 
