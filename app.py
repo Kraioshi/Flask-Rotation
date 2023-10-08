@@ -272,6 +272,47 @@ def bloodfest():
     })
 
 
+@app.route("/blasting_zone", methods=["POST"])
+def blasting_zone():
+    gnb.blasting_zone()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
+                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
+                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
+                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
+                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
+                    "double_down_cooldown": gnb.double_down_cooldown
+                    })
+
+
+@app.route("/bow_shock", methods=["POST"])
+def bow_shock():
+    gnb.bow_shock()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
+                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
+                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
+                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
+                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
+                    "double_down_cooldown": gnb.double_down_cooldown
+                    })
+
+
+@app.route("/no_mercy", methods=["POST"])
+def no_mercy():
+    gnb.no_mercy()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
+                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
+                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
+                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
+                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
+                    "double_down_cooldown": gnb.double_down_cooldown
+                    })
+
 @app.route('/jugular_rip', methods=["POST"])
 def jugular_rip():
     gnb.jugular_rip()
