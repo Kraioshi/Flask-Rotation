@@ -59,11 +59,11 @@ class Gunbreaker:
     def burst_strike(self):
         self.reduce_gcd()
         self.reduce_ogcd()
-        self.break_gnashing_fang()
 
         if self.cartridge > 0:
-            self.cartridge -= 1
+
             self.ready_to_blast = True
+            self.cartridge -= 1
 
     def gnashing_fang(self):
         self.reduce_gcd()
@@ -126,7 +126,8 @@ class Gunbreaker:
         self.cartridge = 3
 
     def hypervelocity(self):
-        self.ready_to_blast = False
+        if self.ready_to_blast:
+            self.ready_to_blast = False
 
     def rough_divide(self):
         if self.rough_divide_stacks > 0:
@@ -182,9 +183,9 @@ class Gunbreaker:
 
     def break_continuation(self):
         self.ready_to_blast = False
-        self.ready_to_rip = False
-        self.ready_to_tear = False
-        self.ready_to_gouge = False
+        self.ready_to_rip = 0
+        self.ready_to_tear = 0
+        self.ready_to_gouge = 0
 
     def break_gnashing_fang(self):
         self.ready_to_rip = False
@@ -194,9 +195,9 @@ class Gunbreaker:
 
 if __name__ == "__main__":
     gnb = Gunbreaker()
-    gnb.keen_edge()
-    gnb.brutal_shell()
-    gnb.solid_barrel()
-    print(gnb.cartridge)
+    gnb.bloodfest()
+    print(gnb.ready_to_blast)
     gnb.burst_strike()
-    print(gnb.cartridge)
+    print(gnb.ready_to_blast)
+    gnb.hypervelocity()
+    print(gnb.ready_to_blast)

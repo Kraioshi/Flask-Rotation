@@ -194,7 +194,8 @@ def keen_edge():
 @app.route('/brutal_shell', methods=['POST'])
 def brutal_shell():
     gnb.brutal_shell()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -203,14 +204,21 @@ def brutal_shell():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/solid_barrel', methods=['POST'])
 def solid_barrel():
     gnb.solid_barrel()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -219,7 +227,13 @@ def solid_barrel():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
@@ -242,7 +256,8 @@ def burst_strike():
 @app.route("/double_down", methods=["POST"])
 def double_down():
     gnb.double_down()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -251,14 +266,21 @@ def double_down():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/gnashing_fang', methods=['POST'])
 def gnashing_fang():
     gnb.gnashing_fang()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -267,14 +289,21 @@ def gnashing_fang():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/rough_divide', methods=["POST"])
 def rough_divide():
     gnb.rough_divide()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -283,14 +312,21 @@ def rough_divide():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route("/bloodfest", methods=["POST"])
 def bloodfest():
     gnb.bloodfest()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -299,14 +335,21 @@ def bloodfest():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route("/blasting_zone", methods=["POST"])
 def blasting_zone():
     gnb.blasting_zone()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -315,14 +358,21 @@ def blasting_zone():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route("/bow_shock", methods=["POST"])
 def bow_shock():
     gnb.bow_shock()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -331,14 +381,21 @@ def bow_shock():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route("/no_mercy", methods=["POST"])
 def no_mercy():
     gnb.no_mercy()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -347,14 +404,21 @@ def no_mercy():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/sonic_break', methods=["POST"])
 def sonic_break():
     gnb.sonic_break()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -363,14 +427,21 @@ def sonic_break():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/savage_claw', methods=["POST"])
 def savage_claw():
     gnb.savage_claw()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -379,14 +450,21 @@ def savage_claw():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route("/wicked_talon", methods=["POST"])
 def wicked_talon():
     gnb.wicked_talon()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -395,14 +473,21 @@ def wicked_talon():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/jugular_rip', methods=["POST"])
 def jugular_rip():
     gnb.jugular_rip()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -411,14 +496,21 @@ def jugular_rip():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/abdomen_tear', methods=['POST'])
 def abdomen_tear():
     gnb.abdomen_tear()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -427,14 +519,21 @@ def abdomen_tear():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/eye_gouge', methods=["POST"])
 def eye_gouge():
     gnb.eye_gouge()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -443,14 +542,21 @@ def eye_gouge():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 
 @app.route('/hypervelocity', methods=["POST"])
 def hypervelocity():
     gnb.hypervelocity()
-    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+    return jsonify({'combo': gnb.combo,
+                    'cartridge': gnb.cartridge,
                     "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
@@ -459,7 +565,13 @@ def hypervelocity():
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
                     "double_down_cooldown": gnb.double_down_cooldown,
                     "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks
+                    "rough_divide_stacks": gnb.rough_divide_stacks,
+                    "ready_to_blast": gnb.ready_to_blast,
+                    "ready_to_rip": gnb.ready_to_rip,
+                    "ready_to_tear": gnb.ready_to_tear,
+                    "ready_to_gouge": gnb.ready_to_gouge,
+                    "savage_claw_ready": gnb.savage_claw_ready,
+                    "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
 

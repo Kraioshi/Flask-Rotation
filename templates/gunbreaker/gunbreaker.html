@@ -17,6 +17,8 @@
         <p id="ready_to_rip">Ready To Rip? </p>
         <p id="ready_to_tear">Ready To Tear? </p>
         <p id="ready_to_gouge">Ready To Gouge? </p>
+        <p id="ready_to_blast">Hypervelocity?</p>
+
     </div>
     <div class="mid">
         <p id="double_down_cooldown">Double Down</p>
@@ -175,8 +177,9 @@
             $("#rough_divide_stacks").text("Rough Divide Stacks: " + roughDivideStacks)
         }
 
-
-
+        function updateHypervelocityDisplay(readyToBlast) {
+            $("#ready_to_blast").text("Hypervelocity: " + readyToBlast)
+        }
 
 
 
@@ -299,6 +302,33 @@
         }
 
 
+        updateHypervelocityButtonState();
+
+        function updateHypervelocityButtonState(readyToBlast) {
+
+            if (readyToBlast != true) {
+                $("#disabled-hypervelocity").prop("disabled", true);
+                $("#hypervelocity").prop("disabled", true);
+            } else {
+                $("#disabled-hypervelocity").prop("disabled", false);
+                $("#hypervelocity").prop("disabled", false);
+            }
+        }
+
+        updateReadyToRipButtonState();
+
+        function updateReadyToRipButtonState(readyToRip) {
+
+            if (readyToRip != true) {
+                $("#disabled-jugular-rip").prop("disabled", true);
+                $("#jugular-rip").prop("disabled", true);
+            } else {
+                $("#disabled-jugular-rip").prop("disabled", false);
+                $("#jugular-rip").prop("disabled", false);
+            }
+        }
+
+
         $("#keen-edge").click(function () {
             $.ajax({
                 type: "POST",
@@ -330,6 +360,8 @@
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
 
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -367,6 +399,8 @@
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
 
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -407,6 +441,8 @@
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
 
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);
 
                 }
             });
@@ -442,6 +478,9 @@
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);
 
 
                 }
@@ -482,6 +521,13 @@
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
 
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);
+
+
+
+                    updateReadyToRipButtonState(response.ready_to_rip);
+
 
                 }
             });
@@ -520,6 +566,9 @@
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);
 
 
                 },
@@ -563,6 +612,9 @@
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);
 
 
                 }
@@ -643,6 +695,16 @@
 
 
                 }
+            });
+        });
+
+        $("#hypervelocity").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/hypervelocity",
+                success: function (response) {
+                    updateHypervelocityDisplay(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast);                }
             });
         });
 
