@@ -161,6 +161,17 @@
             }
         }
 
+        function updateBowShockButtonState(bowShockCooldown) {
+
+        if (bowShockCooldown != 0) {
+            $("#disabled-bow-shock").prop("disabled", true);
+            $("#bow-shock").prop("disabled", true);
+
+        } else {
+            $("#disabled-bow-shock").prop("disabled", false);
+            $("#bow-shock").prop("disabled", false);
+            }
+        }
 
         updateBurstStrikeButtonState({{ gnb.cartridge }});
 
@@ -195,6 +206,9 @@
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -216,6 +230,9 @@
 
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -241,6 +258,9 @@
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
                 }
             });
         });
@@ -261,6 +281,9 @@
 
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
 
                 }
             });
@@ -285,6 +308,9 @@
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
                 }
             });
         });
@@ -305,6 +331,9 @@
 
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
 
                 },
                 error: function (error) {
@@ -334,6 +363,19 @@
                 success: function (response) {
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+
+                }
+            });
+        });
+
+        $("#bow-shock").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/bow_shock",
+                success: function (response) {
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
 
 
                 }
