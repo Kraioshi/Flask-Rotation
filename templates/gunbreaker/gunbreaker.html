@@ -21,7 +21,8 @@
         <p id="bloodfest_cooldown">Bloodfest</p>
         <p id="blasting_zone_cooldown">Blasting Zone</p>
         <p id="bow_shock_cooldown">Bow Shock</p>
-        <p id="rough_divide_cooldown">No Mercy</p>
+        <p id="no_mercy_cooldown">No Mercy</p>
+        <p id="rough_divide_cooldown">Rough Divide</p>
         <p id="sonic_break_cooldown">Sonic Break</p>
 
     </div>
@@ -173,6 +174,18 @@
             }
         }
 
+        function updateNoMercyButtonState(noMercyCooldown) {
+
+        if (noMercyCooldown != 0) {
+            $("#disabled-no-mercy").prop("disabled", true);
+            $("#no-mercy").prop("disabled", true);
+
+        } else {
+            $("#disabled-no-mercy").prop("disabled", false);
+            $("#no-mercy").prop("disabled", false);
+            }
+        }
+
         updateBurstStrikeButtonState({{ gnb.cartridge }});
 
         function updateBurstStrikeButtonState(cartridgeValue) {
@@ -208,6 +221,9 @@
 
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -376,6 +392,19 @@
                 success: function (response) {
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
+
+
+                }
+            });
+        });
+
+        $("#no-mercy").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/no_mercy",
+                success: function (response) {
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
 
 
                 }

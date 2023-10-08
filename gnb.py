@@ -92,7 +92,7 @@ class Gunbreaker:
         self.no_mercy_cooldown = 60
 
     def bloodfest(self):
-        self.bloodfest_cooldown = 90
+        self.bloodfest_cooldown = 120
         self.cartridge = 3
 
     def abdomen_tear(self):
@@ -143,6 +143,11 @@ class Gunbreaker:
             self.rough_divide_cooldown -= 2.5
         else:
             self.rough_divide_cooldown = 0
+
+        if self.no_mercy_cooldown > 2.5:
+            self.no_mercy_cooldown -= 2.5
+        else:
+            self.no_mercy_cooldown = 0
 
 
 if __name__ == "__main__":

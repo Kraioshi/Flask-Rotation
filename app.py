@@ -178,8 +178,9 @@ def keen_edge():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown}
-                   )
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    })
 
 
 @app.route('/brutal_shell', methods=['POST'])
@@ -192,7 +193,8 @@ def brutal_shell():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
                     })
 
 
@@ -206,7 +208,8 @@ def solid_barrel():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
                     })
 
 
@@ -220,7 +223,8 @@ def burst_strike():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
                     })
 
 
@@ -234,7 +238,8 @@ def double_down():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
                     })
 
 
@@ -251,7 +256,8 @@ def gnashing_fang():
         "bow_shock_cooldown": gnb.bow_shock_cooldown,
         "sonic_break_cooldown": gnb.sonic_break_cooldown,
         "rough_divide_cooldown": gnb.rough_divide_cooldown,
-        "double_down_cooldown": gnb.double_down_cooldown
+        "double_down_cooldown": gnb.double_down_cooldown,
+        "no_mercy_cooldown": gnb.no_mercy_cooldown
     })
 
 
@@ -268,7 +274,8 @@ def bloodfest():
         "bow_shock_cooldown": gnb.bow_shock_cooldown,
         "sonic_break_cooldown": gnb.sonic_break_cooldown,
         "rough_divide_cooldown": gnb.rough_divide_cooldown,
-        "double_down_cooldown": gnb.double_down_cooldown
+        "double_down_cooldown": gnb.double_down_cooldown,
+        "no_mercy_cooldown": gnb.no_mercy_cooldown
     })
 
 
@@ -282,7 +289,8 @@ def blasting_zone():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
                     })
 
 
@@ -296,7 +304,8 @@ def bow_shock():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
                     })
 
 
@@ -310,8 +319,10 @@ def no_mercy():
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
                     "sonic_break_cooldown": gnb.sonic_break_cooldown,
                     "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
                     })
+
 
 @app.route('/jugular_rip', methods=["POST"])
 def jugular_rip():
