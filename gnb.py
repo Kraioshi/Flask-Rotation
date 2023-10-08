@@ -78,6 +78,8 @@ class Gunbreaker:
         self.ready_to_gouge = True
 
     def sonic_break(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         self.sonic_break_cooldown = 60
 
     def bow_shock(self):
@@ -116,11 +118,31 @@ class Gunbreaker:
         else:
             self.double_down_cooldown = 0
 
+        if self.sonic_break_cooldown > 2.5:
+            self.sonic_break_cooldown -= 2.5
+        else:
+            self.sonic_break_cooldown = 0
+
     def reduce_ogcd(self):
         if self.bloodfest_cooldown > 2.5:
             self.bloodfest_cooldown -= 2.5
         else:
             self.bloodfest_cooldown = 0
+
+        if self.bow_shock_cooldown > 2.5:
+            self.bow_shock_cooldown -= 2.5
+        else:
+            self.bow_shock_cooldown = 0
+
+        if self.blasting_zone_cooldown > 2.5:
+            self.blasting_zone_cooldown -= 2.5
+        else:
+            self.blasting_zone_cooldown = 0
+
+        if self.rough_divide_cooldown > 2.5:
+            self.rough_divide_cooldown -= 2.5
+        else:
+            self.rough_divide_cooldown = 0
 
 
 if __name__ == "__main__":
