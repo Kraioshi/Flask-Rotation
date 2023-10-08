@@ -202,6 +202,20 @@
 
 
     }
+        updateDoubleDownButtonState( {{gnb.double_down_cooldown}}, {{gnb.cartridge }} );
+
+        function updateDoubleDownButtonState(doubleDownCooldown, cartridgeValue ) {
+
+        if (doubleDownCooldown === 0 && cartridgeValue >= 2 ) {
+            $("#disabled-double-down").prop("disabled", false);
+            $("#double-down").prop("disabled", false);
+
+        } else {
+            $("#disabled-double-down").prop("disabled", true);
+            $("#double-down").prop("disabled", true);
+            }
+        }
+
 
 
         $("#keen-edge").click(function () {
@@ -211,7 +225,9 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
@@ -239,7 +255,9 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
@@ -263,7 +281,10 @@
                     updateComboDisplay(response.combo);
                     updateCartridgeDisplay(response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
 
                     updateBurstStrikeButtonState(response.cartridge);
@@ -289,7 +310,10 @@
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
                     updateBurstStrikeButtonState(response.cartridge);
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
@@ -313,7 +337,10 @@
                     updateComboDisplay(response.combo);
                     updateCartridgeDisplay(response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown)
+
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     $("p#ready_to_rip").text("Ready To Rip? " + response.ready_to_rip);
                     updateBurstStrikeButtonState(response.cartridge);
@@ -338,9 +365,14 @@
                 success: function (response) {
                     updateCartridgeDisplay(response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+
                     updateBurstStrikeButtonState(response.cartridge);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
@@ -366,6 +398,9 @@
                 success: function (response) {
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
 
                 }
