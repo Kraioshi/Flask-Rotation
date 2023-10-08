@@ -214,7 +214,7 @@ def solid_barrel():
 def burst_strike():
     gnb.burst_strike()
     return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
-                   "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
@@ -228,7 +228,7 @@ def burst_strike():
 def double_down():
     gnb.double_down()
     return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
-                   "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
                     "bloodfest_cooldown": gnb.bloodfest_cooldown,
                     "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
                     "bow_shock_cooldown": gnb.bow_shock_cooldown,
@@ -241,6 +241,23 @@ def double_down():
 @app.route('/gnashing_fang', methods=['POST'])
 def gnashing_fang():
     gnb.gnashing_fang()
+    return jsonify({
+        "combo": gnb.combo,
+        "cartridge": gnb.cartridge,
+        "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+        "ready_to_rip": gnb.ready_to_rip,
+        "bloodfest_cooldown": gnb.bloodfest_cooldown,
+        "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
+        "bow_shock_cooldown": gnb.bow_shock_cooldown,
+        "sonic_break_cooldown": gnb.sonic_break_cooldown,
+        "rough_divide_cooldown": gnb.rough_divide_cooldown,
+        "double_down_cooldown": gnb.double_down_cooldown
+    })
+
+
+@app.route("/bloodfest", methods=["POST"])
+def bloodfest():
+    gnb.bloodfest()
     return jsonify({
         "combo": gnb.combo,
         "cartridge": gnb.cartridge,

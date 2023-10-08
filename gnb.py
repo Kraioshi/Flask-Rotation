@@ -53,12 +53,16 @@ class Gunbreaker:
             self.ready_to_blast = True
 
     def gnashing_fang(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         if self.cartridge > 0:
             self.cartridge -= 1
             self.gnashing_fang_cooldown = 30
             self.ready_to_rip = True
 
     def double_down(self):
+        self.reduce_gcd()
+        self.reduce_ogcd()
         if self.cartridge > 1:
             self.cartridge -= 2
             self.double_down_cooldown = 60
@@ -113,7 +117,10 @@ class Gunbreaker:
             self.double_down_cooldown = 0
 
     def reduce_ogcd(self):
-        pass
+        if self.bloodfest_cooldown > 2.5:
+            self.bloodfest_cooldown -= 2.5
+        else:
+            self.bloodfest_cooldown = 0
 
 
 if __name__ == "__main__":

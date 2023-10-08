@@ -117,6 +117,26 @@
             $("#double_down_cooldown").text("Double Down CD: " + doubleDownCooldownValue)
         }
 
+        function updateBloodfestCooldownDisplay(bloodfestCooldownValue) {
+            $("#bloodfest_cooldown").text("Bloodfest CD: " + bloodfestCooldownValue)
+        }
+
+        updateBloodfestButtonState( {{gnb.bloodfest_cooldown }});
+
+        function updateBloodfestButtonState(bloodfestCooldown) {
+
+        if (bloodfestCooldown != 0) {
+            $("#disabled-bloodfest").prop("disabled", true);
+            $("#bloodfest").prop("disabled", true);
+
+        } else {
+            $("#disabled-bloodfest").prop("disabled", false);
+            $("#bloodfest").prop("disabled", false);
+            }
+        }
+
+
+
         updateBurstStrikeButtonState({{ gnb.cartridge }});
 
         function updateBurstStrikeButtonState(cartridgeValue) {
@@ -143,6 +163,9 @@
                     updateComboDisplay(response.combo);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -158,6 +181,9 @@
                     updateComboDisplay(response.combo);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
             });
@@ -173,7 +199,11 @@
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+
                     updateBurstStrikeButtonState(response.cartridge);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
                 }
             });
         });
@@ -188,6 +218,9 @@
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateBurstStrikeButtonState(response.cartridge);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
                 }
             });
         });
@@ -204,6 +237,9 @@
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     $("p#ready_to_rip").text("Ready To Rip? " + response.ready_to_rip);
                     updateBurstStrikeButtonState(response.cartridge);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
                 }
             });
         });
@@ -218,12 +254,29 @@
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     updateBurstStrikeButtonState(response.cartridge);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
                 },
                 error: function (error) {
                     console.error("Error:", error);
                 }
             });
         });
+
+
+        $("#bloodfest").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/bloodfest",
+                success: function (response) {
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+                },
+            });
+        });
+
+
 
 
 
