@@ -332,7 +332,17 @@ def no_mercy():
 
 @app.route('/sonic_break', methods=["POST"])
 def sonic_break():
-    pass
+    gnb.sonic_break()
+    return jsonify({'combo': gnb.combo, 'cartridge': gnb.cartridge,
+                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
+                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
+                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
+                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
+                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
+                    "double_down_cooldown": gnb.double_down_cooldown,
+                    "no_mercy_cooldown": gnb.no_mercy_cooldown
+                    })
 
 
 @app.route('/jugular_rip', methods=["POST"])

@@ -118,6 +118,10 @@
             $("#double_down_cooldown").text("Double Down CD: " + doubleDownCooldownValue)
         }
 
+        function updateSonicBreakCooldownDisplay(sonicBreakCooldownValue) {
+            $("#sonic_break_cooldown").text("Sonic Break CD: " + sonicBreakCooldownValue)
+        }
+
         function updateBloodfestCooldownDisplay(bloodfestCooldownValue) {
             $("#bloodfest_cooldown").text("Bloodfest CD: " + bloodfestCooldownValue)
         }
@@ -186,6 +190,18 @@
             }
         }
 
+        function updateSonicBreakButtonState(sonicBreakCooldown) {
+
+        if (sonicBreakCooldown != 0) {
+            $("#disabled-sonic-break").prop("disabled", true);
+            $("#sonic-break").prop("disabled", true);
+
+        } else {
+            $("#disabled-sonic-break").prop("disabled", false);
+            $("#sonic-break").prop("disabled", false);
+            }
+        }
+
         updateBurstStrikeButtonState({{ gnb.cartridge }});
 
         function updateBurstStrikeButtonState(cartridgeValue) {
@@ -245,6 +261,9 @@
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
 
@@ -277,6 +296,9 @@
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
 
@@ -304,6 +326,9 @@
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
 
@@ -335,6 +360,9 @@
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
                     updateBurstStrikeButtonState(response.cartridge);
 
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
@@ -363,6 +391,9 @@
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     $("p#ready_to_rip").text("Ready To Rip? " + response.ready_to_rip);
@@ -394,6 +425,9 @@
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
 
                     updateBurstStrikeButtonState(response.cartridge);
@@ -411,6 +445,41 @@
                 },
                 error: function (error) {
                     console.error("Error:", error);
+                }
+            });
+        });
+
+
+        $("#sonic-break").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/sonic_break",
+                success: function (response) {
+                    updateCartridgeDisplay(response.cartridge);
+
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
+
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+
+                    updateBurstStrikeButtonState(response.cartridge);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
                 }
             });
         });
