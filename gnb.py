@@ -59,6 +59,7 @@ class Gunbreaker:
     def burst_strike(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.break_gnashing_fang()
 
         if self.cartridge > 0:
 
@@ -193,6 +194,8 @@ class Gunbreaker:
         self.ready_to_rip = False
         self.ready_to_tear = False
         self.ready_to_gouge = False
+        self.savage_claw_ready = False
+        self.wicked_talon_ready = False
 
     def break_gnashing_fang(self):
         self.ready_to_rip = False
