@@ -466,6 +466,9 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -513,6 +516,9 @@
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
 
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
@@ -565,6 +571,9 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
 
                 }
             });
@@ -610,10 +619,6 @@
 
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
-
-                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
-
-
 
                 }
             });
@@ -665,8 +670,6 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
-
-
                 }
             });
         });
@@ -708,8 +711,8 @@
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
 
-                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
-
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
 
 
                 },
@@ -759,8 +762,6 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
-
-
                 }
             });
         });
@@ -781,9 +782,6 @@
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
-
-
-
 
                 }
             });
@@ -810,7 +808,6 @@
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
-
                 }
             });
         });
@@ -822,7 +819,6 @@
                 success: function (response) {
                     updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
                     updateNoMercyButtonState(response.no_mercy_cooldown);
-
 
                 }
             });
@@ -836,7 +832,6 @@
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
-
 
                 }
             });
@@ -903,7 +898,6 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
-
                 }
             });
         });
@@ -936,8 +930,3 @@
 
 </script>
 {% endblock %}
-
-
-
-
-
