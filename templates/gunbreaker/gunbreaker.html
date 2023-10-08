@@ -22,6 +22,36 @@
 
 
     <div class="main">
+
+        <div class="ogcd">
+        <button class="btn btn-outline-dark" id="no-mercy">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
+        </button>
+
+        <button class="btn btn-outline-dark" id="bloodfest">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bloodfest.png') }}">
+        </button>
+
+        <button class="btn btn-outline-dark" id="blasting-zone">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/blasting_zone.png') }}">
+        </button>
+
+        <button class="btn btn-outline-dark" id="bow-shock">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
+        </button>
+
+
+
+        <button class="btn btn-outline-dark" id="sonic-break">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
+        </button>
+
+        <button class="btn btn-outline-dark" id="rough-divide">
+            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/rough_divide.png') }}">
+        </button>
+
+    </div>
+
         <div class="gcd">
         <button class="btn btn-outline-dark" id="keen-edge">
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/keen_edge.png')}}">
@@ -39,9 +69,13 @@
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
         </button>
 
+        {% if gnb.gnashing_fang_cooldown == 0%}
         <button class="btn btn-outline-dark" id="gnashing-fang">
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
         </button>
+        {% elif gnb.savage_claw_ready %}
+
+        {% endif %}
 
         <button class="btn btn-outline-dark" id="double-down">
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
@@ -77,34 +111,7 @@
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/continuation.png') }}">
         </button>
     </div>
-
-        <div class="ogcd">
-        <button class="btn btn-outline-dark" id="bloodfest">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bloodfest.png') }}">
-        </button>
-
-        <button class="btn btn-outline-dark" id="blasting-zone">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/blasting_zone.png') }}">
-        </button>
-
-        <button class="btn btn-outline-dark" id="bow-shock">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
-        </button>
-
-        <button class="btn btn-outline-dark" id="no-mercy">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
-        </button>
-
-        <button class="btn btn-outline-dark" id="sonic-break">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
-        </button>
-
-        <button class="btn btn-outline-dark" id="rough-divide">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/rough_divide.png') }}">
-        </button>
-
-    </div>
-    </div>
+</div>
 
     <div class="target" style="margin-left: -175px; margin-top: 12px;">
         <div class="player" style="display: flex; justify-content: start; margin-left: 10px;">
@@ -119,6 +126,10 @@
 </div>
 
 
+<br>
+<br>
+<br>
+<hr>
 
 <div class="flex-container" style="display: flex; justify-content: space-around;">
     <div class="cd">
@@ -137,13 +148,14 @@
     <p id="sonic_break_cooldown">Sonic Break</p>
     <p id="rough_divide_cooldown">Rough Divide CD</p>
     <p id="rough_divide_stacks">Rough Divide ST</p>
-</div>
-<div>
-<form action="{{url_for('gunbreaker_reset') }}" method="POST">
-    <button class="btn btn-outline-dark">
-        Reset!
-    </button>
-</form>
+    </div>
+    <div>
+        <form action="{{url_for('gunbreaker_reset') }}" method="POST">
+            <button id="reset" class="btn btn-outline-dark">
+                Reset!
+            </button>
+        </form>
+    </div>
 </div>
 
 <script>
@@ -327,11 +339,9 @@
         function updateHypervelocityButtonState(readyToBlast) {
 
             if (!readyToBlast) {
-                $("#disabled-hypervelocity").prop("disabled", true);
-                $("#hypervelocity").prop("disabled", true);
+                $("#hypervelocity").css("display", "none");
             } else {
-                $("#disabled-hypervelocity").prop("disabled", false);
-                $("#hypervelocity").prop("disabled", false);
+                $("#hypervelocity").css("display", "inline-block");
             }
         }
 
@@ -340,11 +350,9 @@
         function updateJugularRipButtonState(readyToRip) {
 
             if (!readyToRip) {
-                $("#disabled-jugular-rip").prop("disabled", true);
-                $("#jugular-rip").prop("disabled", true);
+                $("#jugular-rip").css("display", "none");
             } else {
-                $("#disabled-jugular-rip").prop("disabled", false);
-                $("#jugular-rip").prop("disabled", false);
+                $("#jugular-rip").css("display", "inline-block");
             }
         }
 
@@ -366,11 +374,9 @@
         function updateAbdomenTearButtonState(readyToTear) {
 
             if (!readyToTear) {
-                $("#disabled-abdomen-tear").prop("disabled", true);
-                $("#abdomen-tear").prop("disabled", true);
+                $("#abdomen-tear").css("display", "none");
             } else {
-                $("#disabled-abdomen-tear").prop("disabled", false);
-                $("#abdomen-tear").prop("disabled", false);
+                $("#abdomen-tear").css("display", "inline-block");
             }
         }
 
@@ -392,11 +398,9 @@
         function updateEyeGougeButtonState(readyToGouge) {
 
             if (!readyToGouge) {
-                $("#disabled-eye-gouge").prop("disabled", true);
-                $("#eye-gouge").prop("disabled", true);
+                $("#eye-gouge").css("display", "none");
             } else {
-                $("#disabled-eye-gouge").prop("disabled", false);
-                $("#eye-gouge").prop("disabled", false);
+                $("#eye-gouge").css("display", "inline-block");
             }
         }
 
@@ -864,7 +868,6 @@
                 }
             });
         });
-
 
     });
 
