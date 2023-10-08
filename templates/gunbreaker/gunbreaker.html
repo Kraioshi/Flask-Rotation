@@ -430,6 +430,7 @@
                 url: "/keen_edge",
                 success: function (response) {
                     updateComboDisplay(response.combo);
+
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
@@ -760,7 +761,9 @@
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
 
-                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
 
                 }
             });
