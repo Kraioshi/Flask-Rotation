@@ -23,14 +23,21 @@ class Gunbreaker:
         self.ready_to_tear = False
         self.ready_to_gouge = False
 
+        self.savage_claw_ready = True
+        self.wicked_talon_ready = False
+
     def keen_edge(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.break_continuation()
+
         self.combo = 1
 
     def brutal_shell(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.break_continuation()
+
         if self.combo == 1:
             self.combo = 2
         else:
@@ -39,6 +46,8 @@ class Gunbreaker:
     def solid_barrel(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.break_continuation()
+
         if self.combo == 2:
             if self.cartridge < 3:
                 self.cartridge += 1
@@ -50,6 +59,8 @@ class Gunbreaker:
     def burst_strike(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.break_gnashing_fang()
+
         if self.cartridge > 0:
             self.cartridge -= 1
             self.ready_to_blast = True
@@ -57,10 +68,15 @@ class Gunbreaker:
     def gnashing_fang(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+
         if self.cartridge > 0:
             self.cartridge -= 1
             self.gnashing_fang_cooldown = 30
             self.ready_to_rip = True
+            self.savage_claw_ready = True
+
+            if self.ready_to_blast:
+                self.ready_to_blast = False
 
     def double_down(self):
         self.reduce_gcd()
@@ -74,10 +90,22 @@ class Gunbreaker:
             self.ready_to_rip = False
 
     def savage_claw(self):
-        self.ready_to_tear = True
+        if self.savage_claw_ready:
+            self.ready_to_rip = False
+            self.ready_to_tear = True
+
+    def abdomen_tear(self):
+        if self.ready_to_tear:
+            self.ready_to_tear = False
 
     def wicked_talon(self):
-        self.ready_to_gouge = True
+        if self.wicked_talon_ready:
+            self.ready_to_tear = False
+            self.ready_to_gouge = True
+
+    def eye_gouge(self):
+        if self.ready_to_gouge:
+            self.ready_to_gouge = False
 
     def sonic_break(self):
         self.reduce_gcd()
@@ -97,14 +125,8 @@ class Gunbreaker:
         self.bloodfest_cooldown = 120
         self.cartridge = 3
 
-    def abdomen_tear(self):
-        pass
-
-    def eye_gouge(self):
-        pass
-
     def hypervelocity(self):
-        pass
+        self.ready_to_blast = False
 
     def rough_divide(self):
         if self.rough_divide_stacks > 0:
@@ -157,6 +179,17 @@ class Gunbreaker:
             self.no_mercy_cooldown -= 2.5
         else:
             self.no_mercy_cooldown = 0
+
+    def break_continuation(self):
+        self.ready_to_blast = False
+        self.ready_to_rip = False
+        self.ready_to_tear = False
+        self.ready_to_gouge = False
+
+    def break_gnashing_fang(self):
+        self.ready_to_rip = False
+        self.ready_to_tear = False
+        self.ready_to_gouge = False
 
 
 if __name__ == "__main__":
