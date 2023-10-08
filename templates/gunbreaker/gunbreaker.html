@@ -202,6 +202,7 @@
 
 
     }
+
         updateDoubleDownButtonState( {{gnb.double_down_cooldown}}, {{gnb.cartridge }} );
 
         function updateDoubleDownButtonState(doubleDownCooldown, cartridgeValue ) {
@@ -217,6 +218,20 @@
         }
 
 
+        updateGnashingFangButtonState( {{gnb.gnashing_fang_cooldown}}, {{gnb.cartridge }} );
+
+        function updateGnashingFangButtonState(gnashingFangCooldown, cartridgeValue ) {
+
+        if (gnashingFangCooldown === 0 && cartridgeValue >= 1 ) {
+            $("#disabled-gnashing-fang").prop("disabled", false);
+            $("#gnashing-fang").prop("disabled", false);
+
+        } else {
+            $("#disabled-gnashing-fang").prop("disabled", true);
+            $("#gnashing-fang").prop("disabled", true);
+            }
+        }
+
 
         $("#keen-edge").click(function () {
             $.ajax({
@@ -225,6 +240,7 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
@@ -254,7 +270,9 @@
                 url: "/brutal_shell",
                 success: function (response) {
                     updateComboDisplay(response.combo);
+
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
@@ -280,7 +298,9 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateCartridgeDisplay(response.cartridge);
+
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
@@ -310,6 +330,7 @@
                     updateComboDisplay(response.combo);
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
@@ -336,7 +357,9 @@
                 success: function (response) {
                     updateComboDisplay(response.combo);
                     updateCartridgeDisplay(response.cartridge);
+
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown)
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
@@ -364,7 +387,9 @@
                 url: "/double_down",
                 success: function (response) {
                     updateCartridgeDisplay(response.cartridge);
+
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
@@ -396,6 +421,9 @@
                 type: "POST",
                 url: "/bloodfest",
                 success: function (response) {
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
+
                     updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
                     updateBloodfestButtonState(response.bloodfest_cooldown);
 
