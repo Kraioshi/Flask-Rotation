@@ -332,6 +332,17 @@
             }
         }
 
+        updateGnashingFangVisibility();
+
+        function updateGnashingFangVisibility(savageClawReady, wickedTalonReady) {
+
+            if (savageClawReady || wickedTalonReady) {
+                $("#gnashing-fang").css("display", "none");
+            } else {
+                $("#gnashing-fang").css("display", "inline-block");
+            }
+        }
+
 
         updateHypervelocityButtonState();
 
@@ -360,11 +371,9 @@
         function updateSavageClawButtonState(savageClawReady) {
 
             if (!savageClawReady) {
-                $("#disabled-savage-claw").prop("disabled", true);
-                $("#savage-claw").prop("disabled", true);
+                $("#savage-claw").css("display", "none");
             } else {
-                $("#disabled-savage-claw").prop("disabled", false);
-                $("#savage-claw").prop("disabled", false);
+                $("#savage-claw").css("display", "inline-block");
             }
         }
 
@@ -384,11 +393,9 @@
         function updateWickedTalonButtonState(wickedTalonReady) {
 
             if (!wickedTalonReady) {
-                $("#disabled-wicked-talon").prop("disabled", true);
-                $("#wicked-talon").prop("disabled", true);
+                $("#wicked-talon").css("display", "none");
             } else {
-                $("#disabled-wicked-talon").prop("disabled", false);
-                $("#wicked-talon").prop("disabled", false);
+                $("#wicked-talon").css("display", "inline-block");
             }
         }
 
@@ -457,6 +464,8 @@
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -502,6 +511,9 @@
                     updateEyeGougeButtonState(response.ready_to_rip);
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateWickedTalonButtonState(response.wicked_talon_ready);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
                 }
@@ -551,6 +563,9 @@
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+
                 }
             });
         });
@@ -595,6 +610,9 @@
 
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
 
 
                 }
@@ -645,6 +663,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+
 
                 }
             });
@@ -686,6 +707,9 @@
 
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
 
 
                 },
@@ -732,6 +756,9 @@
 
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
 
 
                 }
@@ -854,6 +881,9 @@
                     updateWickedTalonButtonState(response.wicked_talon_ready);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
                 }
             });
         });
@@ -870,6 +900,9 @@
                     updateEyeGougeButtonState(response.ready_to_gouge);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
 
                 }
             });
