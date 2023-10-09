@@ -81,7 +81,6 @@ class Gunbreaker:
         self.reduce_ogcd()
         self.reduce_buffs()
 
-
         if self.cartridge > 0:
             self.cartridge -= 1
             self.gnashing_fang_cooldown = 30
@@ -90,6 +89,7 @@ class Gunbreaker:
 
             if self.ready_to_blast:
                 self.ready_to_blast = False
+                self.hypervelocity_buff = 0
 
     def double_down(self):
         self.reduce_gcd()
@@ -106,11 +106,11 @@ class Gunbreaker:
 
     def savage_claw(self):
         self.ready_to_blast = False
+        self.hypervelocity_buff = 0
 
         self.reduce_gcd()
         self.reduce_ogcd()
         self.reduce_buffs()
-
 
         if self.savage_claw_ready:
             self.savage_claw_ready = False
@@ -124,6 +124,8 @@ class Gunbreaker:
 
     def wicked_talon(self):
         self.ready_to_blast = False
+        self.hypervelocity_buff = 0
+
         self.reduce_gcd()
         self.reduce_ogcd()
         self.reduce_buffs()
@@ -233,6 +235,7 @@ class Gunbreaker:
 
     def break_continuation(self):
         self.ready_to_blast = False
+        self.hypervelocity_buff = 0
         self.ready_to_rip = False
         self.ready_to_tear = False
         self.ready_to_gouge = False

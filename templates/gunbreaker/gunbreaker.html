@@ -20,8 +20,14 @@
         </div>
 
         <div class="buffs" style="display: flex; flex-direction:row-reverse;">
-            <img class="buff-image" src="{{url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
-            <p class="buff-text">{{gnb.no_mercy_buff }}</p>
+            <img id="no_mercy_buff_icon" class="buff-image" src="{{url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
+            <p id="no_mercy_buff_text" class="buff-text">{{gnb.no_mercy_buff }}</p>
+
+            <img id="brutal_shell_buff_icon" class="buff-image" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png') }}">
+            <p id="brutal_shell_buff_text" class="buff-text">{{gnb.brutal_shell_buff }}</p>
+
+            <img id="hypervelocity_buff_icon" class="buff-image" src="{{url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
+            <p id="hypervelocity_buff_text" class="buff-text">{{gnb.hypervelocity_buff }}</p>
         </div>
     </div>
 
@@ -541,8 +547,70 @@
         updateCartridgeTwo( {{gnb.cartridge}} )
         updateCartridgeThree( {{gnb.cartridge}} )
 
+        function updateNoMercyBuffText(noMercyBuffValue) {
+            var $buffText = $("#no_mercy_buff_text");
 
+            if (noMercyBuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(noMercyBuffValue).show();
+            }
+        }
 
+        function updateBrutalShellBuffText(brutalShellBuffValue) {
+            var $buffText = $("#brutal_shell_buff_text");
+
+            if (brutalShellBuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(brutalShellBuffValue).show();
+            }
+        }
+
+        function updateHypervelocityBuffText(hypervelocityBuffValue) {
+            var $buffText = $("#hypervelocity_buff_text");
+
+            if (hypervelocityBuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(hypervelocityBuffValue).show();
+            }
+        }
+
+        function updateNoMercyBuffVisibility(noMercyBuffValue) {
+
+            if (noMercyBuffValue === 0) {
+                $("#no_mercy_buff_icon").css("display", "none");
+            } else {
+                $("#no_mercy_buff_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateBrutalShellBuffVisibility(brutalShellBuffValue) {
+
+            if (brutalShellBuffValue === 0) {
+                $("#brutal_shell_buff_icon").css("display", "none");
+            } else {
+                $("#brutal_shell_buff_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateHypervelocityBuffVisibility(hypervelocityBuffValue) {
+
+            if (hypervelocityBuffValue === 0) {
+                $("#hypervelocity_buff_icon").css("display", "none");
+            } else {
+                $("#hypervelocity_buff_icon").css("display", "inline-block");
+            }
+        }
+
+        updateNoMercyBuffText( {{gnb.no_mercy_buff }} )
+        updateBrutalShellBuffText( {{gnb.brutal_shell_buff }} )
+        updateHypervelocityBuffText( {{gnb.hypervelocity_buff }} )
+
+        updateNoMercyBuffVisibility( {{gnb.no_mercy_buff }} )
+        updateBrutalShellBuffVisibility( {{gnb.brutal_shell_buff }} )
+        updateHypervelocityBuffVisibility( {{gnb.hypervelocity_buff }} )
 
 
 
@@ -595,6 +663,14 @@
                     updateCartridgeOne(response.cartridge);
                     updateCartridgeTwo(response.cartridge);
                     updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
         //adding combo-wombo
         //adding combo-wombo
@@ -659,6 +735,15 @@
                     updateCartridgeOne(response.cartridge);
                     updateCartridgeTwo(response.cartridge);
                     updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
 
                     if (response.combo === 2) {
                         $("#solid-barrel").addClass("shining-border");
@@ -727,6 +812,14 @@
                     updateCartridgeTwo(response.cartridge);
                     updateCartridgeThree(response.cartridge);
 
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
                     $("#solid-barrel").removeClass("shining-border");
 
                 }
@@ -780,6 +873,14 @@
                     updateCartridgeOne(response.cartridge);
                     updateCartridgeTwo(response.cartridge);
                     updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
                 }
             });
         });
@@ -835,8 +936,16 @@
 
                     updateCartridgeOne(response.cartridge);
                     updateCartridgeTwo(response.cartridge);
-                    updateCartridgeThree(response.cartridge)
-;
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
                 }
             });
         });
@@ -885,6 +994,14 @@
                     updateCartridgeOne(response.cartridge);
                     updateCartridgeTwo(response.cartridge);
                     updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
                 },
                 error: function (error) {
@@ -941,6 +1058,14 @@
                     updateCartridgeOne(response.cartridge);
                     updateCartridgeTwo(response.cartridge);
                     updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
                 }
             });
@@ -1003,6 +1128,8 @@
                 success: function (response) {
                     updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
                     updateNoMercyButtonState(response.no_mercy_cooldown);
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
 
                 }
             });
@@ -1030,6 +1157,11 @@
                     updateHypervelocityButtonState(response.ready_to_blast);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
+
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+
                 }
             });
         });
@@ -1088,6 +1220,14 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
                 }
             });
         });
@@ -1134,6 +1274,14 @@
                                                   response.ready_to_tear, response.ready_to_gouge);
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
                 }
             });
@@ -1212,6 +1360,14 @@
                     updateHypervelocityButtonState(false)
 
                     updateContinuationButtonState(false, false, false, false);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
                     $("#brutal-shell").removeClass("shining-border");
                     $("#solid-barrel").removeClass("shining-border");

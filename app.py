@@ -188,6 +188,9 @@ def keen_edge():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -211,6 +214,9 @@ def brutal_shell():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -234,6 +240,9 @@ def solid_barrel():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -257,6 +266,9 @@ def burst_strike():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
