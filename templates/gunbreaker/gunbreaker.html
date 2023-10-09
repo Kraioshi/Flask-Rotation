@@ -1324,27 +1324,20 @@
                     updateJugularRipBuffVisibility(response.ready_to_rip);
                     updateAbdomenTearBuffVisibility(response.ready_to_tear);
                     updateEyeGougeBuffVisibility(response.ready_to_gouge);
-
-
                 }
             });
         });
 
-        $("#jugular-rip").click(function() {
-            $.ajax({
-                type: "POST",
-                url: "/jugular_rip",
-                success: function (response) {
-                    updateJugularRipDisplay(response.ready_to_rip);
-                    updateJugularRipButtonState(response.ready_to_rip);
-                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
-                                                  response.ready_to_tear, response.ready_to_gouge);
-
-                    updateJugularRipBuffVisibility(response.ready_to_rip);
-
-                }
-            });
+        function triggerHypervelocityButtonClick() {
+            $("#hypervelocity").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "x") {
+                triggerHypervelocityButtonClick();
+            }
         });
+
+
 
         $("#savage-claw").click(function() {
             $.ajax({
@@ -1472,6 +1465,31 @@
             });
         });
 
+        $("#jugular-rip").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/jugular_rip",
+                success: function (response) {
+                    updateJugularRipDisplay(response.ready_to_rip);
+                    updateJugularRipButtonState(response.ready_to_rip);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+
+                }
+            });
+        });
+
+        function triggerJugularRipButtonClick() {
+            $("#jugular-rip").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "x") {
+                triggerJugularRipButtonClick();
+            }
+        });
+
         $("#abdomen-tear").click(function() {
             $.ajax({
                 type: "POST",
@@ -1484,6 +1502,15 @@
                     updateAbdomenTearBuffVisibility(response.ready_to_tear);
                 }
             });
+        });
+
+        function triggerAbdomenTearButtonClick() {
+            $("#abdomen-tear").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "x") {
+                triggerAbdomenTearButtonClick();
+            }
         });
 
         $("#eye-gouge").click(function() {
@@ -1499,6 +1526,15 @@
                     updateEyeGougeBuffVisibility(response.ready_to_gouge);
                 }
             });
+        });
+
+        function triggerEyeGougeButtonClick() {
+            $("#eye-gouge").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "x") {
+                triggerEyeGougeButtonClick();
+            }
         });
 
         $("#gunbreaker-reset").click(function() {
