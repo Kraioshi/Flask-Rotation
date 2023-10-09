@@ -529,6 +529,11 @@
 
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+
+        //adding combo-wombo
+        //adding combo-wombo
+                    $("#brutal-shell").addClass("shining-border");
+
                 }
             });
         });
@@ -583,6 +588,10 @@
 
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
+
+                    $("#solid-barrel").addClass("shining-border");
+                    $("#brutal-shell").removeClass("shining-border");
+
                 }
             });
         });
@@ -638,6 +647,7 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
+                    $("#solid-barrel").removeClass("shining-border");
 
                 }
             });

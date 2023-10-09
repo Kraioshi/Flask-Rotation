@@ -383,3 +383,10 @@ font-size: 18px;
     text-shadow: -2px 0 black, 0 2px black, 3px 0 black, 0 -1px black;
 
 }
+
+
+.shining-border {
+    border: 2px solid black; /* Green border */
+    box-shadow: 0 0 10px #7bff00;
+}
+
