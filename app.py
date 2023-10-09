@@ -582,13 +582,6 @@ def hypervelocity():
                     })
 
 
-@app.route('/gunbreaker_reset', methods=["POST"])
-def gunbreaker_reset():
-    global gnb
-    gnb = Gunbreaker()
-    return redirect(url_for('gunbreaker'))
-
-
 @app.route('/reset_gunbreaker', methods=["POST"])
 def reset_gunbreaker():
     global gnb
@@ -612,6 +605,12 @@ def reset_gunbreaker():
                     "wicked_talon_ready": gnb.wicked_talon_ready,
                     })
 
+
+@app.route('/gunbreaker_reset', methods=["POST"])
+def gunbreaker_reset():
+    global gnb
+    gnb = Gunbreaker()
+    return redirect(url_for('gunbreaker'))
 
 
 if __name__ == '__main__':

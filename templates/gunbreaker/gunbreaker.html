@@ -20,12 +20,8 @@
         </div>
     </div>
 
-    <div class="main">
-        <div class="gnb-buffs" style="margin-bottom: 20px;">
-            <h5>Buff placeholder</h5>
-        </div>
-
-        <div class="gnb-gauge" style="display: flex; margin-bottom: 3px;">
+    <div class="main" style="margin: 44px;">
+        <div class="gnb-gauge" style="display: flex; margin-bottom: 3px; justify-content: space-between;">
             <div class="progress one" style="height: 14px; width: 118px;">
                 <div id="gnb_cartridge_one_empty" class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                      aria-valuemax="100">
@@ -35,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="progress two" style="height: 14px; width: 118px; margin-left: 8px;">
+            <div class="progress two" style="height: 14px; width: 118px;">
                 <div id="gnb_cartridge_two_empty" class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                      aria-valuemax="100">
                 </div>
@@ -44,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="progress three" style="height: 14px; width: 118px; margin-left: 8px;">
+            <div class="progress three" style="height: 14px; width: 118px; position: relative; right: 2px;">
                 <div id="gnb_cartridge_three_empty" class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                      aria-valuemax="100">
                 </div>
@@ -121,8 +117,6 @@
                 <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/wicked_talon.png') }}">
             </button>
 
-
-
             <button class="btn btn-outline-dark" id="double-down">
                 <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
                 <span class="gnb-cooldown-text" id="double_down_cooldown"></span>
@@ -154,7 +148,7 @@
 </div>
 
     <div class="target" style="margin-left: -175px; margin-top: 12px;">
-        <div class="player" style="display: flex; justify-content: start; margin-left: 10px;">
+        <div class="target" style="display: flex; justify-content: start; margin-left: 10px;">
             <img src="{{url_for('static', filename='images/misc/trial_icon.png') }}" width="30px" height="30px"
              style="position: relative; bottom: 2px; right: 1px;">
             <h5>Pandaemonium MF</h5>
@@ -163,27 +157,19 @@
             <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
             </div>
         </div>
+        <div class="gnb-debuffs">
+            debuff placeholder
+        </div>
     </div>
 </div>
 
-
-<br>
-<br>
-<br>
 <hr>
 
-<div class="flex-container" style="display: flex; justify-content: space-around;">
-        <form action="{{url_for('gunbreaker_reset') }}" method="POST">
-            <button id="reset" class="btn btn-outline-dark">
-                Reset!
-            </button>
-        </form>
-
-
-        <button class="btn btn-outline-dark" id="gunbreaker-reset">
-            Gunbreaker Reset
-        </button>
-    </div>
+<div class="gunbreaker-reset" style="display: flex; justify-content: space-around;">
+    <button class="btn btn-outline-dark" id="gunbreaker-reset">
+        Reset!
+    </button>
+</div>
 
 <script>
     $(document).ready(function () {
