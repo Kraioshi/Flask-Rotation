@@ -1535,83 +1535,145 @@
         });
 
 
-        function triggerKeenEdgeButtonClick() {
-            $("#keen-edge").click();
-        }
 
-        function triggerNoMercyButtonClick() {
-            $("#no-mercy").click();
-        }
+// Gnashing Fang
+// Savage Claw
+// Wicked Talon
 
-        function triggerBrutalShellButtonClick() {
-            $("#brutal-shell").click();
-        }
-
-        function triggerBowShockButtonClick() {
-            $("#bow-shock").click();
-        }
-
-        function triggerSonicBreakButtonClick(buttonId) {
+        function triggerGnashingFangButtonClick(buttonId) {
             var $button = $("#" + buttonId);
-            if (!$button.prop("disabled")) {
+            if (!$button.prop("disabled") && $button.is(":visible")) {
                 $button.click();
             }
         }
 
-
-        function triggerSolidBarrelButtonClick() {
-            $("#solid-barrel").click();
-        }
-
-        function triggerGnashingFangButtonClick() {
-            if (!$("#gnashing-fang").prop("disabled") && $("#gnashing-fang").is(":visible")) {
-                $("#gnashing-fang").click();
+        function triggerSavageClawButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled") && $button.is(":visible")) {
+                $button.click();
             }
         }
 
-        function triggerBurstStrikeButtonClick() {
-            if (!$("#burst-strike").prop("disabled") && $("#burst-strike").is(":visible")) {
-                $("#burst-strike").click();
+        function triggerWickedTalonButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled") && $button.is(":visible")) {
+                $button.click();
             }
         }
 
-        function triggerSavageClawButtonClick() {
-            $("#savage-claw").click();
-        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "4") {
+                if ($("#gnashing-fang").is(":visible")) {
+                    triggerGnashingFangButtonClick("gnashing-fang");
+                } else if ($("#savage-claw").is(":visible")) {
+                    triggerSavageClawButtonClick("savage-claw");
+                } else if ($("#wicked-talon").is(":visible")) {
+                    triggerWickedTalonButtonClick("wicked-talon");
+                }
+            }
+        });
 
-        function triggerWickedTalonButtonClick() {
-            $("#wicked-talon").click();
-        }
+
+
+
+
+// Rough Divide
 
         function triggerRoughDivideButtonClick() {
             $("#rough-divide").click();
         }
 
-        function triggerBloodfestButtonClick() {
-            $("#bloodfest").click();
-        }
+
+// Blasting Zone
+
+        function triggerBlastingZoneButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "e") {
+                triggerBlastingZoneButtonClick("blasting-zone");
+            }
+        });
+
+// Burst Strike
+
+        function triggerBurstStrikeButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "4") {
+                triggerBurstStrikeButtonClick("burst-strike");
+            }
+        });
 
 
-        function triggerBlastingZoneButtonClick() {
-            $("#blasting-zone").click();
+// No Mercy
+// Keen Edge
+
+        function triggerKeenEdgeButtonClick() {
+            $("#keen-edge").click();
         }
+
+        function triggerNoMercyButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
 
 
         document.addEventListener("keydown", function(event) {
             if (event.altKey && event.key === "1") {
-                triggerNoMercyButtonClick();
+                triggerNoMercyButtonClick("no-mercy");
             } else if (event.key === "1") {
                 triggerKeenEdgeButtonClick();
             }
         });
 
+// Bow Shock
+// Brutal Shell
+
+        function triggerBrutalShellButtonClick() {
+            $("#brutal-shell").click();
+        }
+
+        function triggerBowShockButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+        }
+
         document.addEventListener("keydown", function(event) {
             if (event.altKey && event.key === "2") {
-                triggerBowShockButtonClick();
+                triggerBowShockButtonClick("bow-shock");
             } else if (event.key === "2") {
                 triggerBrutalShellButtonClick();
             }
         });
+
+// Sonic Break
+// Solid Barrel
+
+        function triggerSonicBreakButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
+
+
+        function triggerSolidBarrelButtonClick() {
+            $("#solid-barrel").click();
+        }
 
         document.addEventListener("keydown", function(event) {
             if (event.altKey && event.key === "3") {
@@ -1642,40 +1704,20 @@
             }
         });
 
+// Bloodfest
+
+        function triggerBloodfestButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+            }
+        }
+
         document.addEventListener("keydown", function(event) {
             if (event.altKey && event.key === "q") {
-                triggerBloodfestButtonClick();
+                triggerBloodfestButtonClick("bloodfest");
             }
         });
-
-
-        document.addEventListener("keydown", function(event) {
-            if (event.altKey && event.key === "e") {
-                triggerBlastingZoneButtonClick();
-            }
-        });
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "4") {
-                triggerGnashingFangButtonClick();
-            } else if (event.altKey && event.key === "4") {
-                triggerBurstStrikeButtonClick();
-            }
-        });
-
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "q") {
-                triggerSavageClawButtonClick();
-                }
-        });
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "e") {
-                triggerWickedTalonButtonClick();
-                }
-        });
-
 
 
         $("#gunbreaker-reset").click(function() {
