@@ -792,11 +792,9 @@
                     if (response.combo === 1) {
                         $("#solid-barrel").removeClass("shining-border");
                     }
-
                 }
             });
         });
-
 
 
         $("#brutal-shell").click(function () {
@@ -870,10 +868,10 @@
                         $("#brutal-shell").removeClass("shining-border");
                         $("#solid-barrel").removeClass("shining-border");
                     }
-
                 }
             });
         });
+
 
         $("#solid-barrel").click(function () {
             $.ajax({
@@ -944,10 +942,10 @@
                     updateSonicBreakDebuffText(response.sonic_break_debuff);
 
                     $("#solid-barrel").removeClass("shining-border");
-
                 }
             });
         });
+
 
         $("#burst-strike").click(function () {
             $.ajax({
@@ -1012,6 +1010,8 @@
                 }
             });
         });
+
+
 
         $("#gnashing-fang").click(function () {
             $.ajax({
@@ -1083,6 +1083,7 @@
                 }
             });
         });
+
 
         $("#double-down").click(function () {
             $.ajax({
@@ -1222,11 +1223,9 @@
                     updateBowShockDebuffText(response.bow_shock_debuff);
                     updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
                     updateSonicBreakDebuffText(response.sonic_break_debuff);
-
                 }
             });
         });
-
 
         $("#bloodfest").click(function() {
             $.ajax({
@@ -1252,6 +1251,8 @@
             });
         });
 
+
+
         $("#blasting-zone").click(function() {
             $.ajax({
                 type: "POST",
@@ -1259,11 +1260,10 @@
                 success: function (response) {
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
-
-
                 }
             });
         });
+
 
         $("#bow-shock").click(function() {
             $.ajax({
@@ -1275,8 +1275,6 @@
 
                     updateBowShockDebuffVisibility(response.bow_shock_debuff);
                     updateBowShockDebuffText(response.bow_shock_debuff);
-
-
                 }
             });
         });
@@ -1290,10 +1288,10 @@
                     updateNoMercyButtonState(response.no_mercy_cooldown);
                     updateNoMercyBuffText(response.no_mercy_buff);
                     updateNoMercyBuffVisibility(response.no_mercy_buff);
-
                 }
             });
         });
+
 
         $("#rough-divide").click(function() {
             $.ajax({
@@ -1332,11 +1330,10 @@
             $("#hypervelocity").click();
         }
         document.addEventListener("keydown", function(event) {
-            if (event.key === "x") {
+            if (event.key === "`") {
                 triggerHypervelocityButtonClick();
             }
         });
-
 
 
         $("#savage-claw").click(function() {
@@ -1485,7 +1482,7 @@
             $("#jugular-rip").click();
         }
         document.addEventListener("keydown", function(event) {
-            if (event.key === "x") {
+            if (event.key === "`") {
                 triggerJugularRipButtonClick();
             }
         });
@@ -1508,7 +1505,7 @@
             $("#abdomen-tear").click();
         }
         document.addEventListener("keydown", function(event) {
-            if (event.key === "x") {
+            if (event.key === "`") {
                 triggerAbdomenTearButtonClick();
             }
         });
@@ -1532,10 +1529,145 @@
             $("#eye-gouge").click();
         }
         document.addEventListener("keydown", function(event) {
-            if (event.key === "x") {
+            if (event.key === "`") {
                 triggerEyeGougeButtonClick();
             }
         });
+
+
+        function triggerKeenEdgeButtonClick() {
+            $("#keen-edge").click();
+        }
+
+        function triggerNoMercyButtonClick() {
+            $("#no-mercy").click();
+        }
+
+        function triggerBrutalShellButtonClick() {
+            $("#brutal-shell").click();
+        }
+
+        function triggerBowShockButtonClick() {
+            $("#bow-shock").click();
+        }
+
+        function triggerSonicBreakButtonClick() {
+            $("#sonic-break").click();
+        }
+
+        function triggerSolidBarrelButtonClick() {
+            $("#solid-barrel").click();
+        }
+
+        function triggerGnashingFangButtonClick() {
+            $("#gnashing-fang").click();
+        }
+
+        function triggerBurstStrikeButtonClick() {
+            $("#burst-strike").click();
+        }
+
+        function triggerSavageClawButtonClick() {
+            $("#savage-claw").click();
+        }
+
+        function triggerWickedTalonButtonClick() {
+            $("#wicked-talon").click();
+        }
+
+        function triggerRoughDivideButtonClick() {
+            $("#rough-divide").click();
+        }
+
+        function triggerBloodfestButtonClick() {
+            $("#bloodfest").click();
+        }
+
+        function triggerDoubleDownButtonClick() {
+            $("#double-down").click();
+        }
+
+        function triggerBlastingZoneButtonClick() {
+            $("#blasting-zone").click();
+        }
+
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "1") {
+                triggerNoMercyButtonClick();
+            } else if (event.key === "1") {
+                triggerKeenEdgeButtonClick();
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "2") {
+                triggerBowShockButtonClick();
+            } else if (event.key === "2") {
+                triggerBrutalShellButtonClick();
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "3") {
+                triggerSonicBreakButtonClick();
+            } else if (event.key === "3") {
+                triggerSolidBarrelButtonClick();
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "4") {
+                triggerBurstStrikeButtonClick();
+            }
+        });
+
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "6") {
+                triggerRoughDivideButtonClick();
+            }
+        });
+
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "5") {
+                triggerDoubleDownButtonClick();
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "q") {
+                triggerBloodfestButtonClick();
+            }
+        });
+
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "e") {
+                triggerBlastingZoneButtonClick();
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "4") {
+                triggerGnashingFangButtonClick();
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "q") {
+                triggerSavageClawButtonClick();
+                }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "e") {
+                triggerWickedTalonButtonClick();
+                }
+        });
+
+
 
         $("#gunbreaker-reset").click(function() {
             $.ajax({
@@ -1602,13 +1734,9 @@
 
                     $("#brutal-shell").removeClass("shining-border");
                     $("#solid-barrel").removeClass("shining-border");
-
                 },
-
             });
         });
-
-
     });
 
 
