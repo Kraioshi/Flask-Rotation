@@ -178,8 +178,12 @@
                 Reset!
             </button>
         </form>
+
+
+        <button class="btn btn-outline-dark" id="gunbreaker-reset">
+            Gunbreaker Reset
+        </button>
     </div>
-</div>
 
 <script>
     $(document).ready(function () {
@@ -595,9 +599,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-                    updateCartridgeOne(response.cartridge)
-                    updateCartridgeTwo(response.cartridge)
-                    updateCartridgeThree(response.cartridge)
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
 
         //adding combo-wombo
         //adding combo-wombo
@@ -659,9 +663,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-                    updateCartridgeOne(response.cartridge)
-                    updateCartridgeTwo(response.cartridge)
-                    updateCartridgeThree(response.cartridge)
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
 
                     if (response.combo === 2) {
                         $("#solid-barrel").addClass("shining-border");
@@ -726,9 +730,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-                    updateCartridgeOne(response.cartridge)
-                    updateCartridgeTwo(response.cartridge)
-                    updateCartridgeThree(response.cartridge)
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
 
                     $("#solid-barrel").removeClass("shining-border");
 
@@ -780,9 +784,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-                    updateCartridgeOne(response.cartridge)
-                    updateCartridgeTwo(response.cartridge)
-                    updateCartridgeThree(response.cartridge)
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
                 }
             });
         });
@@ -836,10 +840,10 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
-                    updateCartridgeOne(response.cartridge)
-                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
                     updateCartridgeThree(response.cartridge)
-
+;
                 }
             });
         });
@@ -859,8 +863,6 @@
 
                     updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
                     updateSonicBreakButtonState(response.sonic_break_cooldown);
-
-                    $("p#cartridge").text("Cartridge: " + response.cartridge);
 
                     updateBurstStrikeButtonState(response.cartridge);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
@@ -887,9 +889,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-                    updateCartridgeOne(response.cartridge)
-                    updateCartridgeTwo(response.cartridge)
-                    updateCartridgeThree(response.cartridge)
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
 
                 },
                 error: function (error) {
@@ -943,8 +945,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-                    updateCartridgeOne(response.cartridge)
-
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
 
                 }
             });
@@ -967,9 +970,9 @@
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
-                    updateCartridgeOne(response.cartridge)
-                    updateCartridgeTwo(response.cartridge)
-                    updateCartridgeThree(response.cartridge)
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
 
                 }
             });
@@ -1167,7 +1170,67 @@
             });
         });
 
+        $("#gunbreaker-reset").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/reset_gunbreaker",
+                success: function(response) {
+                    updateComboDisplay(response.combo);
+                    updateCartridgeDisplay(response.cartridge);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
+
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
+                    updateBurstStrikeButtonState(response.cartridge);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateJugularRipButtonState(response.ready_to_rip);
+                    updateAbdomenTearButtonState(response.ready_to_rip);
+                    updateEyeGougeButtonState(response.ready_to_rip);
+                    updateSavageClawButtonState(response.savage_claw_ready);
+                    updateWickedTalonButtonState(response.wicked_talon_ready);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    $("#brutal-shell").removeClass("shining-border");
+                    $("#solid-barrel").removeClass("shining-border");
+
+                },
+
+            });
+        });
+
+
     });
+
 
 </script>
 {% endblock %}
