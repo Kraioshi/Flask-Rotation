@@ -23,103 +23,123 @@
 
     <div class="main">
 
+        <div class="gnb-gauge" style="display: flex; margin-bottom: 3px;">
+            <div class="progress one" style="height: 14px; width: 118px;">
+                <div class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
+            </div>
+
+            <div class="progress two" style="height: 14px; width: 118px; margin-left: 8px;">
+                <div class="progress-bar bg-light" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
+            </div>
+
+            <div class="progress three" style="height: 14px; width: 118px; margin-left: 8px;">
+                <div class="progress-bar bg-light" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
+            </div>
+        </div>
+
         <div class="ogcd">
-        <button class="btn btn-outline-dark" id="no-mercy">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
-            <span class="gnb-cooldown-text" id="no_mercy_cooldown"></span>
-        </button>
+            <button class="btn btn-outline-dark" id="no-mercy">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
+                <span class="gnb-cooldown-text" id="no_mercy_cooldown"></span>
+            </button>
 
-        <button class="btn btn-outline-dark" id="bloodfest">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bloodfest.png') }}">
-            <span class="gnb-cooldown-text" id="bloodfest_cooldown"></span>
-        </button>
+            <button class="btn btn-outline-dark" id="bloodfest">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bloodfest.png') }}">
+                <span class="gnb-cooldown-text" id="bloodfest_cooldown"></span>
+            </button>
 
-        <button class="btn btn-outline-dark" id="blasting-zone">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/blasting_zone.png') }}">
-            <span class="gnb-cooldown-text" id="blasting_zone_cooldown"></span>
-        </button>
+            <button class="btn btn-outline-dark" id="blasting-zone">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/blasting_zone.png') }}">
+                <span class="gnb-cooldown-text" id="blasting_zone_cooldown"></span>
+            </button>
 
-        <button class="btn btn-outline-dark" id="bow-shock">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
-            <span class="gnb-cooldown-text" id="bow_shock_cooldown"></span>
+            <button class="btn btn-outline-dark" id="bow-shock">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
+                <span class="gnb-cooldown-text" id="bow_shock_cooldown"></span>
 
-        </button>
+            </button>
 
 
 
-        <button class="btn btn-outline-dark" id="sonic-break">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
-            <span class="gnb-cooldown-text" id="sonic_break_cooldown"></span>
-        </button>
+            <button class="btn btn-outline-dark" id="sonic-break">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
+                <span class="gnb-cooldown-text" id="sonic_break_cooldown"></span>
+            </button>
 
-        <button class="btn btn-outline-dark" id="rough-divide">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/rough_divide.png') }}">
-            <span class="gnb-cooldown-text" id="rough_divide_cooldown"></span>
-            <span class="stack-text" id="rough_divide_stacks"></span>
-        </button>
+            <button class="btn btn-outline-dark" id="rough-divide">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/rough_divide.png') }}">
+                <span class="gnb-cooldown-text" id="rough_divide_cooldown"></span>
+                <span class="stack-text" id="rough_divide_stacks"></span>
+            </button>
 
-    </div>
+        </div>
 
         <div class="gcd">
-        <button class="btn btn-outline-dark" id="keen-edge">
-            <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/keen_edge.png')}}">
-        </button>
+            <button class="btn btn-outline-dark" id="keen-edge">
+                <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/keen_edge.png')}}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="brutal-shell">
-            <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png')}}">
-        </button>
+            <button class="btn btn-outline-dark" id="brutal-shell">
+                <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png')}}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="solid-barrel">
-            <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/solid_barrel.png')}}">
-        </button>
+            <button class="btn btn-outline-dark" id="solid-barrel">
+                <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/solid_barrel.png')}}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="burst-strike">
-            <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
-        </button>
+            <button class="btn btn-outline-dark" id="burst-strike">
+                <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/burst_strike.png')}}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="gnashing-fang">
-            <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
-            <span class="gnb-cooldown-text" id="gnashing_fang_cooldown"></span>
-        </button>
+            <button class="btn btn-outline-dark" id="gnashing-fang">
+                <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
+                <span class="gnb-cooldown-text" id="gnashing_fang_cooldown"></span>
+            </button>
 
-        <button class="btn btn-outline-dark" id="savage-claw">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/savage_claw.png') }}">
-        </button>
+            <button class="btn btn-outline-dark" id="savage-claw">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/savage_claw.png') }}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="wicked-talon">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/wicked_talon.png') }}">
-        </button>
+            <button class="btn btn-outline-dark" id="wicked-talon">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/wicked_talon.png') }}">
+            </button>
 
 
 
-        <button class="btn btn-outline-dark" id="double-down">
-            <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
-            <span class="gnb-cooldown-text" id="double_down_cooldown"></span>
-        </button>
-    </div>
+            <button class="btn btn-outline-dark" id="double-down">
+                <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
+                <span class="gnb-cooldown-text" id="double_down_cooldown"></span>
+            </button>
+        </div>
 
         <div class="continuation" style="margin-left: 155px;">
-        <button class="btn btn-outline-dark" id="jugular-rip">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/jugular_rip.png') }}">
-        </button>
+            <button class="btn btn-outline-dark" id="jugular-rip">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/jugular_rip.png') }}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="abdomen-tear">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/abdomen_tear.png') }}">
-        </button>
+            <button class="btn btn-outline-dark" id="abdomen-tear">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/abdomen_tear.png') }}">
+            </button>
 
 
-        <button class="btn btn-outline-dark" id="eye-gouge">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/eye_gouge.png') }}">
-        </button>
+            <button class="btn btn-outline-dark" id="eye-gouge">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/eye_gouge.png') }}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="hypervelocity">
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
-        </button>
+            <button class="btn btn-outline-dark" id="hypervelocity">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
+            </button>
 
-        <button class="btn btn-outline-dark" id="continuation" disabled>
-            <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/continuation.png') }}">
-        </button>
-    </div>
+            <button class="btn btn-outline-dark" id="continuation" disabled>
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/continuation.png') }}">
+            </button>
+        </div>
 </div>
 
     <div class="target" style="margin-left: -175px; margin-top: 12px;">
@@ -534,6 +554,10 @@
         //adding combo-wombo
                     $("#brutal-shell").addClass("shining-border");
 
+                    if (response.combo === 1) {
+                        $("#solid-barrel").removeClass("shining-border");
+                    }
+
                 }
             });
         });
@@ -589,8 +613,13 @@
 
                     $("p#cartridge").text("Cartridge: " + response.cartridge);
 
-                    $("#solid-barrel").addClass("shining-border");
-                    $("#brutal-shell").removeClass("shining-border");
+                    if (response.combo === 2) {
+                        $("#solid-barrel").addClass("shining-border");
+                        $("#brutal-shell").removeClass("shining-border");
+                    } else {
+                        $("#brutal-shell").removeClass("shining-border");
+                        $("#solid-barrel").removeClass("shining-border");
+                    }
 
                 }
             });
@@ -648,6 +677,8 @@
                                                   response.ready_to_tear, response.ready_to_gouge);
 
                     $("#solid-barrel").removeClass("shining-border");
+
+
 
                 }
             });

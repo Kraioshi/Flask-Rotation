@@ -386,7 +386,7 @@ font-size: 18px;
 
 
 .shining-border {
-    border: 2px solid black; /* Green border */
-    box-shadow: 0 0 10px #7bff00;
+    border: 2px solid black;
+    box-shadow: 0 0 20px #ff0000;
 }
 
