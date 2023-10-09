@@ -19,15 +19,21 @@
             </div>
         </div>
 
-        <div class="buffs" style="display: flex; flex-direction:row-reverse;">
-            <img id="no_mercy_buff_icon" class="buff-image" src="{{url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
-            <p id="no_mercy_buff_text" class="buff-text">{{gnb.no_mercy_buff }}</p>
+        <div class="buffs" style="display: flex; flex-direction:row-reverse; position: relative; top: 6px;">
+            <div style="display: grid">
+                <img id="no_mercy_buff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
+                <p id="no_mercy_buff_text" class="gnb-buff-text">{{gnb.no_mercy_buff }}</p>
+            </div>
 
-            <img id="brutal_shell_buff_icon" class="buff-image" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png') }}">
-            <p id="brutal_shell_buff_text" class="buff-text">{{gnb.brutal_shell_buff }}</p>
+            <div style="display: grid">
+                <img id="brutal_shell_buff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png') }}">
+                <p id="brutal_shell_buff_text" class="gnb-buff-text">{{gnb.brutal_shell_buff }}</p>
+            </div>
 
-            <img id="hypervelocity_buff_icon" class="buff-image" src="{{url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
-            <p id="hypervelocity_buff_text" class="buff-text">{{gnb.hypervelocity_buff }}</p>
+            <div style="display: grid">
+                <img id="hypervelocity_buff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
+                <p id="hypervelocity_buff_text" class="gnb-buff-text">{{gnb.hypervelocity_buff }}</p>
+            </div>
         </div>
     </div>
 

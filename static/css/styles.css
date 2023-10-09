@@ -396,3 +396,19 @@ font-size: 18px;
     box-shadow: 0 0 20px #ff0000;
 }
 
+.gnb-buff-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    bottom: 3px;
+    margin-left: 5px;
+}
+
+.gnb-buff-image {
+    width: 27.5px;
+    height: 26px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 5px;
+}
