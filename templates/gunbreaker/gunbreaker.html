@@ -26,28 +26,36 @@
         <div class="ogcd">
         <button class="btn btn-outline-dark" id="no-mercy">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
+            <span class="gnb-cooldown-text" id="no_mercy_cooldown"></span>
         </button>
 
         <button class="btn btn-outline-dark" id="bloodfest">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bloodfest.png') }}">
+            <span class="gnb-cooldown-text" id="bloodfest_cooldown"></span>
         </button>
 
         <button class="btn btn-outline-dark" id="blasting-zone">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/blasting_zone.png') }}">
+            <span class="gnb-cooldown-text" id="blasting_zone_cooldown"></span>
         </button>
 
         <button class="btn btn-outline-dark" id="bow-shock">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
+            <span class="gnb-cooldown-text" id="bow_shock_cooldown"></span>
+
         </button>
 
 
 
         <button class="btn btn-outline-dark" id="sonic-break">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
+            <span class="gnb-cooldown-text" id="sonic_break_cooldown"></span>
         </button>
 
         <button class="btn btn-outline-dark" id="rough-divide">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/rough_divide.png') }}">
+            <span class="gnb-cooldown-text" id="rough_divide_cooldown"></span>
+            <span class="stack-text" id="rough_divide_stacks"></span>
         </button>
 
     </div>
@@ -71,6 +79,7 @@
 
         <button class="btn btn-outline-dark" id="gnashing-fang">
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/gnashing_fang.png')}}">
+            <span class="gnb-cooldown-text" id="gnashing_fang_cooldown"></span>
         </button>
 
         <button class="btn btn-outline-dark" id="savage-claw">
@@ -85,6 +94,7 @@
 
         <button class="btn btn-outline-dark" id="double-down">
             <img class="gnb-action" src="{{url_for('static', filename='images/gunbreaker/double_down.png')}}">
+            <span class="gnb-cooldown-text" id="double_down_cooldown"></span>
         </button>
     </div>
 
@@ -134,19 +144,10 @@
     <div class="cd">
     <p id="combo">Combo: {{ gnb.combo }}</p>
     <p id="cartridge">Cartridge: {{ gnb.cartridge }}</p>
-    <p id="gnashing_fang_cooldown">Gnashing Fang</p>
     <p id="ready_to_rip">Ready To Rip? </p>
     <p id="ready_to_tear">Ready To Tear? </p>
     <p id="ready_to_gouge">Ready To Gouge? </p>
     <p id="ready_to_blast">Hypervelocity?</p>
-    <p id="double_down_cooldown">Double Down</p>
-    <p id="bloodfest_cooldown">Bloodfest</p>
-    <p id="blasting_zone_cooldown">Blasting Zone</p>
-    <p id="bow_shock_cooldown">Bow Shock</p>
-    <p id="no_mercy_cooldown">No Mercy</p>
-    <p id="sonic_break_cooldown">Sonic Break</p>
-    <p id="rough_divide_cooldown">Rough Divide CD</p>
-    <p id="rough_divide_stacks">Rough Divide ST</p>
     </div>
     <div>
         <form action="{{url_for('gunbreaker_reset') }}" method="POST">
@@ -168,39 +169,87 @@
         }
 
         function updateGnashingFangCooldownDisplay(gnashingFangCooldownValue) {
-            $("#gnashing_fang_cooldown").text("Gnashing Fang CD: " + gnashingFangCooldownValue);
+            var $cooldownText = $("#gnashing_fang_cooldown");
+
+            if (gnashingFangCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(gnashingFangCooldownValue).show();
+            }
         }
 
         function updateDoubleDownCooldownDisplay(doubleDownCooldownValue) {
-            $("#double_down_cooldown").text("Double Down CD: " + doubleDownCooldownValue)
+            var $cooldownText = $("#double_down_cooldown");
+
+            if (doubleDownCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(doubleDownCooldownValue).show();
+            }
         }
 
         function updateSonicBreakCooldownDisplay(sonicBreakCooldownValue) {
-            $("#sonic_break_cooldown").text("Sonic Break CD: " + sonicBreakCooldownValue)
+            var $cooldownText = $("#sonic_break_cooldown");
+
+            if (sonicBreakCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(sonicBreakCooldownValue).show();
+            }
         }
 
         function updateBloodfestCooldownDisplay(bloodfestCooldownValue) {
-            $("#bloodfest_cooldown").text("Bloodfest CD: " + bloodfestCooldownValue)
+            var $cooldownText = $("#bloodfest_cooldown");
+
+            if (bloodfestCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(bloodfestCooldownValue).show();
+            }
         }
 
         function updateBlastingZoneCooldownDisplay(blastingZoneCooldownValue) {
-            $("#blasting_zone_cooldown").text("Blasting Zone CD: " + blastingZoneCooldownValue)
+            var $cooldownText = $("#blasting_zone_cooldown");
+
+            if (blastingZoneCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(blastingZoneCooldownValue).show();
+            }
         }
 
         function updateBowShockCooldownDisplay(bowShockCooldownValue) {
-            $("#bow_shock_cooldown").text("Bow Shock CD: " + bowShockCooldownValue)
+            var $cooldownText = $("#bow_shock_cooldown");
+
+            if (bowShockCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(bowShockCooldownValue).show();
+            }
         }
 
         function updateNoMercyCooldownDisplay(noMercyCooldownValue) {
-            $("#no_mercy_cooldown").text("No Mercy CD: " + noMercyCooldownValue)
+            var $cooldownText = $("#no_mercy_cooldown");
+
+            if (noMercyCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(noMercyCooldownValue).show();
+            }
         }
 
         function updateRoughDivideCooldownDisplay(roughDivideCooldown) {
-            $("#rough_divide_cooldown").text("Rough Divide CD: " + roughDivideCooldown)
+            var $cooldownText = $("#rough_divide_cooldown");
+
+            if (roughDivideCooldown === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(roughDivideCooldown).show();
+            }
         }
 
         function updateRoughDivideStacksDisplay(roughDivideStacks) {
-            $("#rough_divide_stacks").text("Rough Divide Stacks: " + roughDivideStacks)
+            $("#rough_divide_stacks").text(+ roughDivideStacks)
         }
 
         function updateHypervelocityDisplay(readyToBlast) {
@@ -503,6 +552,9 @@
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
@@ -554,6 +606,9 @@
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
@@ -604,6 +659,9 @@
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
@@ -651,6 +709,9 @@
 
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
 
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
@@ -702,6 +763,9 @@
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
@@ -747,6 +811,9 @@
 
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
 
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
@@ -876,6 +943,29 @@
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateAbdomenTearButtonState(response.ready_to_tear);
 
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+
                     updateWickedTalonButtonState(response.wicked_talon_ready);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
@@ -893,7 +983,33 @@
                 success: function (response) {
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
+
                     updateAbdomenTearButtonState(response.ready_to_tear);
+
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
 
                     updateEyeGougeButtonState(response.ready_to_gouge);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,

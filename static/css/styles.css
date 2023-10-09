@@ -366,3 +366,20 @@
     border-radius: 5px;
     margin-left: 5px;
 }
+
+button.btn {
+    position: relative; /* Add this line to make the button a reference point */
+}
+
+.gnb-cooldown-text {
+font-size: 18px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: -2px 0 black, 0 2px black, 3px 0 black, 0 -1px black;
+
+}
