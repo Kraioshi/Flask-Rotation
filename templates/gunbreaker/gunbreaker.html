@@ -34,6 +34,23 @@
                 <img id="hypervelocity_buff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
                 <p id="hypervelocity_buff_text" class="gnb-buff-text">{{gnb.hypervelocity_buff }}</p>
             </div>
+
+            <div style="display: grid">
+                <img id="ready_to_rip_icon" class="gnb-buff-image"
+                     src="{{url_for('static', filename='images/gunbreaker/jugular_rip.png') }}">
+            </div>
+
+            <div style="display: grid">
+                <img id="ready_to_tear_icon" class="gnb-buff-image"
+                     src="{{url_for('static', filename='images/gunbreaker/abdomen_tear.png') }}">
+            </div>
+
+            <div style="display: grid">
+                <img id="ready_to_gouge_icon" class="gnb-buff-image"
+                     src="{{url_for('static', filename='images/gunbreaker/eye_gouge.png') }}">
+            </div>
+
+
         </div>
     </div>
 
@@ -610,13 +627,45 @@
             }
         }
 
-        updateNoMercyBuffText( {{gnb.no_mercy_buff }} )
-        updateBrutalShellBuffText( {{gnb.brutal_shell_buff }} )
-        updateHypervelocityBuffText( {{gnb.hypervelocity_buff }} )
+        function updateJugularRipBuffVisibility(readyToRip) {
 
-        updateNoMercyBuffVisibility( {{gnb.no_mercy_buff }} )
-        updateBrutalShellBuffVisibility( {{gnb.brutal_shell_buff }} )
-        updateHypervelocityBuffVisibility( {{gnb.hypervelocity_buff }} )
+            if (!readyToRip) {
+                $("#ready_to_rip_icon").css("display", "none");
+            } else {
+                $("#ready_to_rip_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateAbdomenTearBuffVisibility(readyToTear) {
+
+            if (!readyToTear) {
+                $("#ready_to_tear_icon").css("display", "none");
+            } else {
+                $("#ready_to_tear_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateEyeGougeBuffVisibility(readyToGouge) {
+
+            if (!readyToGouge) {
+                $("#ready_to_gouge_icon").css("display", "none");
+            } else {
+                $("#ready_to_gouge_icon").css("display", "inline-block");
+            }
+        }
+
+        updateNoMercyBuffText( {{gnb.no_mercy_buff }} );
+        updateBrutalShellBuffText( {{gnb.brutal_shell_buff }} );
+        updateHypervelocityBuffText( {{gnb.hypervelocity_buff }} );
+
+        updateNoMercyBuffVisibility( {{gnb.no_mercy_buff }} );
+        updateBrutalShellBuffVisibility( {{gnb.brutal_shell_buff }} );
+        updateHypervelocityBuffVisibility( {{gnb.hypervelocity_buff }} );
+
+
+        updateJugularRipBuffVisibility();
+        updateAbdomenTearBuffVisibility();
+        updateEyeGougeBuffVisibility();
 
 
 
@@ -952,6 +1001,9 @@
                     updateBrutalShellBuffVisibility(response.brutal_shell_buff);
                     updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+
+
                 }
             });
         });
@@ -1009,6 +1061,10 @@
                     updateBrutalShellBuffVisibility(response.brutal_shell_buff);
                     updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
+
                 },
                 error: function (error) {
                     console.error("Error:", error);
@@ -1057,6 +1113,10 @@
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
 
+                    updateJugularRipButtonState(response.ready_to_rip);
+                    updateAbdomenTearButtonState(response.ready_to_rip);
+                    updateEyeGougeButtonState(response.ready_to_rip);
+
 
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
@@ -1072,6 +1132,10 @@
                     updateNoMercyBuffVisibility(response.no_mercy_buff);
                     updateBrutalShellBuffVisibility(response.brutal_shell_buff);
                     updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
 
                 }
             });
@@ -1167,6 +1231,10 @@
                     updateHypervelocityBuffText(response.hypervelocity_buff);
                     updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
+
 
                 }
             });
@@ -1181,6 +1249,9 @@
                     updateJugularRipButtonState(response.ready_to_rip);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+
                 }
             });
         });
@@ -1233,6 +1304,10 @@
                     updateNoMercyBuffVisibility(response.no_mercy_buff);
                     updateBrutalShellBuffVisibility(response.brutal_shell_buff);
                     updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
 
                 }
             });
@@ -1289,6 +1364,10 @@
                     updateBrutalShellBuffVisibility(response.brutal_shell_buff);
                     updateHypervelocityBuffVisibility(response.hypervelocity_buff);
 
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
+
                 }
             });
         });
@@ -1301,6 +1380,8 @@
                     updateAbdomenTearButtonState(response.ready_to_tear);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
+
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
                 }
             });
         });
@@ -1313,6 +1394,9 @@
                     updateEyeGougeButtonState(response.ready_to_gouge);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
+
+
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
                 }
             });
         });

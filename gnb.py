@@ -143,6 +143,7 @@ class Gunbreaker:
         self.reduce_gcd()
         self.reduce_ogcd()
         self.reduce_buffs()
+        self.break_gnashing_fang()
 
         self.sonic_break_cooldown = 60
 
