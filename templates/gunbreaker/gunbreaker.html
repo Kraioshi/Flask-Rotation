@@ -248,8 +248,16 @@
             }
         }
 
+        updateRoughDivideStacksDisplay( {{gnb.rough_divide_stacks }})
+
         function updateRoughDivideStacksDisplay(roughDivideStacks) {
-            $("#rough_divide_stacks").text(+ roughDivideStacks)
+            var $stackText = $("#rough_divide_stacks");
+
+            if (roughDivideStacks === 0) {
+                $stackText.hide();
+            } else {
+                $stackText.text(roughDivideStacks).show();
+            }
         }
 
         function updateHypervelocityDisplay(readyToBlast) {
