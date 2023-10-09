@@ -20,24 +20,35 @@
         </div>
     </div>
 
-
     <div class="main">
+        <div class="gnb-buffs" style="margin-bottom: 20px;">
+            <h5>Buff placeholder</h5>
+        </div>
 
         <div class="gnb-gauge" style="display: flex; margin-bottom: 3px;">
             <div class="progress one" style="height: 14px; width: 118px;">
-                <div class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                <div id="gnb_cartridge_one_empty" class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
+                <div id="gnb_cartridge_one_full" class="progress-bar bg-dark" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                      aria-valuemax="100">
                 </div>
             </div>
 
             <div class="progress two" style="height: 14px; width: 118px; margin-left: 8px;">
-                <div class="progress-bar bg-light" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                <div id="gnb_cartridge_two_empty" class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
+                <div id="gnb_cartridge_two_full" class="progress-bar bg-dark" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                      aria-valuemax="100">
                 </div>
             </div>
 
             <div class="progress three" style="height: 14px; width: 118px; margin-left: 8px;">
-                <div class="progress-bar bg-light" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                <div id="gnb_cartridge_three_empty" class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
+                <div id="gnb_cartridge_three_full" class="progress-bar bg-dark" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                      aria-valuemax="100">
                 </div>
             </div>
@@ -149,7 +160,8 @@
             <h5>Pandaemonium MF</h5>
         </div>
         <div class="progress" style="height: 14px; width: 290px;">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            </div>
         </div>
     </div>
 </div>
@@ -161,15 +173,6 @@
 <hr>
 
 <div class="flex-container" style="display: flex; justify-content: space-around;">
-    <div class="cd">
-    <p id="combo">Combo: {{ gnb.combo }}</p>
-    <p id="cartridge">Cartridge: {{ gnb.cartridge }}</p>
-    <p id="ready_to_rip">Ready To Rip? </p>
-    <p id="ready_to_tear">Ready To Tear? </p>
-    <p id="ready_to_gouge">Ready To Gouge? </p>
-    <p id="ready_to_blast">Hypervelocity?</p>
-    </div>
-    <div>
         <form action="{{url_for('gunbreaker_reset') }}" method="POST">
             <button id="reset" class="btn btn-outline-dark">
                 Reset!
@@ -498,6 +501,51 @@
             }
         }
 
+        function updateCartridgeOne(cartridgeValue) {
+            var $cartridgeOneEmpty = $("#gnb_cartridge_one_empty");
+            var $cartridgeOneFull = $("#gnb_cartridge_one_full");
+
+            if (cartridgeValue > 0) {
+                $cartridgeOneEmpty.hide();
+                $cartridgeOneFull.show();
+            } else {
+                $cartridgeOneEmpty.show();
+                $cartridgeOneFull.hide();
+            }
+        }
+
+        function updateCartridgeTwo(cartridgeValue) {
+            var $cartridgeTwoEmpty = $("#gnb_cartridge_two_empty");
+            var $cartridgeTwoFull = $("#gnb_cartridge_two_full");
+
+            if (cartridgeValue > 1) {
+                $cartridgeTwoEmpty.hide();
+                $cartridgeTwoFull.show();
+            } else {
+                $cartridgeTwoEmpty.show();
+                $cartridgeTwoFull.hide();
+            }
+        }
+
+        function updateCartridgeThree(cartridgeValue) {
+            var $cartridgeThreeEmpty = $("#gnb_cartridge_three_empty");
+            var $cartridgeThreeFull = $("#gnb_cartridge_three_full");
+
+            if (cartridgeValue > 2) {
+                $cartridgeThreeEmpty.hide();
+                $cartridgeThreeFull.show();
+            } else {
+                $cartridgeThreeEmpty.show();
+                $cartridgeThreeFull.hide();
+            }
+        }
+
+        updateCartridgeOne( {{gnb.cartridge}} )
+        updateCartridgeTwo( {{gnb.cartridge}} )
+        updateCartridgeThree( {{gnb.cartridge}} )
+
+
+
 
 
 
@@ -547,8 +595,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-
-                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateCartridgeOne(response.cartridge)
+                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeThree(response.cartridge)
 
         //adding combo-wombo
         //adding combo-wombo
@@ -610,8 +659,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
-
-                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateCartridgeOne(response.cartridge)
+                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeThree(response.cartridge)
 
                     if (response.combo === 2) {
                         $("#solid-barrel").addClass("shining-border");
@@ -676,9 +726,11 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
+                    updateCartridgeOne(response.cartridge)
+                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeThree(response.cartridge)
+
                     $("#solid-barrel").removeClass("shining-border");
-
-
 
                 }
             });
@@ -728,6 +780,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
+                    updateCartridgeOne(response.cartridge)
+                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeThree(response.cartridge)
                 }
             });
         });
@@ -781,6 +836,10 @@
 
                     updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
+                    updateCartridgeOne(response.cartridge)
+                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeThree(response.cartridge)
+
                 }
             });
         });
@@ -828,6 +887,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
+                    updateCartridgeOne(response.cartridge)
+                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeThree(response.cartridge)
 
                 },
                 error: function (error) {
@@ -881,6 +943,9 @@
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
                                                   response.ready_to_tear, response.ready_to_gouge);
 
+                    updateCartridgeOne(response.cartridge)
+
+
                 }
             });
         });
@@ -901,6 +966,10 @@
 
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateCartridgeOne(response.cartridge)
+                    updateCartridgeTwo(response.cartridge)
+                    updateCartridgeThree(response.cartridge)
 
                 }
             });
