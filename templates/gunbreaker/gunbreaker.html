@@ -22,17 +22,17 @@
         <div class="buffs" style="display: flex; flex-direction:row-reverse; position: relative; top: 6px;">
             <div style="display: grid">
                 <img id="no_mercy_buff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
-                <p id="no_mercy_buff_text" class="gnb-buff-text">{{gnb.no_mercy_buff }}</p>
+                <p id="no_mercy_buff_text" class="gnb-buff-text"></p>
             </div>
 
             <div style="display: grid">
                 <img id="brutal_shell_buff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png') }}">
-                <p id="brutal_shell_buff_text" class="gnb-buff-text">{{gnb.brutal_shell_buff }}</p>
+                <p id="brutal_shell_buff_text" class="gnb-buff-text"></p>
             </div>
 
             <div style="display: grid">
                 <img id="hypervelocity_buff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
-                <p id="hypervelocity_buff_text" class="gnb-buff-text">{{gnb.hypervelocity_buff }}</p>
+                <p id="hypervelocity_buff_text" class="gnb-buff-text"></p>
             </div>
 
             <div style="display: grid">
@@ -49,7 +49,6 @@
                 <img id="ready_to_gouge_icon" class="gnb-buff-image"
                      src="{{url_for('static', filename='images/gunbreaker/eye_gouge.png') }}">
             </div>
-
 
         </div>
     </div>
@@ -192,8 +191,16 @@
             <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
             </div>
         </div>
-        <div class="gnb-debuffs">
-            debuff placeholder
+        <div class="debuffs" style="display: flex; position: relative; top: 6px;">
+            <div style="display: grid">
+                <img id="sonic_break_debuff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png') }}">
+                <p id="sonic_break_debuff_text" class="gnb-debuff-text"></p>
+            </div>
+
+            <div style="display: grid">
+                <img id="bow_shock_debuff_icon" class="gnb-debuff-image" src="{{url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
+                <p id="bow_shock_debuff_text" class="gnb-debuff-text"></p>
+            </div>
         </div>
     </div>
 </div>

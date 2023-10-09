@@ -29,6 +29,9 @@ class Gunbreaker:
         self.brutal_shell_buff = 0
         self.hypervelocity_buff = 0
 
+        self.bow_shock_debuff = 0
+        self.sonic_break_debuff = 15
+
     def keen_edge(self):
         self.reduce_gcd()
         self.reduce_ogcd()

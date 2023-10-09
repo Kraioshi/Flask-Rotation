@@ -412,3 +412,20 @@ font-size: 18px;
     border-radius: 5px;
     margin-left: 5px;
 }
+
+.gnb-debuff-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    bottom: 3px;
+    margin-left: 5px;
+}
+
+.gnb-debuff-image {
+    width: 27.5px;
+    height: 26px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 5px;
+}
