@@ -280,6 +280,9 @@ def double_down():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -303,6 +306,9 @@ def gnashing_fang():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -326,6 +332,9 @@ def rough_divide():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -349,6 +358,9 @@ def bloodfest():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -372,6 +384,9 @@ def blasting_zone():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -395,6 +410,9 @@ def bow_shock():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -418,6 +436,9 @@ def no_mercy():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -441,6 +462,9 @@ def sonic_break():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -464,6 +488,9 @@ def savage_claw():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -487,6 +514,9 @@ def wicked_talon():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -510,6 +540,9 @@ def jugular_rip():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -533,6 +566,9 @@ def abdomen_tear():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -556,6 +592,9 @@ def eye_gouge():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -579,6 +618,9 @@ def hypervelocity():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 
@@ -603,6 +645,9 @@ def reset_gunbreaker():
                     "ready_to_gouge": gnb.ready_to_gouge,
                     "savage_claw_ready": gnb.savage_claw_ready,
                     "wicked_talon_ready": gnb.wicked_talon_ready,
+                    "no_mercy_buff": gnb.no_mercy_buff,
+                    "brutal_shell_buff": gnb.brutal_shell_buff,
+                    "hypervelocity_buff": gnb.hypervelocity_buff,
                     })
 
 

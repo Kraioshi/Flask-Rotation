@@ -221,7 +221,7 @@ class Gunbreaker:
         else:
             self.no_mercy_buff = 0
 
-        if self.brutal_shell_buff > 2.5
+        if self.brutal_shell_buff > 2.5:
             self.brutal_shell_buff -= 2.5
         else:
             self.brutal_shell_buff = 0
