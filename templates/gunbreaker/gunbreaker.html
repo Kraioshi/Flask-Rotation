@@ -6,23 +6,29 @@
 
 <div class="flex-container" style="display: flex; justify-content: space-around;">
 
-    <div class="player" style="margin-right: -175px; margin-top: 12px;">
+    <div class="player" style="position: relative; top: 12px; left: 100px;">
         <div class="player" style="display: flex; justify-content: start">
             <img src="{{url_for('static', filename='images/gunbreaker/gunbreaker_icon.jpg') }}" width="30px" height="30px"
              style="position: relative; bottom: 2px;">
             <h5>Chadbreaker</h5>
         </div>
 
-        <div class="progress" style="height: 14px; width: 290px;">
+        <div class="progress" style="height: 14px; width: 300px;">
             <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
                  aria-valuemax="100">
             </div>
         </div>
+
+        <div class="buffs" style="display: flex; flex-direction:row-reverse;">
+            <img class="buff-image" src="{{url_for('static', filename='images/gunbreaker/no_mercy.png') }}">
+            <p class="buff-text"></p>
+        </div>
     </div>
 
     <div class="main" style="margin: 44px;">
-        <div class="gnb-gauge" style="display: flex; margin-bottom: 3px; justify-content: center;">
-            <div class="progress one" style="height: 14px; width: 118px; position: relative; right: 7.5px;">
+        <div class="gnb-gauge" style="display: flex; margin-bottom: 4px; justify-content: center;">
+
+            <div class="progress one" style="height: 14px; width: 119px; position: relative; right: 7.5px;">
                 <div id="gnb_cartridge_one_empty" class="progress-bar bg-light" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                      aria-valuemax="100">
                 </div>
@@ -147,13 +153,13 @@
         </div>
 </div>
 
-    <div class="target" style="margin-left: -175px; margin-top: 12px;">
-        <div class="target" style="display: flex; justify-content: start; margin-left: 10px;">
+    <div class="target" style="position: relative; top: 12px; right: 100px;">
+        <div class="target" style="display: flex; justify-content: start; margin-left: 3px;">
             <img src="{{url_for('static', filename='images/misc/trial_icon.png') }}" width="30px" height="30px"
              style="position: relative; bottom: 2px; right: 1px;">
             <h5>Pandaemonium MF</h5>
         </div>
-        <div class="progress" style="height: 14px; width: 290px;">
+        <div class="progress" style="height: 14px; width: 300px;">
             <div class="progress-bar bg-danger" role="progressbar" style="width: 350px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
             </div>
         </div>
@@ -163,13 +169,14 @@
     </div>
 </div>
 
-<hr>
 
 <div class="gunbreaker-reset" style="display: flex; justify-content: center;">
     <button class="btn btn-outline-dark" id="gunbreaker-reset">
         Reset!
     </button>
 </div>
+<hr>
+
 
 <script>
     $(document).ready(function () {

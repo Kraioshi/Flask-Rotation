@@ -1,7 +1,6 @@
 class Gunbreaker:
 
     def __init__(self):
-        self.potency = 0
 
         self.combo = 0
         self.cartridge = 0
@@ -26,9 +25,14 @@ class Gunbreaker:
         self.savage_claw_ready = True
         self.wicked_talon_ready = False
 
+        self.no_mercy_buff = 0
+        self.brutal_shell_buff = 0
+        self.hypervelocity_buff = 0
+
     def keen_edge(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
         self.break_continuation()
 
         self.combo = 1
@@ -36,16 +40,19 @@ class Gunbreaker:
     def brutal_shell(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
         self.break_continuation()
 
         if self.combo == 1:
             self.combo = 2
+            self.brutal_shell_buff = 30
         else:
             self.combo = 0
 
     def solid_barrel(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
         self.break_continuation()
 
         if self.combo == 2:
@@ -59,6 +66,7 @@ class Gunbreaker:
     def burst_strike(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
         self.break_gnashing_fang()
 
         if self.cartridge > 0:
@@ -66,9 +74,13 @@ class Gunbreaker:
             self.ready_to_blast = True
             self.cartridge -= 1
 
+            self.hypervelocity_buff = 10
+
     def gnashing_fang(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
+
 
         if self.cartridge > 0:
             self.cartridge -= 1
@@ -82,6 +94,8 @@ class Gunbreaker:
     def double_down(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
+
         if self.cartridge > 1:
             self.cartridge -= 2
             self.double_down_cooldown = 60
@@ -95,6 +109,8 @@ class Gunbreaker:
 
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
+
 
         if self.savage_claw_ready:
             self.savage_claw_ready = False
@@ -110,6 +126,8 @@ class Gunbreaker:
         self.ready_to_blast = False
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
+
         if self.wicked_talon_ready:
             self.wicked_talon_ready = False
             self.ready_to_tear = False
@@ -122,6 +140,8 @@ class Gunbreaker:
     def sonic_break(self):
         self.reduce_gcd()
         self.reduce_ogcd()
+        self.reduce_buffs()
+
         self.sonic_break_cooldown = 60
 
     def bow_shock(self):
@@ -131,6 +151,7 @@ class Gunbreaker:
         self.blasting_zone_cooldown = 30
 
     def no_mercy(self):
+        self.no_mercy_buff = 20
         self.no_mercy_cooldown = 60
 
     def bloodfest(self):
@@ -140,6 +161,7 @@ class Gunbreaker:
     def hypervelocity(self):
         if self.ready_to_blast:
             self.ready_to_blast = False
+            self.hypervelocity_buff = 0
 
     def rough_divide(self):
         if self.rough_divide_stacks > 0:
@@ -192,6 +214,22 @@ class Gunbreaker:
             self.no_mercy_cooldown -= 2.5
         else:
             self.no_mercy_cooldown = 0
+
+    def reduce_buffs(self):
+        if self.no_mercy_buff > 2.5:
+            self.no_mercy_buff -= 2.5
+        else:
+            self.no_mercy_buff = 0
+
+        if self.brutal_shell_buff > 2.5
+            self.brutal_shell_buff -= 2.5
+        else:
+            self.brutal_shell_buff = 0
+
+        if self.hypervelocity_buff > 2.5:
+            self.hypervelocity_buff -= 2.5
+        else:
+            self.hypervelocity_buff = 0
 
     def break_continuation(self):
         self.ready_to_blast = False

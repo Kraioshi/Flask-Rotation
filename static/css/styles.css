@@ -5,6 +5,7 @@
 
 /* PROGRESS BAR */
 
+
 .progress {
     border: 2px solid rgba(0, 0, 0, .5);
 }
@@ -376,6 +377,7 @@ button.btn {
 }
 
 .gnb-cooldown-text {
+
 font-size: 18px;
     font-weight: bold;
     color: white;
