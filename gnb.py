@@ -91,8 +91,11 @@ class Gunbreaker:
             self.ready_to_rip = False
 
     def savage_claw(self):
+        self.ready_to_blast = False
+
         self.reduce_gcd()
         self.reduce_ogcd()
+
         if self.savage_claw_ready:
             self.savage_claw_ready = False
             self.wicked_talon_ready = True
@@ -104,6 +107,7 @@ class Gunbreaker:
             self.ready_to_tear = False
 
     def wicked_talon(self):
+        self.ready_to_blast = False
         self.reduce_gcd()
         self.reduce_ogcd()
         if self.wicked_talon_ready:

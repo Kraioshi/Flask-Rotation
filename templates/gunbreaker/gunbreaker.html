@@ -98,7 +98,7 @@
         </button>
     </div>
 
-        <div class="continuation">
+        <div class="continuation" style="margin-left: 155px;">
         <button class="btn btn-outline-dark" id="jugular-rip">
             <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/jugular_rip.png') }}">
         </button>
@@ -678,7 +678,7 @@
                     updateRoughDivideButton(response.rough_divide_stacks);
 
                     updateHypervelocityDisplay(response.ready_to_blast);
-                    updateHypervelocityButtonState(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast && !response.ready_to_rip && !response.ready_to_tear && !response.ready_to_gouge);
 
                     updateJugularRipButtonState(response.ready_to_rip);
                     updateAbdomenTearButtonState(response.ready_to_rip);
@@ -973,6 +973,8 @@
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
 
+                    updateHypervelocityButtonState(response.ready_to_blast && !response.ready_to_rip && !response.ready_to_tear && !response.ready_to_gouge);
+
 
                     updateWickedTalonButtonState(response.wicked_talon_ready);
                     updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
@@ -1017,6 +1019,8 @@
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateHypervelocityButtonState(response.ready_to_blast && !response.ready_to_rip && !response.ready_to_tear && !response.ready_to_gouge);
 
 
                     updateEyeGougeButtonState(response.ready_to_gouge);
