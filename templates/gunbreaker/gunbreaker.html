@@ -1209,16 +1209,16 @@
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
 
-                    updateJugularRipButtonState(response.ready_to_rip);
-                    updateAbdomenTearButtonState(response.ready_to_rip);
-                    updateEyeGougeButtonState(response.ready_to_rip);
-                    updateSavageClawButtonState(response.savage_claw_ready);
-                    updateWickedTalonButtonState(response.wicked_talon_ready);
+                    updateJugularRipButtonState(false);
+                    updateAbdomenTearButtonState(false);
+                    updateEyeGougeButtonState(false);
+                    updateSavageClawButtonState(false);
+                    updateWickedTalonButtonState(false);
 
-                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+                    updateGnashingFangVisibility(false, false);
+                    updateHypervelocityButtonState(false)
 
-                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
-                                                  response.ready_to_tear, response.ready_to_gouge);
+                    updateContinuationButtonState(false, false, false, false);
 
                     $("#brutal-shell").removeClass("shining-border");
                     $("#solid-barrel").removeClass("shining-border");
