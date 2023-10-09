@@ -1551,20 +1551,28 @@
             $("#bow-shock").click();
         }
 
-        function triggerSonicBreakButtonClick() {
-            $("#sonic-break").click();
+        function triggerSonicBreakButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled")) {
+                $button.click();
+            }
         }
+
 
         function triggerSolidBarrelButtonClick() {
             $("#solid-barrel").click();
         }
 
         function triggerGnashingFangButtonClick() {
-            $("#gnashing-fang").click();
+            if (!$("#gnashing-fang").prop("disabled") && $("#gnashing-fang").is(":visible")) {
+                $("#gnashing-fang").click();
+            }
         }
 
         function triggerBurstStrikeButtonClick() {
-            $("#burst-strike").click();
+            if (!$("#burst-strike").prop("disabled") && $("#burst-strike").is(":visible")) {
+                $("#burst-strike").click();
+            }
         }
 
         function triggerSavageClawButtonClick() {
@@ -1583,9 +1591,6 @@
             $("#bloodfest").click();
         }
 
-        function triggerDoubleDownButtonClick() {
-            $("#double-down").click();
-        }
 
         function triggerBlastingZoneButtonClick() {
             $("#blasting-zone").click();
@@ -1610,29 +1615,30 @@
 
         document.addEventListener("keydown", function(event) {
             if (event.altKey && event.key === "3") {
-                triggerSonicBreakButtonClick();
+                triggerSonicBreakButtonClick("sonic-break");
             } else if (event.key === "3") {
                 triggerSolidBarrelButtonClick();
             }
         });
 
-        document.addEventListener("keydown", function(event) {
-            if (event.altKey && event.key === "4") {
-                triggerBurstStrikeButtonClick();
-            }
-        });
-
-
+// Rough Divide
         document.addEventListener("keydown", function(event) {
             if (event.key === "6") {
                 triggerRoughDivideButtonClick();
             }
         });
 
+// Double Down
+        function triggerDoubleDownButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled")) {
+                $button.click();
+            }
+        }
 
         document.addEventListener("keydown", function(event) {
             if (event.key === "5") {
-                triggerDoubleDownButtonClick();
+                triggerDoubleDownButtonClick("double-down");
             }
         });
 
@@ -1652,8 +1658,11 @@
         document.addEventListener("keydown", function(event) {
             if (event.key === "4") {
                 triggerGnashingFangButtonClick();
+            } else if (event.altKey && event.key === "4") {
+                triggerBurstStrikeButtonClick();
             }
         });
+
 
         document.addEventListener("keydown", function(event) {
             if (event.key === "q") {
