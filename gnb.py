@@ -62,9 +62,8 @@ class Gunbreaker:
             if self.cartridge < 3:
                 self.cartridge += 1
                 self.combo = 0
-            else:
-                self.cartridge = 3
-                self.combo = 0
+        else:
+            self.combo = 0
 
     def burst_strike(self):
         self.reduce_gcd()

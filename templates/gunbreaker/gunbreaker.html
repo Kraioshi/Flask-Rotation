@@ -8,7 +8,7 @@
 
     <div class="player" style="position: relative; top: 12px; left: 100px;">
         <div class="player" style="display: flex; justify-content: start">
-            <img src="{{url_for('static', filename='images/gunbreaker/gunbreaker_icon.jpg') }}" width="30px" height="30px"
+            <img src="{{url_for('static', filename='images/gunbreaker/gunbreaker_icon.png') }}" width="30px" height="30px"
              style="position: relative; bottom: 2px;">
             <h5>Chadbreaker</h5>
         </div>
@@ -90,6 +90,16 @@
                 <span class="gnb-cooldown-text" id="no_mercy_cooldown"></span>
             </button>
 
+            <button class="btn btn-outline-dark" id="bow-shock">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
+                <span class="gnb-cooldown-text" id="bow_shock_cooldown"></span>
+            </button>
+
+            <button class="btn btn-outline-dark" id="sonic-break">
+                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
+                <span class="gnb-cooldown-text" id="sonic_break_cooldown"></span>
+            </button>
+
             <button class="btn btn-outline-dark" id="bloodfest">
                 <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bloodfest.png') }}">
                 <span class="gnb-cooldown-text" id="bloodfest_cooldown"></span>
@@ -98,19 +108,6 @@
             <button class="btn btn-outline-dark" id="blasting-zone">
                 <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/blasting_zone.png') }}">
                 <span class="gnb-cooldown-text" id="blasting_zone_cooldown"></span>
-            </button>
-
-            <button class="btn btn-outline-dark" id="bow-shock">
-                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
-                <span class="gnb-cooldown-text" id="bow_shock_cooldown"></span>
-
-            </button>
-
-
-
-            <button class="btn btn-outline-dark" id="sonic-break">
-                <img class="gnb-action" src="{{ url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
-                <span class="gnb-cooldown-text" id="sonic_break_cooldown"></span>
             </button>
 
             <button class="btn btn-outline-dark" id="rough-divide">
@@ -942,6 +939,10 @@
                     updateSonicBreakDebuffText(response.sonic_break_debuff);
 
                     $("#solid-barrel").removeClass("shining-border");
+
+                    if (response.combo != 2) {
+                        $("#brutal-shell").removeClass("shining-border");
+                    }
                 }
             });
         });
@@ -1561,17 +1562,20 @@
             }
         }
 
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "4") {
-                if ($("#gnashing-fang").is(":visible")) {
-                    triggerGnashingFangButtonClick("gnashing-fang");
-                } else if ($("#savage-claw").is(":visible")) {
-                    triggerSavageClawButtonClick("savage-claw");
-                } else if ($("#wicked-talon").is(":visible")) {
-                    triggerWickedTalonButtonClick("wicked-talon");
-                }
-            }
-        });
+document.addEventListener("keydown", function(event) {
+    if (event.key === "4"  && !event.altKey) {
+        if ($("#gnashing-fang").is(":visible")) {
+            triggerGnashingFangButtonClick("gnashing-fang");
+        }
+        if ($("#savage-claw").is(":visible")) {
+            triggerSavageClawButtonClick("savage-claw");
+        }
+        if ($("#wicked-talon").is(":visible")) {
+            triggerWickedTalonButtonClick("wicked-talon");
+        }
+    }
+});
+
 
 
 
@@ -1610,6 +1614,7 @@
 
         document.addEventListener("keydown", function(event) {
             if (event.altKey && event.key === "4") {
+                event.preventDefault(); // Prevent the default "4" key action
                 triggerBurstStrikeButtonClick("burst-strike");
             }
         });
