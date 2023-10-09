@@ -30,7 +30,7 @@ class Gunbreaker:
         self.hypervelocity_buff = 0
 
         self.bow_shock_debuff = 0
-        self.sonic_break_debuff = 15
+        self.sonic_break_debuff = 0
 
     def keen_edge(self):
         self.reduce_gcd()
@@ -149,9 +149,11 @@ class Gunbreaker:
         self.break_gnashing_fang()
 
         self.sonic_break_cooldown = 60
+        self.sonic_break_debuff = 30
 
     def bow_shock(self):
         self.bow_shock_cooldown = 60
+        self.bow_shock_debuff = 15
 
     def blasting_zone(self):
         self.blasting_zone_cooldown = 30

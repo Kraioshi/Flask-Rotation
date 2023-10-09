@@ -193,12 +193,14 @@
         </div>
         <div class="debuffs" style="display: flex; position: relative; top: 6px;">
             <div style="display: grid">
-                <img id="sonic_break_debuff_icon" class="gnb-buff-image" src="{{url_for('static', filename='images/gunbreaker/brutal_shell.png') }}">
+                <img id="sonic_break_debuff_icon" class="gnb-debuff-image"
+                     src="{{url_for('static', filename='images/gunbreaker/sonic_break.png') }}">
                 <p id="sonic_break_debuff_text" class="gnb-debuff-text"></p>
             </div>
 
             <div style="display: grid">
-                <img id="bow_shock_debuff_icon" class="gnb-debuff-image" src="{{url_for('static', filename='images/gunbreaker/hypervelocity.png') }}">
+                <img id="bow_shock_debuff_icon" class="gnb-debuff-image"
+                     src="{{url_for('static', filename='images/gunbreaker/bow_shock.png') }}">
                 <p id="bow_shock_debuff_text" class="gnb-debuff-text"></p>
             </div>
         </div>
@@ -673,6 +675,50 @@
         updateJugularRipBuffVisibility();
         updateAbdomenTearBuffVisibility();
         updateEyeGougeBuffVisibility();
+
+        function updateBowShockDebuffText(bowShockDebuffValue) {
+            var $buffText = $("#bow_shock_debuff_text");
+
+            if (bowShockDebuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(bowShockDebuffValue).show();
+            }
+        }
+
+        function updateBowShockDebuffVisibility(bowShockDebuffValue) {
+
+            if (bowShockDebuffValue === 0) {
+                $("#bow_shock_debuff_icon").css("display", "none");
+            } else {
+                $("#bow_shock_debuff_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateSonicBreakDebuffText(SonicBreakDebuffValue) {
+            var $buffText = $("#sonic_break_debuff_text");
+
+            if (SonicBreakDebuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(SonicBreakDebuffValue).show();
+            }
+        }
+
+        function updateSonicBreakDebuffVisibility(SonicBreakDebuffValue) {
+
+            if (SonicBreakDebuffValue === 0) {
+                $("#sonic_break_debuff_icon").css("display", "none");
+            } else {
+                $("#sonic_break_debuff_icon").css("display", "inline-block");
+            }
+        }
+
+
+        updateBowShockDebuffText( {{ gnb.bow_shock_debuff }} )
+        updateSonicBreakDebuffText( {{ gnb.sonic_break_debuff }} )
+        updateBowShockDebuffVisibility( {{ gnb.bow_shock_debuff }} )
+        updateSonicBreakDebuffVisibility( {{ gnb.sonic_break_debuff }} )
 
 
 

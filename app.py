@@ -191,6 +191,8 @@ def keen_edge():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -217,6 +219,8 @@ def brutal_shell():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -243,6 +247,8 @@ def solid_barrel():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -269,6 +275,8 @@ def burst_strike():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -295,6 +303,8 @@ def double_down():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -321,6 +331,8 @@ def gnashing_fang():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -347,6 +359,8 @@ def rough_divide():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -373,6 +387,8 @@ def bloodfest():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -399,6 +415,8 @@ def blasting_zone():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -425,6 +443,8 @@ def bow_shock():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -451,6 +471,8 @@ def no_mercy():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -477,6 +499,8 @@ def sonic_break():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -503,6 +527,8 @@ def savage_claw():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -529,6 +555,8 @@ def wicked_talon():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -555,6 +583,8 @@ def jugular_rip():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -581,6 +611,8 @@ def abdomen_tear():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -607,6 +639,8 @@ def eye_gouge():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -633,6 +667,8 @@ def hypervelocity():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
@@ -660,6 +696,8 @@ def reset_gunbreaker():
                     "no_mercy_buff": gnb.no_mercy_buff,
                     "brutal_shell_buff": gnb.brutal_shell_buff,
                     "hypervelocity_buff": gnb.hypervelocity_buff,
+                    "bow_shock_debuff": gnb.bow_shock_debuff,
+                    "sonic_break_debuff": gnb.sonic_break_debuff
                     })
 
 
