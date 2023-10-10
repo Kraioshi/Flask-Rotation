@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Warrior
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="x">
+    <!-- GAUGE -->
+    <!-- GAUGE -->
+    <div class="container">
+        <div class="gauges">
+        <progress class="progress-warrior" id="gauge" value="{{ gauge }}" max="100"></progress>
+        <br>
+        <label class="progress-warrior-text" for="gauge">Beast {{gauge}}</label>
+        </div>
+    </div>
+    <br>
+
+    <!-- COMBO ARROWS -->
+    <!-- COMBO ARROWS -->
+    <div class="arrows" style="width: 18%; margin: auto;">
+      <div class="container" style="display: flex; justify-content: space-between;">
+
+        {% if combo == 0 %}
+        <span class="first" style="position: relative; left: 6.5%">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% else %}
+        <span class="first" style="position: relative; left: 6.5%; color: white;">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% endif %}
+
+        {% if combo == 1 %}
+        <span class="second" style="position: relative; left: 5%">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% else %}
+        <span class="second" style="position: relative; left: 5%; color: white">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% endif %}
+
+        {% if combo == 2 %}
+        <span class="third">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% else %}
+        <span class="third" style="color: white;">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% endif %}
+
+        {% if combo == 2 %}
+        <span class="fourth" style="position: relative; right: 3%">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% else %}
+        <span class="fourth" style="position: relative; right: 3%; color: white">
+            <i class="fa-solid fa-arrow-down"></i>
+        </span>
+        {% endif %}
+
+        {% if gauge >= 50 %}
+        <span class="fifth" style="position: relative; right: 6.5%;">
+            <i class="fa-solid fa-check"></i>
+        </span>
+        {% else %}
+        <span class="fifth" style="position: relative; right: 6.5%; color: white;">
+            <i class="fa-solid fa-check"></i>
+        </span>
+        {% endif %}
+
+      </div>
+    </div>
+    <!-- GCD -->
+    <!-- GCD -->
+    <!-- GCD -->
+
+    <div class="container-warrior">
+        <form class="heavy_swing" action="{{url_for('warrior_heavy_swing') }}" method="POST">
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/heavy_swing.png') }}" width="50px">
+            </button>
+        </form>
+
+        <form class="maim" action="{{url_for('warrior_maim') }}" method="POST">
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/maim.png') }}" width="50px">
+            </button>
+        </form>
+
+        <form class="storms_eye" action="{{ url_for('warrior_storms_eye') }}" method="POST">
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="50px">
+            </button>
+        </form>
+
+        <form class="storms_path" action="{{ url_for('warrior_storms_path') }}" method="POST">
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/storms_path.png') }}" width="50px">
+            </button>
+        </form>
+
+
+
+        {% if chaos_ready %}
+        <form class="fell_cleave" action="{{ url_for('warrior_inner_chaos') }}" method="POST">
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/inner_chaos.png') }}" width="50px"
+                style="">
+            </button>
+        </form>
+        {% elif not chaos_ready %}
+            {% if inner_release_stacks > 0 and inner_release_buff > 0 %}
+            <form class="fell_cleave" action="{{url_for('warrior_inner_release_fell_cleave') }}" method="POST">
+                    <button type="submit">
+                        <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px">
+                    </button>
+                </form>
+            {% else %}
+            <form class="fell_cleave" action="{{ url_for('warrior_fell_cleave') }}" method="POST">
+                {% if gauge >= 50 %}
+                    <button type="submit">
+                        <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px">
+                    </button>
+                {% else %}
+                    <button type="submit" disabled>
+                        <img src="{{ url_for('static', filename='images/warrior/fell_cleave.png') }}" width="50px"
+                        style="filter: grayscale(100%); opacity: 75%">
+                </button>
+                {% endif %}
+            </form>
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+    <hr class="container" style="display: flex; width: 270px;">
+
+    <!-- SECOND ROW GCD/O-GCD -->
+    <!-- SECOND ROW GCD/O-GCD -->
+    <!-- SECOND ROW GCD/O-GCD -->
+    <div class="container-warrior" style="margin-bottom: -40px;">
+        <div>
+         <form class="inner_release" action="{{ url_for('warrior_inner_release') }}" method="POST">
+             {% if inner_release_cd == 0 %}
+                <button type="submit">
+                    <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px">
+                </button>
+            {% else %}
+                <button type="submit" disabled>
+                    <img src="{{ url_for('static', filename='images/warrior/inner_release.png') }}" width="50px"
+                    style="filter: grayscale(100%); opacity: 75%">
+                </button>
+            {% endif %}
+        </form>
+        <h5 class="inner_release_cooldown">
+            {{ inner_release_cd }}
+        </h5>
+        </div>
+
+
+        <div>
+        <form class="infuriate" action="{{ url_for('warrior_infuriate') }}" method="POST">
+            {% if infuriate_stacks > 0 %}
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/infuriate.png') }}" width="50px">
+            </button>
+            {% else %}
+            <button type="submit" disabled>
+                <img src="{{ url_for('static', filename='images/warrior/infuriate.png') }}" width="50px"
+                style="filter: grayscale(100%); opacity: 75%">
+            </button>
+            {% endif %}
+        </form>
+        <h5 class="infuriate_cooldown">
+            {{ infuriate_cd }}
+        </h5>
+
+        </div>
+
+        <div>
+        <form class="upheaval" action="{{ url_for('warrior_upheaval') }}" method="POST">
+            {% if upheaval_cd == 0 %}
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px">
+            </button>
+            {% else %}
+            <button type="submit" disabled>
+                <img src="{{ url_for('static', filename='images/warrior/upheaval.png') }}" width="50px"
+                style="filter: grayscale(100%); opacity: 75%">
+            </button>
+            {% endif %}
+        </form>
+        <h5 class="upheaval_cooldown">
+            {{ upheaval_cd }}
+        </h5>
+        </div>
+
+        <div>
+         <form class="primal_rend" action="{{ url_for('warrior_primal_rend') }}" method="POST">
+         {% if primal_rend_status %}
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px">
+            </button>
+         {% else %}
+             <button type="submit" disabled>
+                <img src="{{ url_for('static', filename='images/warrior/primal_rend.png') }}" width="50px"
+                style="filter: grayscale(100%); opacity: 75%">
+            </button>
+         {% endif %}
+        </form>
+        <h5 class="primal_rend_status">
+            {% if primal_rend_status %}
+                <i class="fa-solid fa-check"></i>
+            {% else %}
+                <i class="fa-solid fa-xmark"></i>
+            {% endif %}
+        </h5>
+        </div>
+
+        <div>
+         <form class="onslaught" action="{{ url_for('warrior_onslaught' ) }}" method="POST">
+            {% if onslaught_stacks > 0 %}
+            <button type="submit">
+                <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px">
+            </button>
+            {% else %}
+            <button type="submit" disabled>
+                <img src="{{ url_for('static', filename='images/warrior/onslaught.png') }}" width="50px"
+                style="filter: grayscale(100%); opacity: 75%">
+            </button>
+            {% endif %}
+        </form>
+        <h5 class="onslaught_cooldown">
+            {{ onslaught_cd }}
+        </h5>
+        </div>
+
+    </div>
+
+
+    <!-- stacks -->
+    <!-- stacks -->
+    <div class="stacks" style="display: flex; justify-content: center;">
+        <div class="container" style="display: flex; position: relative; right: 31px;">
+            {% if infuriate_stacks == 2 %}
+                <i class="fa-regular fa-circle-check"></i>
+                <i class="fa-regular fa-circle-check"></i>
+            {% elif infuriate_stacks == 1 %}
+                <i class="fa-regular fa-circle-check"></i>
+                <i class="fa-regular fa-circle"></i>
+            {% else %}
+                <i class="fa-regular fa-circle"></i>
+                <i class="fa-regular fa-circle"></i>
+            {% endif %}
+        </div>
+        <div class="container" style="display: flex; position: relative; left: 94px;">
+            {% if onslaught_stacks == 3 %}
+                <i class="fa-regular fa-circle-check"></i>
+                <i class="fa-regular fa-circle-check"></i>
+                <i class="fa-regular fa-circle-check"></i>
+            {% elif onslaught_stacks == 2 %}
+                <i class="fa-regular fa-circle-check"></i>
+                <i class="fa-regular fa-circle-check"></i>
+                <i class="fa-regular fa-circle"></i>
+            {% elif onslaught_stacks == 1 %}
+                <i class="fa-regular fa-circle-check"></i>
+                <i class="fa-regular fa-circle"></i>
+                <i class="fa-regular fa-circle"></i>
+            {% else %}
+                <i class="fa-regular fa-circle"></i>
+                <i class="fa-regular fa-circle"></i>
+                <i class="fa-regular fa-circle"></i>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr class="container" style="display: flex; width: 270px;">
+
+
+
+    <!-- SURGING TEMPEST -->
+    <!-- SURGING TEMPEST -->
+    <!-- SURGING TEMPEST -->
+
+    <div class="container">
+        <div class="left">
+            <img class="surging-icon" src="{{ url_for('static', filename='images/warrior/storms_eye.png') }}" width="40px" height="40px">
+        </div>
+        <div class="right">
+            {% if tempest != 0 %}
+            <label class="surging-warrior-text" for="tempest"> Surging Tempest: {{tempest }} seconds</label>
+            {% else %}
+            <label class="surging-warrior-text" for="tempest"> Surging Tempest buff duration</label>
+            {% endif %}
+            <br/>
+            <progress class="surging-warrior-progress" id="tempest" value="{{ tempest }}" max="60"></progress>
+        </div>
+
+    </div>
+    <hr class="container" style="display: flex; width: 270px;">
+
+
+    <!-- RESET -->
+    <div class="container">
+    <div>
+        <form action="{{url_for('warrior_reset') }}" method="POST">
+            <button type='submit'>
+                RESET
+            </button>
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+
+<h5>IR Stacks {{ inner_release_stacks }}</h5>
+<h5>IR Buff {{ inner_release_buff }}</h5>
+<h5>Rend {{primal_rend_duration}}</h5>
+<br>
+<h5>Infuriate Stacks {{infuriate_stacks }}</h5>
+<h5>Onslaught Stacks {{onslaught_stacks }}</h5>
+
+
+{% endblock %}
+
