@@ -3,6 +3,7 @@ from flask_bootstrap import Bootstrap5
 from reaper import Reaper
 from warrior import Warrior
 from gnb import Gunbreaker
+from paladin import Paladin
 
 app = Flask(__name__)
 
@@ -12,6 +13,8 @@ Bootstrap5(app)
 rpr = Reaper()
 war = Warrior()
 gnb = Gunbreaker()
+pld = Paladin()
+
 
 
 @app.route("/")
@@ -707,6 +710,28 @@ def gunbreaker_reset():
     gnb = Gunbreaker()
     return redirect(url_for('gunbreaker'))
 
+# PALADIN 
+
+paladin_attributes = {
+    'combo': pld.combo,
+    'atonement_stacks': pld.atonement_stacks
+}
+
+@app.route('/paladin')
+def paladin():
+    return "Hi!"
+
+@app.route('/fast_blade', methods=["POST"])
+def fast_blade():
+    return jsonify(paladin_attributes)
+
+@app.route("/riot_blade", methods=["POST"])
+def riot_blade():
+    return jsonify(paladin_attributes)
+
+@app.route("/royal_authority", methods=["POST"])
+def royal_authority():
+    return jsonify(paladin_attributes)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,22 +1,30 @@
 class Paladin:
 
     def __init__(self) -> None:
-        pass
+        self.combo = 0
+        self.atonement_stacks = 0
 
     def fast_blade(self):
-        pass
+        self.combo = 1
 
     def riot_blade(self):
-        pass
+        if self.combo == 1:
+            self.combo = 2
+        else:
+            self.combo = 0
 
     def royal_authority(self):
-        pass
+        if self.combo == 2:
+            self.atonement_stacks = 3
+        
+        self.combo = 0
 
     def holy_spirit(self):
         pass
 
     def atonement(self):
-        pass
+        if self.atonement_stacks > 0:
+            self.atonement_stacks -= 1
 
     def goring_blade(self):
         pass
@@ -48,4 +56,3 @@ class Paladin:
     def fight_or_flight(self):
         pass
 
-    
