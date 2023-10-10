@@ -16,7 +16,6 @@ gnb = Gunbreaker()
 pld = Paladin()
 
 
-
 @app.route("/")
 def index():
     gauge = 150
@@ -710,28 +709,34 @@ def gunbreaker_reset():
     gnb = Gunbreaker()
     return redirect(url_for('gunbreaker'))
 
-# PALADIN 
+
+# PALADIN
 
 paladin_attributes = {
     'combo': pld.combo,
     'atonement_stacks': pld.atonement_stacks
 }
 
+
 @app.route('/paladin')
 def paladin():
-    return "Hi!"
+    return render_template("paladin/paladin.html", pld=pld)
+
 
 @app.route('/fast_blade', methods=["POST"])
 def fast_blade():
     return jsonify(paladin_attributes)
 
+
 @app.route("/riot_blade", methods=["POST"])
 def riot_blade():
     return jsonify(paladin_attributes)
 
+
 @app.route("/royal_authority", methods=["POST"])
 def royal_authority():
     return jsonify(paladin_attributes)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
