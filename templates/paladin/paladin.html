@@ -4,6 +4,22 @@
 
 {% block content %}
 
-hi 
+<button class="btn btn-outline-dark" id="fast-blade">
+    <img class="action" src="{{ url_for('static', filename='images/paladin/fast_blade.png') }}">
+    <span>{{pld.combo }}</span>
+</button>
 
+<button class="btn btn-outline-dark" id="riot-blade">
+    <img class="action" src="{{ url_for('static', filename='images/paladin/riot_blade.png') }}">
+    <span>{{pld.combo }}</span>
+</button>
+
+<button class="btn btn-outline-dark" id="royal-authority">
+    <img class="action" src="{{ url_for('static', filename='images/paladin/royal_authority.png') }}">
+    <span>{{pld.combo }}</span>
+</button>
+
+<script>
+
+</script>
 {% endblock %}
