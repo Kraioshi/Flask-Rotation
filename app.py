@@ -813,5 +813,11 @@ def blade_of_valor():
     return jsonify(paladin_attributes)
 
 
+@app.route('/reset_paladin', methods=["POST"])
+def reset_paladin():
+    global pld
+    pld = Paladin()
+
+
 if __name__ == '__main__':
     app.run(debug=True)
