@@ -199,534 +199,135 @@ def gunbreaker():
 @app.route('/keen_edge', methods=['POST'])
 def keen_edge():
     gnb.keen_edge()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/brutal_shell', methods=['POST'])
 def brutal_shell():
     gnb.brutal_shell()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/solid_barrel', methods=['POST'])
 def solid_barrel():
     gnb.solid_barrel()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route("/burst_strike", methods=['POST'])
 def burst_strike():
     gnb.burst_strike()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route("/double_down", methods=["POST"])
 def double_down():
     gnb.double_down()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/gnashing_fang', methods=['POST'])
 def gnashing_fang():
     gnb.gnashing_fang()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/rough_divide', methods=["POST"])
 def rough_divide():
     gnb.rough_divide()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route("/bloodfest", methods=["POST"])
 def bloodfest():
     gnb.bloodfest()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route("/blasting_zone", methods=["POST"])
 def blasting_zone():
     gnb.blasting_zone()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route("/bow_shock", methods=["POST"])
 def bow_shock():
     gnb.bow_shock()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route("/no_mercy", methods=["POST"])
 def no_mercy():
     gnb.no_mercy()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/sonic_break', methods=["POST"])
 def sonic_break():
     gnb.sonic_break()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/savage_claw', methods=["POST"])
 def savage_claw():
     gnb.savage_claw()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route("/wicked_talon", methods=["POST"])
 def wicked_talon():
     gnb.wicked_talon()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/jugular_rip', methods=["POST"])
 def jugular_rip():
     gnb.jugular_rip()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/abdomen_tear', methods=['POST'])
 def abdomen_tear():
     gnb.abdomen_tear()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/eye_gouge', methods=["POST"])
 def eye_gouge():
     gnb.eye_gouge()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/hypervelocity', methods=["POST"])
 def hypervelocity():
     gnb.hypervelocity()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/reset_gunbreaker', methods=["POST"])
 def reset_gunbreaker():
     global gnb
     gnb = Gunbreaker()
-    return jsonify({'combo': gnb.combo,
-                    'cartridge': gnb.cartridge,
-                    "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
-                    "bloodfest_cooldown": gnb.bloodfest_cooldown,
-                    "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
-                    "bow_shock_cooldown": gnb.bow_shock_cooldown,
-                    "sonic_break_cooldown": gnb.sonic_break_cooldown,
-                    "rough_divide_cooldown": gnb.rough_divide_cooldown,
-                    "double_down_cooldown": gnb.double_down_cooldown,
-                    "no_mercy_cooldown": gnb.no_mercy_cooldown,
-                    "rough_divide_stacks": gnb.rough_divide_stacks,
-                    "ready_to_blast": gnb.ready_to_blast,
-                    "ready_to_rip": gnb.ready_to_rip,
-                    "ready_to_tear": gnb.ready_to_tear,
-                    "ready_to_gouge": gnb.ready_to_gouge,
-                    "savage_claw_ready": gnb.savage_claw_ready,
-                    "wicked_talon_ready": gnb.wicked_talon_ready,
-                    "no_mercy_buff": gnb.no_mercy_buff,
-                    "brutal_shell_buff": gnb.brutal_shell_buff,
-                    "hypervelocity_buff": gnb.hypervelocity_buff,
-                    "bow_shock_debuff": gnb.bow_shock_debuff,
-                    "sonic_break_debuff": gnb.sonic_break_debuff
-                    })
+    gnb_dict = generate_gunbreaker_attributes(gnb)
+    return jsonify(gnb_dict)
 
 
 @app.route('/gunbreaker_reset', methods=["POST"])
