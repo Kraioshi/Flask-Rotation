@@ -50,14 +50,33 @@
         <img class="action" src="{{ url_for('static', filename='images/paladin/atonement.png') }}">
     </button>
 
-    <button class="btn btn-outline-dark" id="goring-blade">
+    <button class="btn btn-outline-dark" id="goring-blade" onclick="performAction(this)">
         <img class="action" src="{{ url_for('static', filename='images/paladin/goring_blade.png') }}">
         <span class="pld-cooldown-text" id="goring_blade_cooldown"></span>
     </button>
 </div>
+<div>
+    <button class="btn btn-outline-dark" id="holy-spirit" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/holy_spirit.png') }}">
+        <span class="pld-cooldown-text" id="holy_spirit_cooldown"></span>
+    </button>
 
+    <button class="btn btn-outline-dark" id="confetior" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/confetior.png') }}">
+    </button>
 
+    <button class="btn btn-outline-dark" id="blade-of-faith" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/blade_of_faith.png') }}">
+    </button>
 
+    <button class="btn btn-outline-dark" id="blade-of-truth" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/blade_of_truth.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="blade-of-valor" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/blade_of_valor.png') }}">
+    </button>
+</div>
 <div>
 <div style="display: flex;">
     <div>
