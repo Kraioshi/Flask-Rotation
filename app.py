@@ -342,7 +342,8 @@ def gunbreaker_reset():
 def generate_paladin_attributes(paladin_attributes):
     return {
         'combo': pld.combo,
-        'atonement_stacks': pld.atonement_stacks
+        'atonement_stacks': pld.atonement_stacks,
+        'fight_or_flight_buff': pld.fight_or_flight_buff,
     }
 
 

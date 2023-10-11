@@ -97,6 +97,9 @@
 <div class="info">
     <p id="combo-state"></p>
     <p id="atonement-stacks"></p>
+    <p id="fight-or-flight-buff"></p>
+    <p id="requiescat-buff"></p>
+    <p id="requiescat-stacks"></p>
 </div>
 
 <script>
@@ -114,7 +117,8 @@
     let valorReady = {{ pld.blade_of_valor_ready }}
 
 </script>
-<script src="{{ url_for('static', filename='js/paladin/paladin.js') }}"></script>
+<script src="{{ url_for('static', filename='js/paladin/functions.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/paladin/paladin.js') }}"></script>
 <script src="{{ url_for('static', filename='js/paladin/gcd.js') }}"></script>
 <script src="{{ url_for('static', filename='js/paladin/info.js') }}"></script>
 
