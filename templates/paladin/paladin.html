@@ -84,7 +84,6 @@
     </button>
 </div>
 
-<div>
 <div style="display: flex;">
     <div>
         <svg class="progress-circle" style="position: absolute; bottom: 209px; left: 2px;">
@@ -94,12 +93,26 @@
     <div id="cooldown-countdown" style="position: absolute; left: 16px; bottom: 325px;">
     </div>
 </div>
+
+
+<div class="info">
+    <p id="combo-state"></p>
 </div>
-
-
 
 <script>
     let pldGcd = {{ pld.gcd }}
+    let pldCombo = {{ pld.combo }}
+
+    let atonementStacks = {{ pld.atonement_stacks }}
+    let fightOrFlightBuff = {{ pld.fight_or_flight_buff }}
+    let requiescatBuff = {{ pld.requiescat_buff }}
+    let requiescatStacks = {{ pld.requiescat_stacks }}
+
+    let confetiorReady = {{ pld.confetior_ready }}
+    let faithReady = {{ pld.blade_of_faith_ready }}
+    let truthReady = {{ pld.blade_of_truth_ready }}
+    let valorReady = {{ pld.blade_of_valor_ready }}
+
 </script>
 <script src="{{ url_for('static', filename='js/paladin/paladin.js') }}"></script>
 <script src="{{ url_for('static', filename='js/paladin/gcd.js') }}"></script>
