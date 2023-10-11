@@ -13,5 +13,5 @@ function performAction(button) {
     setTimeout(() => {
         isOnCooldown = false;
         button.disabled = false;
-    }, 2500);
+    }, pldGcd * 1000);
 }
