@@ -26,8 +26,9 @@ class Paladin:
     def royal_authority(self):
         if self.combo == 2:
             self.atonement_stacks = 3
-        
-        self.combo = 0
+            self.combo = 0
+        else:
+            self.combo = 0
 
     def holy_spirit(self):
         pass

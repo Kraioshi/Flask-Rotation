@@ -461,7 +461,15 @@ def blade_of_valor():
 def reset_paladin():
     global pld
     pld = Paladin()
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
+
+@app.route("/hard_reset_paladin", methods=["POST"])
+def hard_reset_paladin():
+    global pld
+    pld = Paladin()
+    return redirect(url_for('paladin'))
 
 if __name__ == '__main__':
     app.run(debug=True)
