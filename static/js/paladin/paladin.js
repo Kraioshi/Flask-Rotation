@@ -1,6 +1,10 @@
 $(document).ready(function () {
-    function updateComboState(comboState) {
-        $("#combo-fast").text(comboState);
+    function updateComboDisplay(comboState) {
+        $("#combo-state").text('Combo State: ' + comboState);
+    }
+
+    function updateAtonementStacks(atonementStacks) {
+        $("#atonement-stacks").text('Atonement Stacks: ' + atonementStacks);
     }
 
     $("#fast-blade").click(function() {
@@ -8,7 +12,8 @@ $(document).ready(function () {
             type: "POST",
             url: "/fast_blade",
             success: function(response) {
-                updateComboState(response.combo);
+                updateComboDisplay(response.combo);
+                updateAtonementStacks(response.atonement_stacks);
             }
         });
     });

@@ -712,10 +712,11 @@ def gunbreaker_reset():
 
 # PALADIN
 
-paladin_attributes = {
-    'combo': pld.combo,
-    'atonement_stacks': pld.atonement_stacks
-}
+def generate_paladin_attributes(paladin_attributes):
+    return {
+        'combo': pld.combo,
+        'atonement_stacks': pld.atonement_stacks
+    }
 
 
 @app.route('/paladin')
@@ -726,91 +727,106 @@ def paladin():
 @app.route('/fast_blade', methods=["POST"])
 def fast_blade():
     pld.fast_blade()
-    return jsonify({"combo": pld.combo})
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/riot_blade", methods=["POST"])
 def riot_blade():
     pld.riot_blade()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/royal_authority", methods=["POST"])
 def royal_authority():
     pld.royal_authority()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route('/atonement', methods=["POST"])
 def atonement():
     pld.atonement()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route('/goring_blade', methods=["POST"])
 def goring_blade():
     pld.goring_blade()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route('/fight_or_flight', methods=["POST"])
 def fight_or_flight():
     pld.fight_or_flight()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/requiescat", methods=["POST"])
 def requiescat():
     pld.requiescat()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/circle_of_scorn", methods=["POST"])
 def circle_of_scorn():
     pld.circle_of_scorn()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route('/expiacion', methods=["POST"])
 def expiacion():
     pld.expiacion()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/intervene", methods=["POST"])
 def intervene():
     pld.intervene()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/holy_spirit", methods=["POST"])
 def holy_spirit():
     pld.holy_spirit()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/confetior", methods=["POST"])
 def confetior():
     pld.confetior()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/blade_of_faith", methods=["POST"])
 def blade_of_faith():
     pld.blade_of_faith()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/blade_of_truth", methods=["POST"])
 def blade_of_truth():
     pld.blade_of_truth()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route("/blade_of_valor", methods=["POST"])
 def blade_of_valor():
     pld.blade_of_valor()
-    return jsonify(paladin_attributes)
+    pld_dict = generate_paladin_attributes(pld)
+    return jsonify(pld_dict)
 
 
 @app.route('/reset_paladin', methods=["POST"])

@@ -86,17 +86,17 @@
 
 <div style="display: flex;">
     <div>
-        <svg class="progress-circle" style="position: absolute; bottom: 209px; left: 2px;">
+        <svg class="progress-circle">
             <circle class="progress-ring" cx="25" cy="25" r="18"></circle>
         </svg>
     </div>
-    <div id="cooldown-countdown" style="position: absolute; left: 16px; bottom: 325px;">
+        <div id="cooldown-countdown" style="position: relative; right: 285px; top: 10px;">
     </div>
 </div>
 
-
 <div class="info">
     <p id="combo-state"></p>
+    <p id="atonement-stacks"></p>
 </div>
 
 <script>
@@ -116,6 +116,8 @@
 </script>
 <script src="{{ url_for('static', filename='js/paladin/paladin.js') }}"></script>
 <script src="{{ url_for('static', filename='js/paladin/gcd.js') }}"></script>
+<script src="{{ url_for('static', filename='js/paladin/info.js') }}"></script>
+
 
 
 
