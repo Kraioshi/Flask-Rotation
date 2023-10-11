@@ -3,28 +3,61 @@
 {% block title %} Paladin {% endblock %}
 
 {% block content %}
+<div class="first-row">
+    <button class="btn btn-outline-dark" id="fight-or-flight">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/fight_or_flight.png') }}">
+        <span class="pld-cooldown-text" id="fight_or_flight_cooldown"></span>
+    </button>
 
-<button class="btn btn-outline-dark" id="fast-blade" onclick="performAction(this)">
-    <img class="action" src="{{ url_for('static', filename='images/paladin/fast_blade.png') }}">
-    <span id="combo-fast" class="combo-state"></span>
-</button>
+    <button class="btn btn-outline-dark" id="requiescat">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/requiescat.png') }}">
+        <span class="pld-cooldown-text" id="requiescat_cooldown"></span>
+    </button>
 
-<button class="btn btn-outline-dark" id="riot-blade" onclick="performAction(this)">
-    <img class="action" src="{{ url_for('static', filename='images/paladin/riot_blade.png') }}">
-    <span id="combo-riot" class="combo-state"></span>
-</button>
+    <button class="btn btn-outline-dark" id="circle-of-scorn">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/circle_of_scorn.png') }}">
+        <span class="pld-cooldown-text" id="circle_of_scorn_cooldown"></span>
+    </button>
 
-<button class="btn btn-outline-dark" id="royal-authority" onclick="performAction(this)">
-    <img class="action" src="{{ url_for('static', filename='images/paladin/royal_authority.png') }}">
-    <span id="combo-royal" class="combo-state"></span>
-</button>
+    <button class="btn btn-outline-dark" id="expiacion">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/expiacion.png') }}">
+        <span class="pld-cooldown-text" id="expiacion_cooldown"></span>
+    </button>
+
+    <button class="btn btn-outline-dark" id="intervene">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/intervene.png') }}">
+        <span class="pld-cooldown-text" id="intervene_cooldown"></span>
+    </button>
+</div>
 
 <div>
-<button class="btn btn-outline-dark" id="atonement" onclick="performAction(this)">
-    <img class="action" src="{{ url_for('static', filename='images/paladin/atonement.png') }}">
-</button>
+    <button class="btn btn-outline-dark" id="fast-blade" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/fast_blade.png') }}">
+        <span id="combo-fast" class="combo-state"></span>
+    </button>
 
+    <button class="btn btn-outline-dark" id="riot-blade" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/riot_blade.png') }}">
+        <span id="combo-riot" class="combo-state"></span>
+    </button>
+
+    <button class="btn btn-outline-dark" id="royal-authority" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/royal_authority.png') }}">
+        <span id="combo-royal" class="combo-state"></span>
+    </button>
+
+    <button class="btn btn-outline-dark" id="atonement" onclick="performAction(this)">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/atonement.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="goring-blade">
+        <img class="action" src="{{ url_for('static', filename='images/paladin/goring_blade.png') }}">
+        <span class="pld-cooldown-text" id="goring_blade_cooldown"></span>
+    </button>
 </div>
+
+
+
 <div>
 <div style="display: flex;">
     <div>
