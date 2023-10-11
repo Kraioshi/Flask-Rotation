@@ -4,22 +4,29 @@
 
 {% block content %}
 
-<button class="btn btn-outline-dark" id="fast-blade">
+<button class="btn btn-outline-dark" id="fast-blade" onclick="performAction(this)">
     <img class="action" src="{{ url_for('static', filename='images/paladin/fast_blade.png') }}">
-    <span>{{pld.combo }}</span>
+    <span id="combo-fast"></span>
 </button>
 
-<button class="btn btn-outline-dark" id="riot-blade">
+<button class="btn btn-outline-dark" id="riot-blade" onclick="performAction(this)">
     <img class="action" src="{{ url_for('static', filename='images/paladin/riot_blade.png') }}">
-    <span>{{pld.combo }}</span>
+    <span id="combo-riot">{{pld.combo }}</span>
 </button>
 
-<button class="btn btn-outline-dark" id="royal-authority">
+<button class="btn btn-outline-dark" id="royal-authority" onclick="performAction(this)">
     <img class="action" src="{{ url_for('static', filename='images/paladin/royal_authority.png') }}">
-    <span>{{pld.combo }}</span>
+    <span id="combo-royal">{{pld.combo }}</span>
 </button>
 
-<script>
+<button class="btn btn-outline-dark" id="atonement" onclick="performAction(this)">
+    <img class="action" src="{{ url_for('static', filename='images/paladin/atonement.png') }}">
+</button>
 
-</script>
+<script src="{{ url_for('static', filename='js/paladin/paladin.js') }}"></script>
+<script src="{{ url_for('static', filename='js/paladin/gcd.js') }}"></script>
+
+
+
+
 {% endblock %}

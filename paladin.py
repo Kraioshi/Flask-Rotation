@@ -1,6 +1,7 @@
 class Paladin:
 
     def __init__(self) -> None:
+        self.gcd = 2.5
         self.combo = 0
         self.atonement_stacks = 0
 

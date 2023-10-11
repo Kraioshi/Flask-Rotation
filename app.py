@@ -725,16 +725,19 @@ def paladin():
 
 @app.route('/fast_blade', methods=["POST"])
 def fast_blade():
-    return jsonify(paladin_attributes)
+    pld.fast_blade()
+    return jsonify({"combo": pld.combo})
 
 
 @app.route("/riot_blade", methods=["POST"])
 def riot_blade():
+    pld.riot_blade()
     return jsonify(paladin_attributes)
 
 
 @app.route("/royal_authority", methods=["POST"])
 def royal_authority():
+    pld.royal_authority()
     return jsonify(paladin_attributes)
 
 
