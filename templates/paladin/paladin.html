@@ -6,22 +6,37 @@
 
 <button class="btn btn-outline-dark" id="fast-blade" onclick="performAction(this)">
     <img class="action" src="{{ url_for('static', filename='images/paladin/fast_blade.png') }}">
-    <span id="combo-fast"></span>
+    <span id="combo-fast" class="combo-state"></span>
 </button>
 
 <button class="btn btn-outline-dark" id="riot-blade" onclick="performAction(this)">
     <img class="action" src="{{ url_for('static', filename='images/paladin/riot_blade.png') }}">
-    <span id="combo-riot">{{pld.combo }}</span>
+    <span id="combo-riot" class="combo-state"></span>
 </button>
 
 <button class="btn btn-outline-dark" id="royal-authority" onclick="performAction(this)">
     <img class="action" src="{{ url_for('static', filename='images/paladin/royal_authority.png') }}">
-    <span id="combo-royal">{{pld.combo }}</span>
+    <span id="combo-royal" class="combo-state"></span>
 </button>
 
+<div>
 <button class="btn btn-outline-dark" id="atonement" onclick="performAction(this)">
     <img class="action" src="{{ url_for('static', filename='images/paladin/atonement.png') }}">
 </button>
+</div>
+<div>
+<div style="display: flex;">
+    <div>
+        <svg class="progress-circle" style="position: absolute; bottom: 209px; left: 2px;">
+            <circle class="progress-ring" cx="25" cy="25" r="18"></circle>
+        </svg>
+    </div>
+    <div id="cooldown-countdown" style="position: absolute; left: 16px; bottom: 325px;">
+    </div>
+</div>
+</div>
+
+
 
 <script>
     let pldGcd = {{ pld.gcd }}

@@ -430,3 +430,32 @@ font-size: 18px;
     margin-left: 5px;
 }
 
+
+.progress-bar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.progress-circle {
+    fill: transparent;
+    stroke: black; /* Progress bar color */
+    stroke-width: 3;
+    stroke-dasharray: 125; /* Circumference of the circle */
+    stroke-dashoffset: -125; /* Start from the top */
+    animation: progress 2.5s linear forwards; /* Animation for the progress */
+}
+
+@keyframes progress {
+    from {
+        stroke-dashoffset: 125; /* Start from the top */
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.reset-animation {
+    animation: none; /* Stop the animation */
+    stroke-dashoffset: 125; /* Reset the stroke-dashoffset */
+}
+
