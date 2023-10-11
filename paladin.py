@@ -5,6 +5,15 @@ class Paladin:
         self.combo = 0
         self.atonement_stacks = 0
 
+        self.fight_or_flight_buff = 0
+        self.requiescat_buff = 0
+        self.requiescat_stacks = 0
+
+        self.confetior_ready = False
+        self.blade_of_faith_ready = False
+        self.blade_of_truth_ready = False
+        self.blade_of_valor_ready = False
+
     def fast_blade(self):
         self.combo = 1
 
@@ -40,20 +49,33 @@ class Paladin:
         pass
 
     def confetior(self):
-        pass
+        if self.confetior_ready:
+            self.requiescat_stacks -= 1
+            self.confetior_ready = False
+            self.blade_of_faith_ready = True
 
     def blade_of_faith(self):
-        pass
+        if self.blade_of_faith_ready:
+            self.requiescat_stacks -= 1
+            self.blade_of_faith_ready = False
+            self.blade_of_truth_ready = True
 
     def blade_of_truth(self):
-        pass
+        if self.blade_of_truth_ready:
+            self.requiescat_stacks -= 1
+            self.blade_of_truth_ready = False
+            self.blade_of_valor_ready = True
 
     def blade_of_valor(self):
-        pass
+        if self.blade_of_valor_ready:
+            self.requiescat_stacks -= 1
+            self.blade_of_valor_ready = False
 
     def requiescat(self):
-        pass
+        self.requiescat_buff = 30
+        self.requiescat_stacks = 4
+        self.confetior_ready = True
 
     def fight_or_flight(self):
-        pass
+        self.fight_or_flight_buff = 20
 
