@@ -165,6 +165,32 @@ def warrior_reset():
 
 # GUNBREAKER
 
+def generate_gunbreaker_attributes(gunbreaker_attributes):
+    return {'combo': gnb.combo,
+            'cartridge': gnb.cartridge,
+            "gnashing_fang_cooldown": gnb.gnashing_fang_cooldown,
+            "bloodfest_cooldown": gnb.bloodfest_cooldown,
+            "blasting_zone_cooldown": gnb.blasting_zone_cooldown,
+            "bow_shock_cooldown": gnb.bow_shock_cooldown,
+            "sonic_break_cooldown": gnb.sonic_break_cooldown,
+            "rough_divide_cooldown": gnb.rough_divide_cooldown,
+            "double_down_cooldown": gnb.double_down_cooldown,
+            "no_mercy_cooldown": gnb.no_mercy_cooldown,
+            "rough_divide_stacks": gnb.rough_divide_stacks,
+            "ready_to_blast": gnb.ready_to_blast,
+            "ready_to_rip": gnb.ready_to_rip,
+            "ready_to_tear": gnb.ready_to_tear,
+            "ready_to_gouge": gnb.ready_to_gouge,
+            "savage_claw_ready": gnb.savage_claw_ready,
+            "wicked_talon_ready": gnb.wicked_talon_ready,
+            "no_mercy_buff": gnb.no_mercy_buff,
+            "brutal_shell_buff": gnb.brutal_shell_buff,
+            "hypervelocity_buff": gnb.hypervelocity_buff,
+            "bow_shock_debuff": gnb.bow_shock_debuff,
+            "sonic_break_debuff": gnb.sonic_break_debuff
+            }
+
+
 @app.route('/gunbreaker')
 def gunbreaker():
     return render_template('gunbreaker/gunbreaker.html', gnb=gnb)
