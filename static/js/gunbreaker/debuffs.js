@@ -1,6 +1,6 @@
 // Bow shock Debuff
 
-function updateBowShockDebuffText(bowShockDebuffValue) {
+export function updateBowShockDebuffText(bowShockDebuffValue) {
             var $buffText = $("#bow_shock_debuff_text");
 
             if (bowShockDebuffValue === 0) {
@@ -11,7 +11,7 @@ function updateBowShockDebuffText(bowShockDebuffValue) {
         }
 
 // Bow Shock visibility
-function updateBowShockDebuffVisibility(bowShockDebuffValue) {
+export function updateBowShockDebuffVisibility(bowShockDebuffValue) {
 
     if (bowShockDebuffValue === 0) {
         $("#bow_shock_debuff_icon").css("display", "none");
@@ -21,7 +21,7 @@ function updateBowShockDebuffVisibility(bowShockDebuffValue) {
 }
 
 // Sonic Break
-function updateSonicBreakDebuffText(SonicBreakDebuffValue) {
+export function updateSonicBreakDebuffText(SonicBreakDebuffValue) {
     var $buffText = $("#sonic_break_debuff_text");
 
     if (SonicBreakDebuffValue === 0) {
@@ -33,7 +33,7 @@ function updateSonicBreakDebuffText(SonicBreakDebuffValue) {
 
 // Sonic Break Visibility
 
-function updateSonicBreakDebuffVisibility(SonicBreakDebuffValue) {
+export function updateSonicBreakDebuffVisibility(SonicBreakDebuffValue) {
 
     if (SonicBreakDebuffValue === 0) {
         $("#sonic_break_debuff_icon").css("display", "none");
