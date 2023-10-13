@@ -1,5 +1,5 @@
 // No Mercy
-function updateNoMercyBuffText(noMercyBuffValue) {
+export function updateNoMercyBuffText(noMercyBuffValue) {
     var $buffText = $("#no_mercy_buff_text");
 
     if (noMercyBuffValue === 0) {
@@ -9,7 +9,7 @@ function updateNoMercyBuffText(noMercyBuffValue) {
     }
 }
 
-function updateNoMercyBuffVisibility(noMercyBuffValue) {
+export function updateNoMercyBuffVisibility(noMercyBuffValue) {
 
     if (noMercyBuffValue === 0) {
         $("#no_mercy_buff_icon").css("display", "none");
@@ -20,7 +20,7 @@ function updateNoMercyBuffVisibility(noMercyBuffValue) {
 
 // Brutal Shell
 
-function updateBrutalShellBuffText(brutalShellBuffValue) {
+export function updateBrutalShellBuffText(brutalShellBuffValue) {
     var $buffText = $("#brutal_shell_buff_text");
 
     if (brutalShellBuffValue === 0) {
@@ -30,7 +30,7 @@ function updateBrutalShellBuffText(brutalShellBuffValue) {
     }
 }
 
-function updateBrutalShellBuffVisibility(brutalShellBuffValue) {
+export function updateBrutalShellBuffVisibility(brutalShellBuffValue) {
 
     if (brutalShellBuffValue === 0) {
         $("#brutal_shell_buff_icon").css("display", "none");
@@ -41,7 +41,7 @@ function updateBrutalShellBuffVisibility(brutalShellBuffValue) {
 
 // Hypervelocity
 
-function updateHypervelocityBuffText(hypervelocityBuffValue) {
+export function updateHypervelocityBuffText(hypervelocityBuffValue) {
     var $buffText = $("#hypervelocity_buff_text");
 
     if (hypervelocityBuffValue === 0) {
@@ -51,7 +51,7 @@ function updateHypervelocityBuffText(hypervelocityBuffValue) {
     }
 }
 
-function updateHypervelocityBuffVisibility(hypervelocityBuffValue) {
+export function updateHypervelocityBuffVisibility(hypervelocityBuffValue) {
 
     if (hypervelocityBuffValue === 0) {
         $("#hypervelocity_buff_icon").css("display", "none");
@@ -61,7 +61,7 @@ function updateHypervelocityBuffVisibility(hypervelocityBuffValue) {
 }
 
 // Jugular Rip
-function updateJugularRipBuffVisibility(readyToRip) {
+export function updateJugularRipBuffVisibility(readyToRip) {
 
     if (!readyToRip) {
         $("#ready_to_rip_icon").css("display", "none");
@@ -72,7 +72,7 @@ function updateJugularRipBuffVisibility(readyToRip) {
 
 // Abdomen Tear
 
-function updateAbdomenTearBuffVisibility(readyToTear) {
+export function updateAbdomenTearBuffVisibility(readyToTear) {
 
     if (!readyToTear) {
         $("#ready_to_tear_icon").css("display", "none");
@@ -83,11 +83,25 @@ function updateAbdomenTearBuffVisibility(readyToTear) {
 
 // Eye Gouge
 
-function updateEyeGougeBuffVisibility(readyToGouge) {
+export function updateEyeGougeBuffVisibility(readyToGouge) {
 
     if (!readyToGouge) {
         $("#ready_to_gouge_icon").css("display", "none");
     } else {
         $("#ready_to_gouge_icon").css("display", "inline-block");
     }
+}
+
+export function updateBuffs(noMercyBuffValue, brutalShellBuffValue, hypervelocityBuffValue, readyToRip, readyToTear, readyToGouge){
+    updateNoMercyBuffText(noMercyBuffValue);
+    updateNoMercyBuffVisibility(noMercyBuffValue);
+    updateBrutalShellBuffText(brutalShellBuffValue);
+    updateBrutalShellBuffVisibility(brutalShellBuffValue);
+
+    updateHypervelocityBuffText(hypervelocityBuffValue);
+    updateHypervelocityBuffVisibility(hypervelocityBuffValue);
+
+    updateJugularRipBuffVisibility(readyToRip);
+    updateAbdomenTearBuffVisibility(readyToTear);
+    updateEyeGougeBuffVisibility(readyToGouge);
 }

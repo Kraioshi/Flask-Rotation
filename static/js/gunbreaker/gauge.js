@@ -1,6 +1,6 @@
 // First
 
-function updateCartridgeOne(cartridgeValue) {
+export function updateCartridgeOne(cartridgeValue) {
     var $cartridgeOneEmpty = $("#gnb_cartridge_one_empty");
     var $cartridgeOneFull = $("#gnb_cartridge_one_full");
 
@@ -15,7 +15,7 @@ function updateCartridgeOne(cartridgeValue) {
 
 // Second
 
-function updateCartridgeTwo(cartridgeValue) {
+export function updateCartridgeTwo(cartridgeValue) {
     var $cartridgeTwoEmpty = $("#gnb_cartridge_two_empty");
     var $cartridgeTwoFull = $("#gnb_cartridge_two_full");
 
@@ -30,7 +30,7 @@ function updateCartridgeTwo(cartridgeValue) {
 
 // Third
 
-function updateCartridgeThree(cartridgeValue) {
+export function updateCartridgeThree(cartridgeValue) {
     var $cartridgeThreeEmpty = $("#gnb_cartridge_three_empty");
     var $cartridgeThreeFull = $("#gnb_cartridge_three_full");
 
@@ -41,4 +41,12 @@ function updateCartridgeThree(cartridgeValue) {
         $cartridgeThreeEmpty.show();
         $cartridgeThreeFull.hide();
     }
+}
+
+// Gauge
+
+export function updateGauge(cartridgeValue) {
+    updateCartridgeOne(cartridgeValue);
+    updateCartridgeTwo(cartridgeValue);
+    updateCartridgeThree(cartridgeValue);
 }
