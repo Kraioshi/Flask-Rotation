@@ -1,6 +1,10 @@
-import { updateComboDisplay, updateAtonementStacks, updateFightOfFlightBuff } from './functions.js';
+import { updateComboDisplay, updateAtonementStacks, updateFightOfFlightBuff, updateStatus } from './functions.js';
 
-function updateEverything()
+function updateEverything(comboState, atonementStacks, fightOrFlightBuff) {
+    $("#combo-state").text('Combo State: ' + comboState);
+    $("#atonement-stacks").text('Atonement Stacks: ' + atonementStacks);
+    $("#fight-or-flight-buff").text('Fight or Flight Buff: ' + fightOrFlightBuff);
+};
 
 $(document).ready(function () {
     $("#fast-blade").click(function() {
@@ -20,9 +24,7 @@ $(document).ready(function () {
             type: "POST",
             url: "/riot_blade",
             success: function(response) {
-                updateComboDisplay(response.combo);
-                updateAtonementStacks(response.atonement_stacks);
-                updateFightOfFlightBuff(response.fight_or_flight_buff);
+                updateStatus(response.combo, response.atonement_stacks, response.fight_or_flight_buff);
             }
         });
     });
@@ -32,9 +34,7 @@ $(document).ready(function () {
             type: "POST",
             url: "/royal_authority",
             success: function(response) {
-                updateComboDisplay(response.combo);
-                updateAtonementStacks(response.atonement_stacks);
-                updateFightOfFlightBuff(response.fight_or_flight_buff);
+                updateStatus(response.combo, response.atonement_stacks, response.fight_or_flight_buff);
             }
         });
     });
@@ -44,11 +44,18 @@ $(document).ready(function () {
             type: "POST",
             url: "/atonement",
             success: function(response) {
-                updateComboDisplay(response.combo);
-                updateAtonementStacks(response.atonement_stacks);
-                updateFightOfFlightBuff(response.fight_or_flight_buff);
+                updateStatus(response.combo, response.atonement_stacks, response.fight_or_flight_buff);
             }
         })
     });
 
+    $("#goring-blade").click(function() {
+        $.ajax({
+            type: "POST",
+            url: "/goring_blade",
+            success: function(response) {
+                updateStatus(response.combo, response.atonement_stacks, response.fight_or_flight_buff);
+            }
+        })
+    });
 });

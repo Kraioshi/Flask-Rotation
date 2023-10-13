@@ -10,5 +10,8 @@ export function updateFightOfFlightBuff(fightOrFlightBuff) {
     $("#fight-or-flight-buff").text('Fight or Flight Buff: ' + fightOrFlightBuff);
 }
 
-
-
+export function updateStatus(comboState, atonementStacks, fightOrFlightBuff) {
+    updateComboDisplay(comboState);
+    updateAtonementStacks(atonementStacks);
+    updateFightOfFlightBuff(fightOrFlightBuff);
+}
