@@ -1,5 +1,7 @@
 import { updateComboDisplay, updateAtonementStacks, updateFightOfFlightBuff } from './functions.js';
 
+function updateEverything()
+
 $(document).ready(function () {
     $("#fast-blade").click(function() {
         $.ajax({
@@ -36,4 +38,17 @@ $(document).ready(function () {
             }
         });
     });
+
+    $("#atonement").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/atonement",
+            success: function(response) {
+                updateComboDisplay(response.combo);
+                updateAtonementStacks(response.atonement_stacks);
+                updateFightOfFlightBuff(response.fight_or_flight_buff);
+            }
+        })
+    });
+
 });

@@ -10,3 +10,5 @@ export function updateFightOfFlightBuff(fightOrFlightBuff) {
     $("#fight-or-flight-buff").text('Fight or Flight Buff: ' + fightOrFlightBuff);
 }
 
+
+
