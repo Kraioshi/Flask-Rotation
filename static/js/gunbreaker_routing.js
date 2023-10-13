@@ -87,7 +87,7 @@
             }
         }
 
-        updateRoughDivideStacksDisplay( {{gnb.rough_divide_stacks }})
+        updateRoughDivideStacksDisplay(roughDivideStacks)
 
         function updateRoughDivideStacksDisplay(roughDivideStacks) {
             var $stackText = $("#rough_divide_stacks");
@@ -106,7 +106,6 @@
         function updateJugularRipDisplay(readyToRip) {
             $("#ready_to_rip").text("Jugular Rip: " + readyToRip)
         }
-
 
 
 
@@ -186,9 +185,9 @@
         }
     }
 
-        function updateRoughDivideButton(RoughDivideStacks) {
+        function updateRoughDivideButton(roughDivideStacks) {
 
-        if (RoughDivideStacks > 0) {
+        if (roughDivideStacks > 0) {
             $("#disabled-rough-divide").prop("disabled", false);
             $("#rough-divide").prop("disabled", false);
 
