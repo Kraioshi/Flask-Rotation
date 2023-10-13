@@ -4,6 +4,7 @@ from reaper import Reaper
 from warrior import Warrior
 from gnb import Gunbreaker
 from paladin import Paladin
+from drk import DarkKnight
 
 app = Flask(__name__)
 
@@ -14,6 +15,7 @@ rpr = Reaper()
 war = Warrior()
 gnb = Gunbreaker()
 pld = Paladin()
+drk = DarkKnight()
 
 
 @app.route("/")
@@ -470,6 +472,8 @@ def hard_reset_paladin():
     global pld
     pld = Paladin()
     return redirect(url_for('paladin'))
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
