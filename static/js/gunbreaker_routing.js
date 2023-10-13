@@ -1,4 +1,4 @@
-$(document).ready(function () {
+    $(document).ready(function () {
         function updateComboDisplay(comboValue) {
             $("#combo").text("Combo: " + comboValue);
         }
@@ -8,39 +8,95 @@ $(document).ready(function () {
         }
 
         function updateGnashingFangCooldownDisplay(gnashingFangCooldownValue) {
-            $("#gnashing_fang_cooldown").text("Gnashing Fang CD: " + gnashingFangCooldownValue);
+            var $cooldownText = $("#gnashing_fang_cooldown");
+
+            if (gnashingFangCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(gnashingFangCooldownValue).show();
+            }
         }
 
         function updateDoubleDownCooldownDisplay(doubleDownCooldownValue) {
-            $("#double_down_cooldown").text("Double Down CD: " + doubleDownCooldownValue)
+            var $cooldownText = $("#double_down_cooldown");
+
+            if (doubleDownCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(doubleDownCooldownValue).show();
+            }
         }
 
         function updateSonicBreakCooldownDisplay(sonicBreakCooldownValue) {
-            $("#sonic_break_cooldown").text("Sonic Break CD: " + sonicBreakCooldownValue)
+            var $cooldownText = $("#sonic_break_cooldown");
+
+            if (sonicBreakCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(sonicBreakCooldownValue).show();
+            }
         }
 
         function updateBloodfestCooldownDisplay(bloodfestCooldownValue) {
-            $("#bloodfest_cooldown").text("Bloodfest CD: " + bloodfestCooldownValue)
+            var $cooldownText = $("#bloodfest_cooldown");
+
+            if (bloodfestCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(bloodfestCooldownValue).show();
+            }
         }
 
         function updateBlastingZoneCooldownDisplay(blastingZoneCooldownValue) {
-            $("#blasting_zone_cooldown").text("Blasting Zone CD: " + blastingZoneCooldownValue)
+            var $cooldownText = $("#blasting_zone_cooldown");
+
+            if (blastingZoneCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(blastingZoneCooldownValue).show();
+            }
         }
 
         function updateBowShockCooldownDisplay(bowShockCooldownValue) {
-            $("#bow_shock_cooldown").text("Bow Shock CD: " + bowShockCooldownValue)
+            var $cooldownText = $("#bow_shock_cooldown");
+
+            if (bowShockCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(bowShockCooldownValue).show();
+            }
         }
 
         function updateNoMercyCooldownDisplay(noMercyCooldownValue) {
-            $("#no_mercy_cooldown").text("No Mercy CD: " + noMercyCooldownValue)
+            var $cooldownText = $("#no_mercy_cooldown");
+
+            if (noMercyCooldownValue === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(noMercyCooldownValue).show();
+            }
         }
 
         function updateRoughDivideCooldownDisplay(roughDivideCooldown) {
-            $("#rough_divide_cooldown").text("Rough Divide CD: " + roughDivideCooldown)
+            var $cooldownText = $("#rough_divide_cooldown");
+
+            if (roughDivideCooldown === 0) {
+                $cooldownText.hide();
+            } else {
+                $cooldownText.text(roughDivideCooldown).show();
+            }
         }
 
+        updateRoughDivideStacksDisplay( {{gnb.rough_divide_stacks }})
+
         function updateRoughDivideStacksDisplay(roughDivideStacks) {
-            $("#rough_divide_stacks").text("Rough Divide Stacks: " + roughDivideStacks)
+            var $stackText = $("#rough_divide_stacks");
+
+            if (roughDivideStacks === 0) {
+                $stackText.hide();
+            } else {
+                $stackText.text(roughDivideStacks).show();
+            }
         }
 
         function updateHypervelocityDisplay(readyToBlast) {
@@ -172,17 +228,26 @@ $(document).ready(function () {
             }
         }
 
+        updateGnashingFangVisibility();
+
+        function updateGnashingFangVisibility(savageClawReady, wickedTalonReady) {
+
+            if (savageClawReady || wickedTalonReady) {
+                $("#gnashing-fang").css("display", "none");
+            } else {
+                $("#gnashing-fang").css("display", "inline-block");
+            }
+        }
+
 
         updateHypervelocityButtonState();
 
         function updateHypervelocityButtonState(readyToBlast) {
 
             if (!readyToBlast) {
-                $("#disabled-hypervelocity").prop("disabled", true);
-                $("#hypervelocity").prop("disabled", true);
+                $("#hypervelocity").css("display", "none");
             } else {
-                $("#disabled-hypervelocity").prop("disabled", false);
-                $("#hypervelocity").prop("disabled", false);
+                $("#hypervelocity").css("display", "inline-block");
             }
         }
 
@@ -191,11 +256,9 @@ $(document).ready(function () {
         function updateJugularRipButtonState(readyToRip) {
 
             if (!readyToRip) {
-                $("#disabled-jugular-rip").prop("disabled", true);
-                $("#jugular-rip").prop("disabled", true);
+                $("#jugular-rip").css("display", "none");
             } else {
-                $("#disabled-jugular-rip").prop("disabled", false);
-                $("#jugular-rip").prop("disabled", false);
+                $("#jugular-rip").css("display", "inline-block");
             }
         }
 
@@ -204,11 +267,9 @@ $(document).ready(function () {
         function updateSavageClawButtonState(savageClawReady) {
 
             if (!savageClawReady) {
-                $("#disabled-savage-claw").prop("disabled", true);
-                $("#savage-claw").prop("disabled", true);
+                $("#savage-claw").css("display", "none");
             } else {
-                $("#disabled-savage-claw").prop("disabled", false);
-                $("#savage-claw").prop("disabled", false);
+                $("#savage-claw").css("display", "inline-block");
             }
         }
 
@@ -217,11 +278,9 @@ $(document).ready(function () {
         function updateAbdomenTearButtonState(readyToTear) {
 
             if (!readyToTear) {
-                $("#disabled-abdomen-tear").prop("disabled", true);
-                $("#abdomen-tear").prop("disabled", true);
+                $("#abdomen-tear").css("display", "none");
             } else {
-                $("#disabled-abdomen-tear").prop("disabled", false);
-                $("#abdomen-tear").prop("disabled", false);
+                $("#abdomen-tear").css("display", "inline-block");
             }
         }
 
@@ -230,11 +289,9 @@ $(document).ready(function () {
         function updateWickedTalonButtonState(wickedTalonReady) {
 
             if (!wickedTalonReady) {
-                $("#disabled-wicked-talon").prop("disabled", true);
-                $("#wicked-talon").prop("disabled", true);
+                $("#wicked-talon").css("display", "none");
             } else {
-                $("#disabled-wicked-talon").prop("disabled", false);
-                $("#wicked-talon").prop("disabled", false);
+                $("#wicked-talon").css("display", "inline-block");
             }
         }
 
@@ -243,13 +300,207 @@ $(document).ready(function () {
         function updateEyeGougeButtonState(readyToGouge) {
 
             if (!readyToGouge) {
-                $("#disabled-eye-gouge").prop("disabled", true);
-                $("#eye-gouge").prop("disabled", true);
+                $("#eye-gouge").css("display", "none");
             } else {
-                $("#disabled-eye-gouge").prop("disabled", false);
-                $("#eye-gouge").prop("disabled", false);
+                $("#eye-gouge").css("display", "inline-block");
             }
         }
+
+        updateContinuationButtonState();
+
+        function updateContinuationButtonState(readyToBlast, readyToRip, readyToTear, readyToGouge) {
+
+            if (readyToBlast || readyToRip || readyToTear || readyToGouge) {
+                $("#continuation").css("display", "none");
+            } else {
+                $("#continuation").css("display", "inline-block");
+            }
+        }
+
+        function updateCartridgeOne(cartridgeValue) {
+            var $cartridgeOneEmpty = $("#gnb_cartridge_one_empty");
+            var $cartridgeOneFull = $("#gnb_cartridge_one_full");
+
+            if (cartridgeValue > 0) {
+                $cartridgeOneEmpty.hide();
+                $cartridgeOneFull.show();
+            } else {
+                $cartridgeOneEmpty.show();
+                $cartridgeOneFull.hide();
+            }
+        }
+
+        function updateCartridgeTwo(cartridgeValue) {
+            var $cartridgeTwoEmpty = $("#gnb_cartridge_two_empty");
+            var $cartridgeTwoFull = $("#gnb_cartridge_two_full");
+
+            if (cartridgeValue > 1) {
+                $cartridgeTwoEmpty.hide();
+                $cartridgeTwoFull.show();
+            } else {
+                $cartridgeTwoEmpty.show();
+                $cartridgeTwoFull.hide();
+            }
+        }
+
+        function updateCartridgeThree(cartridgeValue) {
+            var $cartridgeThreeEmpty = $("#gnb_cartridge_three_empty");
+            var $cartridgeThreeFull = $("#gnb_cartridge_three_full");
+
+            if (cartridgeValue > 2) {
+                $cartridgeThreeEmpty.hide();
+                $cartridgeThreeFull.show();
+            } else {
+                $cartridgeThreeEmpty.show();
+                $cartridgeThreeFull.hide();
+            }
+        }
+
+        updateCartridgeOne( {{gnb.cartridge}} )
+        updateCartridgeTwo( {{gnb.cartridge}} )
+        updateCartridgeThree( {{gnb.cartridge}} )
+
+        function updateNoMercyBuffText(noMercyBuffValue) {
+            var $buffText = $("#no_mercy_buff_text");
+
+            if (noMercyBuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(noMercyBuffValue).show();
+            }
+        }
+
+        function updateBrutalShellBuffText(brutalShellBuffValue) {
+            var $buffText = $("#brutal_shell_buff_text");
+
+            if (brutalShellBuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(brutalShellBuffValue).show();
+            }
+        }
+
+        function updateHypervelocityBuffText(hypervelocityBuffValue) {
+            var $buffText = $("#hypervelocity_buff_text");
+
+            if (hypervelocityBuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(hypervelocityBuffValue).show();
+            }
+        }
+
+        function updateNoMercyBuffVisibility(noMercyBuffValue) {
+
+            if (noMercyBuffValue === 0) {
+                $("#no_mercy_buff_icon").css("display", "none");
+            } else {
+                $("#no_mercy_buff_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateBrutalShellBuffVisibility(brutalShellBuffValue) {
+
+            if (brutalShellBuffValue === 0) {
+                $("#brutal_shell_buff_icon").css("display", "none");
+            } else {
+                $("#brutal_shell_buff_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateHypervelocityBuffVisibility(hypervelocityBuffValue) {
+
+            if (hypervelocityBuffValue === 0) {
+                $("#hypervelocity_buff_icon").css("display", "none");
+            } else {
+                $("#hypervelocity_buff_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateJugularRipBuffVisibility(readyToRip) {
+
+            if (!readyToRip) {
+                $("#ready_to_rip_icon").css("display", "none");
+            } else {
+                $("#ready_to_rip_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateAbdomenTearBuffVisibility(readyToTear) {
+
+            if (!readyToTear) {
+                $("#ready_to_tear_icon").css("display", "none");
+            } else {
+                $("#ready_to_tear_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateEyeGougeBuffVisibility(readyToGouge) {
+
+            if (!readyToGouge) {
+                $("#ready_to_gouge_icon").css("display", "none");
+            } else {
+                $("#ready_to_gouge_icon").css("display", "inline-block");
+            }
+        }
+
+        updateNoMercyBuffText( {{gnb.no_mercy_buff }} );
+        updateBrutalShellBuffText( {{gnb.brutal_shell_buff }} );
+        updateHypervelocityBuffText( {{gnb.hypervelocity_buff }} );
+
+        updateNoMercyBuffVisibility( {{gnb.no_mercy_buff }} );
+        updateBrutalShellBuffVisibility( {{gnb.brutal_shell_buff }} );
+        updateHypervelocityBuffVisibility( {{gnb.hypervelocity_buff }} );
+
+
+        updateJugularRipBuffVisibility();
+        updateAbdomenTearBuffVisibility();
+        updateEyeGougeBuffVisibility();
+
+        function updateBowShockDebuffText(bowShockDebuffValue) {
+            var $buffText = $("#bow_shock_debuff_text");
+
+            if (bowShockDebuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(bowShockDebuffValue).show();
+            }
+        }
+
+        function updateBowShockDebuffVisibility(bowShockDebuffValue) {
+
+            if (bowShockDebuffValue === 0) {
+                $("#bow_shock_debuff_icon").css("display", "none");
+            } else {
+                $("#bow_shock_debuff_icon").css("display", "inline-block");
+            }
+        }
+
+        function updateSonicBreakDebuffText(SonicBreakDebuffValue) {
+            var $buffText = $("#sonic_break_debuff_text");
+
+            if (SonicBreakDebuffValue === 0) {
+                $buffText.hide();
+            } else {
+                $buffText.text(SonicBreakDebuffValue).show();
+            }
+        }
+
+        function updateSonicBreakDebuffVisibility(SonicBreakDebuffValue) {
+
+            if (SonicBreakDebuffValue === 0) {
+                $("#sonic_break_debuff_icon").css("display", "none");
+            } else {
+                $("#sonic_break_debuff_icon").css("display", "inline-block");
+            }
+        }
+
+
+        updateBowShockDebuffText( {{ gnb.bow_shock_debuff }} )
+        updateSonicBreakDebuffText( {{ gnb.sonic_break_debuff }} )
+        updateBowShockDebuffVisibility( {{ gnb.bow_shock_debuff }} )
+        updateSonicBreakDebuffVisibility( {{ gnb.sonic_break_debuff }} )
+
 
 
         $("#keen-edge").click(function () {
@@ -258,6 +509,7 @@ $(document).ready(function () {
                 url: "/keen_edge",
                 success: function (response) {
                     updateComboDisplay(response.combo);
+
                     updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
                     updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
 
@@ -292,12 +544,38 @@ $(document).ready(function () {
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
 
-                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
+
+        //adding combo-wombo
+        //adding combo-wombo
+                    $("#brutal-shell").addClass("shining-border");
+
+                    if (response.combo === 1) {
+                        $("#solid-barrel").removeClass("shining-border");
+                    }
                 }
             });
         });
-
 
 
         $("#brutal-shell").click(function () {
@@ -325,6 +603,9 @@ $(document).ready(function () {
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
@@ -338,10 +619,40 @@ $(document).ready(function () {
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
-                    $("p#cartridge").text("Cartridge: " + response.cartridge);
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
+
+
+                    if (response.combo === 2) {
+                        $("#solid-barrel").addClass("shining-border");
+                        $("#brutal-shell").removeClass("shining-border");
+                    } else {
+                        $("#brutal-shell").removeClass("shining-border");
+                        $("#solid-barrel").removeClass("shining-border");
+                    }
                 }
             });
         });
+
 
         $("#solid-barrel").click(function () {
             $.ajax({
@@ -370,6 +681,9 @@ $(document).ready(function () {
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
@@ -386,9 +700,37 @@ $(document).ready(function () {
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
+
+                    $("#solid-barrel").removeClass("shining-border");
+
+                    if (response.combo != 2) {
+                        $("#brutal-shell").removeClass("shining-border");
+                    }
                 }
             });
         });
+
 
         $("#burst-strike").click(function () {
             $.ajax({
@@ -414,6 +756,9 @@ $(document).ready(function () {
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
@@ -422,16 +767,36 @@ $(document).ready(function () {
                     updateRoughDivideButton(response.rough_divide_stacks);
 
                     updateHypervelocityDisplay(response.ready_to_blast);
-                    updateHypervelocityButtonState(response.ready_to_blast);
+                    updateHypervelocityButtonState(response.ready_to_blast && !response.ready_to_rip && !response.ready_to_tear && !response.ready_to_gouge);
 
                     updateJugularRipButtonState(response.ready_to_rip);
                     updateAbdomenTearButtonState(response.ready_to_rip);
                     updateEyeGougeButtonState(response.ready_to_rip);
 
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
 
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
                 }
             });
         });
+
+
 
         $("#gnashing-fang").click(function () {
             $.ajax({
@@ -460,6 +825,9 @@ $(document).ready(function () {
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
@@ -474,10 +842,33 @@ $(document).ready(function () {
 
                     updateJugularRipButtonState(response.ready_to_rip);
 
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
 
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
                 }
             });
         });
+
 
         $("#double-down").click(function () {
             $.ajax({
@@ -495,8 +886,6 @@ $(document).ready(function () {
                     updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
                     updateSonicBreakButtonState(response.sonic_break_cooldown);
 
-                    $("p#cartridge").text("Cartridge: " + response.cartridge);
-
                     updateBurstStrikeButtonState(response.cartridge);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
@@ -505,6 +894,9 @@ $(document).ready(function () {
 
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
 
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
@@ -516,6 +908,29 @@ $(document).ready(function () {
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
 
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
 
                 },
                 error: function (error) {
@@ -549,6 +964,9 @@ $(document).ready(function () {
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
 
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
@@ -562,11 +980,37 @@ $(document).ready(function () {
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
 
+                    updateJugularRipButtonState(response.ready_to_rip);
+                    updateAbdomenTearButtonState(response.ready_to_rip);
+                    updateEyeGougeButtonState(response.ready_to_rip);
 
+
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
                 }
             });
         });
-
 
         $("#bloodfest").click(function() {
             $.ajax({
@@ -584,12 +1028,15 @@ $(document).ready(function () {
                     updateDoubleDownCooldownDisplay(response.double_down_cooldown);
                     updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
 
-
-
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
 
                 }
             });
         });
+
+
 
         $("#blasting-zone").click(function() {
             $.ajax({
@@ -598,11 +1045,10 @@ $(document).ready(function () {
                 success: function (response) {
                     updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
                     updateBlastingZoneButtonState(response.blasting_zone_cooldown);
-
-
                 }
             });
         });
+
 
         $("#bow-shock").click(function() {
             $.ajax({
@@ -612,7 +1058,8 @@ $(document).ready(function () {
                     updateBowShockCooldownDisplay(response.bow_shock_cooldown);
                     updateBowShockButtonState(response.bow_shock_cooldown);
 
-
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
                 }
             });
         });
@@ -624,11 +1071,12 @@ $(document).ready(function () {
                 success: function (response) {
                     updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
                     updateNoMercyButtonState(response.no_mercy_cooldown);
-
-
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
                 }
             });
         });
+
 
         $("#rough-divide").click(function() {
             $.ajax({
@@ -638,7 +1086,6 @@ $(document).ready(function () {
                     updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
                     updateRoughDivideStacksDisplay(response.rough_divide_stacks);
                     updateRoughDivideButton(response.rough_divide_stacks);
-
 
                 }
             });
@@ -651,20 +1098,28 @@ $(document).ready(function () {
                 success: function (response) {
                     updateHypervelocityDisplay(response.ready_to_blast);
                     updateHypervelocityButtonState(response.ready_to_blast);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
                 }
             });
         });
 
-        $("#jugular-rip").click(function() {
-            $.ajax({
-                type: "POST",
-                url: "/jugular_rip",
-                success: function (response) {
-                    updateJugularRipDisplay(response.ready_to_rip);
-                    updateJugularRipButtonState(response.ready_to_rip);
-                }
-            });
+        function triggerHypervelocityButtonClick() {
+            $("#hypervelocity").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "`") {
+                triggerHypervelocityButtonClick();
+            }
         });
+
 
         $("#savage-claw").click(function() {
             $.ajax({
@@ -676,7 +1131,54 @@ $(document).ready(function () {
                     updateSavageClawButtonState(response.savage_claw_ready);
                     updateAbdomenTearButtonState(response.ready_to_tear);
 
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateHypervelocityButtonState(response.ready_to_blast && !response.ready_to_rip && !response.ready_to_tear && !response.ready_to_gouge);
+
+
                     updateWickedTalonButtonState(response.wicked_talon_ready);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
+
                 }
             });
         });
@@ -688,12 +1190,86 @@ $(document).ready(function () {
                 success: function (response) {
                     updateWickedTalonButtonState(response.wicked_talon_ready);
 
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
+
                     updateAbdomenTearButtonState(response.ready_to_tear);
 
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateHypervelocityButtonState(response.ready_to_blast && !response.ready_to_rip && !response.ready_to_tear && !response.ready_to_gouge);
+
+
                     updateEyeGougeButtonState(response.ready_to_gouge);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateGnashingFangVisibility(response.savage_claw_ready, response.wicked_talon_ready);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
 
                 }
             });
+        });
+
+        $("#jugular-rip").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/jugular_rip",
+                success: function (response) {
+                    updateJugularRipDisplay(response.ready_to_rip);
+                    updateJugularRipButtonState(response.ready_to_rip);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateJugularRipBuffVisibility(response.ready_to_rip);
+
+                }
+            });
+        });
+
+        function triggerJugularRipButtonClick() {
+            $("#jugular-rip").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "`") {
+                triggerJugularRipButtonClick();
+            }
         });
 
         $("#abdomen-tear").click(function() {
@@ -702,8 +1278,21 @@ $(document).ready(function () {
                 url: "/abdomen_tear",
                 success: function (response) {
                     updateAbdomenTearButtonState(response.ready_to_tear);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+                    updateAbdomenTearBuffVisibility(response.ready_to_tear);
                 }
             });
+        });
+
+        function triggerAbdomenTearButtonClick() {
+            $("#abdomen-tear").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "`") {
+                triggerAbdomenTearButtonClick();
+            }
         });
 
         $("#eye-gouge").click(function() {
@@ -712,9 +1301,280 @@ $(document).ready(function () {
                 url: "/eye_gouge",
                 success: function (response) {
                     updateEyeGougeButtonState(response.ready_to_gouge);
+                    updateContinuationButtonState(response.ready_to_blast, response.ready_to_rip,
+                                                  response.ready_to_tear, response.ready_to_gouge);
+
+
+                    updateEyeGougeBuffVisibility(response.ready_to_gouge);
                 }
             });
         });
 
+        function triggerEyeGougeButtonClick() {
+            $("#eye-gouge").click();
+        }
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "`") {
+                triggerEyeGougeButtonClick();
+            }
+        });
 
+
+
+// Gnashing Fang
+// Savage Claw
+// Wicked Talon
+
+        function triggerGnashingFangButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled") && $button.is(":visible")) {
+                $button.click();
+            }
+        }
+
+        function triggerSavageClawButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled") && $button.is(":visible")) {
+                $button.click();
+            }
+        }
+
+        function triggerWickedTalonButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled") && $button.is(":visible")) {
+                $button.click();
+            }
+        }
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "4"  && !event.altKey) {
+        if ($("#gnashing-fang").is(":visible")) {
+            triggerGnashingFangButtonClick("gnashing-fang");
+        }
+        if ($("#savage-claw").is(":visible")) {
+            triggerSavageClawButtonClick("savage-claw");
+        }
+        if ($("#wicked-talon").is(":visible")) {
+            triggerWickedTalonButtonClick("wicked-talon");
+        }
+    }
+});
+
+
+
+
+
+
+// Rough Divide
+
+        function triggerRoughDivideButtonClick() {
+            $("#rough-divide").click();
+        }
+
+
+// Blasting Zone
+
+        function triggerBlastingZoneButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "e") {
+                triggerBlastingZoneButtonClick("blasting-zone");
+            }
+        });
+
+// Burst Strike
+
+        function triggerBurstStrikeButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "4") {
+                event.preventDefault(); // Prevent the default "4" key action
+                triggerBurstStrikeButtonClick("burst-strike");
+            }
+        });
+
+
+// No Mercy
+// Keen Edge
+
+        function triggerKeenEdgeButtonClick() {
+            $("#keen-edge").click();
+        }
+
+        function triggerNoMercyButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
+
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "1") {
+                triggerNoMercyButtonClick("no-mercy");
+            } else if (event.key === "1") {
+                triggerKeenEdgeButtonClick();
+            }
+        });
+
+// Bow Shock
+// Brutal Shell
+
+        function triggerBrutalShellButtonClick() {
+            $("#brutal-shell").click();
+        }
+
+        function triggerBowShockButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "2") {
+                triggerBowShockButtonClick("bow-shock");
+            } else if (event.key === "2") {
+                triggerBrutalShellButtonClick();
+            }
+        });
+
+// Sonic Break
+// Solid Barrel
+
+        function triggerSonicBreakButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+                }
+            }
+
+
+        function triggerSolidBarrelButtonClick() {
+            $("#solid-barrel").click();
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "3") {
+                triggerSonicBreakButtonClick("sonic-break");
+            } else if (event.key === "3") {
+                triggerSolidBarrelButtonClick();
+            }
+        });
+
+// Rough Divide
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "6") {
+                triggerRoughDivideButtonClick();
+            }
+        });
+
+// Double Down
+        function triggerDoubleDownButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+            if (!$button.prop("disabled")) {
+                $button.click();
+            }
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "5") {
+                triggerDoubleDownButtonClick("double-down");
+            }
+        });
+
+// Bloodfest
+
+        function triggerBloodfestButtonClick(buttonId) {
+            var $button = $("#" + buttonId);
+                if (!$button.prop("disabled")) {
+                    $button.click();
+            }
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key === "q") {
+                triggerBloodfestButtonClick("bloodfest");
+            }
+        });
+
+
+        $("#gunbreaker-reset").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/reset_gunbreaker",
+                success: function(response) {
+                    updateComboDisplay(response.combo);
+                    updateCartridgeDisplay(response.cartridge);
+
+                    updateCartridgeOne(response.cartridge);
+                    updateCartridgeTwo(response.cartridge);
+                    updateCartridgeThree(response.cartridge);
+
+                    updateGnashingFangCooldownDisplay(response.gnashing_fang_cooldown);
+                    updateGnashingFangButtonState(response.gnashing_fang_cooldown, response.cartridge)
+
+                    updateDoubleDownCooldownDisplay(response.double_down_cooldown);
+                    updateDoubleDownButtonState(response.double_down_cooldown, response.cartridge);
+
+                    updateSonicBreakCooldownDisplay(response.sonic_break_cooldown);
+                    updateSonicBreakButtonState(response.sonic_break_cooldown);
+
+                    updateBurstStrikeButtonState(response.cartridge);
+
+                    updateBloodfestCooldownDisplay(response.bloodfest_cooldown);
+                    updateBloodfestButtonState(response.bloodfest_cooldown);
+
+                    updateBlastingZoneCooldownDisplay(response.blasting_zone_cooldown);
+                    updateBlastingZoneButtonState(response.blasting_zone_cooldown);
+
+                    updateBowShockCooldownDisplay(response.bow_shock_cooldown);
+                    updateBowShockButtonState(response.bow_shock_cooldown);
+
+                    updateNoMercyCooldownDisplay(response.no_mercy_cooldown);
+                    updateNoMercyButtonState(response.no_mercy_cooldown);
+
+                    updateRoughDivideCooldownDisplay(response.rough_divide_cooldown);
+                    updateRoughDivideStacksDisplay(response.rough_divide_stacks);
+                    updateRoughDivideButton(response.rough_divide_stacks);
+
+                    updateJugularRipButtonState(false);
+                    updateAbdomenTearButtonState(false);
+                    updateEyeGougeButtonState(false);
+                    updateSavageClawButtonState(false);
+                    updateWickedTalonButtonState(false);
+
+                    updateGnashingFangVisibility(false, false);
+                    updateHypervelocityButtonState(false)
+
+                    updateContinuationButtonState(false, false, false, false);
+
+                    updateNoMercyBuffText(response.no_mercy_buff);
+                    updateBrutalShellBuffText(response.brutal_shell_buff);
+                    updateHypervelocityBuffText(response.hypervelocity_buff);
+
+                    updateNoMercyBuffVisibility(response.no_mercy_buff);
+                    updateBrutalShellBuffVisibility(response.brutal_shell_buff);
+                    updateHypervelocityBuffVisibility(response.hypervelocity_buff);
+
+                    updateBowShockDebuffVisibility(response.bow_shock_debuff);
+                    updateBowShockDebuffText(response.bow_shock_debuff);
+                    updateSonicBreakDebuffVisibility(response.sonic_break_debuff);
+                    updateSonicBreakDebuffText(response.sonic_break_debuff);
+
+                    $("#brutal-shell").removeClass("shining-border");
+                    $("#solid-barrel").removeClass("shining-border");
+                },
+            });
+        });
     });

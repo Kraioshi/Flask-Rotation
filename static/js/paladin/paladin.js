@@ -1,10 +1,5 @@
 import { updateComboDisplay, updateAtonementStacks, updateFightOfFlightBuff, updateStatus } from './functions.js';
 
-function updateEverything(comboState, atonementStacks, fightOrFlightBuff) {
-    $("#combo-state").text('Combo State: ' + comboState);
-    $("#atonement-stacks").text('Atonement Stacks: ' + atonementStacks);
-    $("#fight-or-flight-buff").text('Fight or Flight Buff: ' + fightOrFlightBuff);
-};
 
 $(document).ready(function () {
     $("#fast-blade").click(function() {
