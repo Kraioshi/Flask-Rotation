@@ -21,16 +21,21 @@
 <body>
 {% block navigation %}
 <a href="{{url_for('index') }}" style="text-decoration: none;">Home</a>
+
 <a href="{{url_for('warrior')}}" style="text-decoration: none;">
-    <img src="{{ url_for('static', filename='images/warrior/warrior_icon.png') }}" style="width: 25px;">
+<img src="{{ url_for('static', filename='images/warrior/warrior_icon.png') }}" style="width: 25px;">
 </a>
 
 <a href="{{url_for('gunbreaker')}}" style="text-decoration: none;">
-    <img src="{{ url_for('static', filename='images/gunbreaker/gunbreaker_icon.png') }}" style="width: 25px;">
+<img src="{{ url_for('static', filename='images/gunbreaker/gunbreaker_icon.png') }}" style="width: 25px;">
 </a>
 
-<a href="{{url_for('paladin')}}">
-    <img src="{{ url_for('static', filename='images/paladin/paladin_icon.png') }}" style="width: 25px;">
+<a href="{{url_for('paladin')}}" style="text-decoration: none;">
+<img src="{{ url_for('static', filename='images/paladin/paladin_icon.png') }}" style="width: 25px;">
+</a>
+
+<a href="{{url_for('dark_knight')}}" style="text-decoration: none;">
+<img src="{{ url_for('static', filename='images/dark_knight/dark_knight_icon.png') }}" style="width: 25px;">
 </a>
 <hr>
 {% endblock %}
