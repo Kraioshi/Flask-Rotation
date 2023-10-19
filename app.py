@@ -1,10 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, redirect, url_for, jsonify
 from flask_bootstrap import Bootstrap5
 from reaper import Reaper
 from warrior import Warrior
 from gnb import Gunbreaker
 from paladin import Paladin
-from drk import DarkKnight
+from jobs.drk import DarkKnight
 
 app = Flask(__name__)
 
@@ -473,6 +473,21 @@ def hard_reset_paladin():
     pld = Paladin()
     return redirect(url_for('paladin'))
 
+
+# #######
+# #######
+# #######
+# #######
+
+
+def generate_dark_knight_attributes(drk_attributes):
+    return {""
+            }
+
+
+@app.route('/dark_knight')
+def dark_knight():
+    return render_template("dark_knight/dark_knight.html", drk=drk)
 
 
 if __name__ == '__main__':
