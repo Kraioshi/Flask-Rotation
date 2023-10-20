@@ -3,5 +3,22 @@
 {% block title %} Dark Knight {% endblock %}
 
 {% block content %}
+<div class="container">
+    <button class="btn btn-outline-danger" id="hard-slash">
+        <img class="action" src="{{ url_for('static', filename='images/dark_knight/hard_slash.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="syphon-strike">
+        <img class="action" src="{{ url_for('static', filename='images/dark_knight/syphon_strike.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="souleater">
+        <img class="action" src="{{ url_for('static', filename='images/dark_knight/souleater.png') }}">
+    </button>
+
+    <button class="btn btn-outline-dark" id="bloodspiller">
+        <img class="action" src="{{ url_for('static', filename='images/dark_knight/bloodspiller.png') }}">
+    </button>
+</div>
 
 {% endblock %}

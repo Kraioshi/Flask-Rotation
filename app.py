@@ -488,7 +488,7 @@ def generate_dark_knight_attributes():
 
 @app.route('/dark_knight')
 def dark_knight():
-    return render_template("dark_knight/drk.html", drk=drk)
+    return render_template("dark_knight/drk.html", drk=drk, mana=drk.mana, gauge=drk.gauge, combo=drk.combo)
 
 
 @app.route('/hard_slash', methods=["POST"])
