@@ -480,14 +480,39 @@ def hard_reset_paladin():
 # #######
 
 
-def generate_dark_knight_attributes(drk_attributes):
-    return {""
-            }
+def generate_dark_knight_attributes():
+    return {'combo': drk.combo,
+            'gauge': drk.gauge,
+            'mana': drk.mana}
 
 
 @app.route('/dark_knight')
 def dark_knight():
-    return render_template("dark_knight/dark_knight.html", drk=drk)
+    return render_template("dark_knight/drk.html", drk=drk)
+
+
+@app.route('/hard_slash', methods=["POST"])
+def hard_slash():
+    drk_dict = generate_dark_knight_attributes()
+    return jsonify(drk_dict)
+
+
+@app.route('/syphon_strike', methods=["POST"])
+def syphon_strike():
+    drk_dict = generate_dark_knight_attributes()
+    return jsonify(drk_dict)
+
+
+@app.route('/souleater', methods=["POST"])
+def souleater():
+    drk_dict = generate_dark_knight_attributes()
+    return jsonify(drk_dict)
+
+
+@app.route('/bloodspiller', methods=["POST"])
+def bloodspiller():
+    drk_dict = generate_dark_knight_attributes()
+    return jsonify(drk_dict)
 
 
 if __name__ == '__main__':
